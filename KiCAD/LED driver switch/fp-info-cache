@@ -1,4 +1,4 @@
-21584960905058248
+21586687371523073
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -51379,6 +51379,13 @@ Through hole pin header THT 1x04 2.54mm single row
 0
 4
 4
+Custom footprints
+AMPHENOL_RJE3A1881402N
+
+
+0
+12
+9
 Custom footprints
 ASSMANN_A-2004-2-4-LPS-N-R
 
