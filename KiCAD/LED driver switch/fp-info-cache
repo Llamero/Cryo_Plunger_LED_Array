@@ -1,4 +1,4 @@
-21588413970690452
+21593594412470387
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -51436,9 +51436,23 @@ Itsy Bitsy 32u4
 33
 33
 Custom footprints
+LINX_CONBNC001
+
+
+0
+5
+2
+Custom footprints
 P26_DO-214AA_SMB
 Diotec SMB (DO-214AA), Diode
 Diotec SMB (DO-214AA), Diode
+0
+2
+2
+Custom footprints
+SMDJSeries_LTF
+
+SMDJ220CA 
 0
 2
 2
@@ -51449,6 +51463,13 @@ TENSILITY_54-00128-DC Jack
 0
 5
 4
+Custom footprints
+TO-263-2 - resistor
+TO-263/D2PAK/DDPAK SMD package, http://www.infineon.com/cms/en/product/packages/PG-TO263/PG-TO263-3-1/
+D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404
+0
+7
+2
 Custom footprints
 TRIM_PVG5A504C03R00
 
