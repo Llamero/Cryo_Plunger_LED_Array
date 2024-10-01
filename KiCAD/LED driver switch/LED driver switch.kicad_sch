@@ -3296,7 +3296,7 @@
     (uuid f9ecffe1-810c-48bc-a1f6-76d4318b913c)
   )
 
-  (no_connect (at 218.44 63.5) (uuid 02b7bd48-95b2-4ac9-be05-34ba80929d9e))
+  (no_connect (at 209.55 82.55) (uuid 02b7bd48-95b2-4ac9-be05-34ba80929d9e))
   (no_connect (at 195.58 58.42) (uuid 039d7191-03cb-4945-896d-757054784f69))
   (no_connect (at 304.165 6.35) (uuid 040c2724-7d22-4b41-8732-825622222c28))
   (no_connect (at 218.44 55.88) (uuid 05168b97-7759-447e-84f7-ee8c2df06168))
@@ -3715,8 +3715,8 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 92cf9bb4-81fd-4c9b-8380-f42f21435190)
   )
-  (label "LED_trigger" (at 209.55 82.55 270) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify right bottom))
+  (label "LED_trigger" (at 218.44 63.5 0) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid a4bc1e79-b346-4da6-8dd3-5f728bae7a3a)
   )
   (label "Door safety interlock" (at 62.23 109.22 0) (fields_autoplaced)
@@ -5045,6 +5045,38 @@
     )
   )
 
+  (symbol (lib_id "Device:R") (at 137.16 87.63 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 8415d696-3416-43f1-a627-dd52ddbbbfd4)
+    (property "Reference" "R9" (at 133.35 87.63 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "20k" (at 137.16 90.17 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 135.382 87.63 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf" (at 137.16 87.63 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Manufacturer" "Panasonic Electronic Components" (at 137.16 87.63 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Part" "ERA-3AEB203V" (at 137.16 87.63 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 3650565e-294a-48e3-8441-7146bed52a5a))
+    (pin "2" (uuid 1561c0a6-405d-4418-91e9-971a7c3acf62))
+    (instances
+      (project "LED driver switch"
+        (path "/81d2b430-cb23-414b-8bc0-910fdb221d10"
+          (reference "R9") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Device:Lamp") (at 48.26 67.31 180) (unit 1)
     (in_bom yes) (on_board no) (dnp no) (fields_autoplaced)
     (uuid 871a05e6-80cf-47e8-a53f-1bf6fd7845f8)
@@ -5944,6 +5976,36 @@
       (project "LED driver switch"
         (path "/81d2b430-cb23-414b-8bc0-910fdb221d10"
           (reference "#PWR022") (unit 1)
+        )
+      )
+      (project "Dual encoder controller"
+        (path "/f63253f1-d78d-4fac-a266-90df8fae5286"
+          (reference "#PWR?") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "power:GND") (at 137.16 91.44 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid e7dbdb1c-4bd3-423a-b98f-c9af61921856)
+    (property "Reference" "#PWR027" (at 137.16 97.79 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 137.16 95.25 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "" (at 137.16 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 137.16 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 5afca84d-2992-4998-bcf5-cacd91b890bf))
+    (instances
+      (project "LED driver switch"
+        (path "/81d2b430-cb23-414b-8bc0-910fdb221d10"
+          (reference "#PWR027") (unit 1)
         )
       )
       (project "Dual encoder controller"
