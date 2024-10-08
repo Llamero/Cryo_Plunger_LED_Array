@@ -1,0 +1,1714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>C:\Users\Ben\Documents\GitHub\Cryo_Plunber_LED_Array\KiCAD\LED driver switch\LED driver switch.kicad_sch</source>
+    <date>10/7/2024 4:57:42 PM</date>
+    <tool>Eeschema 7.0.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>LED driver switch.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>2.2µF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/421/CL10A225KO8NNNC_Spec.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Samsung Electro-Mechanics</field>
+        <field name="Part">CL10A225KO8NNNC</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Manufacturer" value="Samsung Electro-Mechanics"/>
+      <property name="Part" value="CL10A225KO8NNNC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>24697303-7210-4be6-a186-309e85d2688e</tstamps>
+    </comp>
+    <comp ref="C2">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://search.kemet.com/download/datasheet/C0603C102K5RAC7867</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part">C0603C102K5RAC7867</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Part" value="C0603C102K5RAC7867"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c02f186c-52a6-4870-8774-0dfe84831db3</tstamps>
+    </comp>
+    <comp ref="C3">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://search.kemet.com/download/datasheet/C0603C102K5RAC7867</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part">C0603C102K5RAC7867</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Part" value="C0603C102K5RAC7867"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>28743e17-cd1a-4985-b7ba-aa2a212e6cf6</tstamps>
+    </comp>
+    <comp ref="C4">
+      <value>3mF</value>
+      <footprint>Custom footprints:ALF20G302KP400</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/43/ALF20_ALF40_10-17-17.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part">ALF20G302KP400</field>
+      </fields>
+      <libsource lib="Custom" part="ALF20G223EH063" description=""/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Part" value="ALF20G302KP400"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_keywords" value="ALF20G223EH063"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cbb61edd-be9f-4a0a-81f8-0e6ff0c88d86</tstamps>
+    </comp>
+    <comp ref="C5">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://search.kemet.com/download/datasheet/C0603C102K5RAC7867</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part">C0603C102K5RAC7867</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Part" value="C0603C102K5RAC7867"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d7a32214-bce1-4120-b988-ef2d1ce73879</tstamps>
+    </comp>
+    <comp ref="C6">
+      <value>1nF</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <datasheet>https://search.kemet.com/download/datasheet/C0603C102K5RAC7867</datasheet>
+      <fields>
+        <field name="Manufacturer">KEMET</field>
+        <field name="Part">C0603C102K5RAC7867</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <property name="Manufacturer" value="KEMET"/>
+      <property name="Part" value="C0603C102K5RAC7867"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f5e51d31-ff32-43fb-98d0-97860a16b59e</tstamps>
+    </comp>
+    <comp ref="D1">
+      <value>D</value>
+      <footprint>Custom footprints:P26_DO-214AA_SMB</footprint>
+      <datasheet>https://www.smc-diodes.com/propdf/SD560B%20N1412%20REV.D.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SMC Diode Solutions</field>
+        <field name="Part">SD560B</field>
+      </fields>
+      <libsource lib="Device" part="D" description="Diode"/>
+      <property name="Manufacturer" value="SMC Diode Solutions"/>
+      <property name="Part" value="SD560B"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Diode"/>
+      <property name="ki_keywords" value="diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1dc2c88-158b-439f-ac19-323c5b7a1184</tstamps>
+    </comp>
+    <comp ref="D2">
+      <value>15V Zener</value>
+      <footprint>Diode_SMD:D_SOD-123</footprint>
+      <datasheet>https://www.mccsemi.com/pdf/Products/MMSZ5221-MMSZ5267(SOD-123).pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Micro Commercial Co</field>
+        <field name="Part">MMSZ5245B-TP</field>
+      </fields>
+      <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <property name="Manufacturer" value="Micro Commercial Co"/>
+      <property name="Part" value="MMSZ5245B-TP"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Zener diode"/>
+      <property name="ki_keywords" value="diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5c9e20bf-c841-4d83-940c-75b1911506c4</tstamps>
+    </comp>
+    <comp ref="D3">
+      <value>TVS</value>
+      <footprint>Custom footprints:SMDJSeries_LTF</footprint>
+      <datasheet>https://www.yageo.com/upload/media/product/products/datasheet/cpc/tvs/SMDJ_1.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">YAGEO</field>
+        <field name="Part">SMDJ220CA/TR13</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky" description="Schottky diode"/>
+      <property name="Manufacturer" value="YAGEO"/>
+      <property name="Part" value="SMDJ220CA/TR13"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Schottky diode"/>
+      <property name="ki_keywords" value="diode Schottky"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>60bcd125-f500-4eb3-a86a-6ab67091b04f</tstamps>
+    </comp>
+    <comp ref="F1">
+      <value>Fuse</value>
+      <footprint>Custom footprints:FUSE_OMF250_SCH</footprint>
+      <datasheet>https://www.schurter.com/en/datasheet/typ_OMF_250.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SCHURTER Inc.</field>
+        <field name="Part">3403.0010.11</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="Manufacturer" value="SCHURTER Inc."/>
+      <property name="Part" value="3403.0010.11"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44221d6e-837f-4ae5-8162-e0b1d12b4d15</tstamps>
+    </comp>
+    <comp ref="F2">
+      <value>Fuse</value>
+      <footprint>Custom footprints:FUSE_OMF250_SCH</footprint>
+      <datasheet>https://www.schurter.com/en/datasheet/typ_OMF_250.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SCHURTER Inc.</field>
+        <field name="Part">3403.0022.24</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="Manufacturer" value="SCHURTER Inc."/>
+      <property name="Part" value="3403.0022.24"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>58648489-97ce-4137-b70c-2526295f76bd</tstamps>
+    </comp>
+    <comp ref="F3">
+      <value>Fuse</value>
+      <footprint>Custom footprints:FUSE_OMF250_SCH</footprint>
+      <datasheet>https://www.schurter.com/en/datasheet/typ_OMF_250.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SCHURTER Inc.</field>
+        <field name="Part">3403.0022.24</field>
+      </fields>
+      <libsource lib="Device" part="Fuse" description="Fuse"/>
+      <property name="Manufacturer" value="SCHURTER Inc."/>
+      <property name="Part" value="3403.0022.24"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Fuse"/>
+      <property name="ki_keywords" value="fuse"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae104942-02b8-4b07-9b68-4e87533c664d</tstamps>
+    </comp>
+    <comp ref="H1">
+      <value>Standoff</value>
+      <footprint>Custom footprints:8-32 Isolated Hole</footprint>
+      <datasheet>https://www.keyelco.com/userAssets/file/M65p74.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Keystone Electronics</field>
+        <field name="Part">4830</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Manufacturer" value="Keystone Electronics"/>
+      <property name="Part" value="4830"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>374ccf69-0548-4993-b4fc-4dca009c4e84</tstamps>
+    </comp>
+    <comp ref="H2">
+      <value>Standoff</value>
+      <footprint>Custom footprints:8-32 Standoff</footprint>
+      <datasheet>http://dpk3n3gg92jwt.cloudfront.net/domains/raf/pdf/RAF_catalog_0122.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">RAF Electronic Hardware</field>
+        <field name="Part">4534-832-AL-7</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole_Pad" description="Mounting Hole with connection"/>
+      <property name="Manufacturer" value="RAF Electronic Hardware"/>
+      <property name="Part" value="4534-832-AL-7"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole with connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5da779ef-c322-466c-962b-444a5c569618</tstamps>
+    </comp>
+    <comp ref="H3">
+      <value>Standoff</value>
+      <footprint>Custom footprints:8-32 Isolated Hole</footprint>
+      <datasheet>https://www.keyelco.com/userAssets/file/M65p74.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Keystone Electronics</field>
+        <field name="Part">4830</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <property name="Manufacturer" value="Keystone Electronics"/>
+      <property name="Part" value="4830"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Mounting Hole without connection"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7a7749f5-ffb5-4f10-ae12-46c72fdb76c2</tstamps>
+    </comp>
+    <comp ref="J1">
+      <value>USB Jack</value>
+      <datasheet> https://cdn.sparkfun.com/assets/1/2/6/b/c/ACCA-2516_Model_6in.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SparkFun Electronics</field>
+        <field name="Part">CAB-15463</field>
+      </fields>
+      <libsource lib="Connector" part="USB_A" description="USB Type A connector"/>
+      <property name="Manufacturer" value="SparkFun Electronics"/>
+      <property name="Part" value="CAB-15463"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="USB Type A connector"/>
+      <property name="ki_keywords" value="connector USB"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40f8edfa-98e4-45b2-a987-e5c16022e8e3</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>3x Banana Jack</value>
+      <footprint>Connector_Wire:SolderWire-0.15sqmm_1x03_P4mm_D0.5mm_OD1.5mm</footprint>
+      <datasheet>https://www.pomonaelectronics.com/file/17510/download?token=aeVH39Xd</datasheet>
+      <fields>
+        <field name="Manufacturer">Pomona Electronics</field>
+        <field name="Part">4601-0</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x03_Socket" description="Generic connector, single row, 01x03, script generated"/>
+      <property name="Manufacturer" value="Pomona Electronics"/>
+      <property name="Part" value="4601-0"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x03, script generated"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c5f172c-dc91-4ce6-8c49-45802e05140f</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>Conn_Coaxial</value>
+      <footprint>Connector_Wire:SolderWire-0.1sqmm_1x02_P3.6mm_D0.4mm_OD1mm</footprint>
+      <datasheet>https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&amp;DocNm=conbnc004-ds&amp;DocType=Data+Sheet&amp;DocLang=English&amp;DocFormat=pdf&amp;PartCntxt=CONBNC004</datasheet>
+      <fields>
+        <field name="Manufacturer">TE Connectivity Linx</field>
+        <field name="Part">CONBNC004</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_Coaxial" description="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"/>
+      <property name="Manufacturer" value="TE Connectivity Linx"/>
+      <property name="Part" value="CONBNC004"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"/>
+      <property name="ki_keywords" value="BNC SMA SMB SMC LEMO coaxial connector CINCH RCA"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2385a314-d24f-441c-9358-9ccc0878cd27</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>8P8C_Shielded</value>
+      <footprint>Custom footprints:BEL_SS71800-019F - HV Slot</footprint>
+      <datasheet>https://www.belfuse.com/resources/drawings/stewartconnector/dr-stw-ss71800-018f-ss71800-019f.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Stewart Connector</field>
+        <field name="Part">SS71800-019F</field>
+      </fields>
+      <libsource lib="Connector" part="8P8C_Shielded" description="RJ connector, 8P8C (8 positions 8 connected), RJ31/RJ32/RJ33/RJ34/RJ35/RJ41/RJ45/RJ49/RJ61, Shielded"/>
+      <property name="Manufacturer" value="Stewart Connector"/>
+      <property name="Part" value="SS71800-019F"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="RJ connector, 8P8C (8 positions 8 connected), RJ31/RJ32/RJ33/RJ34/RJ35/RJ41/RJ45/RJ49/RJ61, Shielded"/>
+      <property name="ki_keywords" value="8P8C RJ socket connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20710e38-79d2-43e5-8c3d-e9c3ae5fb8c6</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>Conn_01x04_Pin</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical_SMD_Pin1Left</footprint>
+      <datasheet>https://media.metz-connect.com/files/171/Data_sheet_PM202XXVBNN.PDF</datasheet>
+      <fields>
+        <field name="Manufacturer">METZ CONNECT USA Inc.</field>
+        <field name="Part">PM20204VBNN</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x04_Pin" description="Generic connector, single row, 01x04, script generated"/>
+      <property name="Manufacturer" value="METZ CONNECT USA Inc."/>
+      <property name="Part" value="PM20204VBNN"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Generic connector, single row, 01x04, script generated"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a8b04fce-6ce8-46be-ac3a-624bac7974c7</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>TTl-RS232</value>
+      <datasheet>https://www.amazon.com/HiLetgo-MAX3232-Converter-Module-Serial/dp/B00LPK0Z9A/</datasheet>
+      <fields>
+        <field name="Manufacturer">Amazon</field>
+        <field name="Part">B00LPK0Z9A</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x04_Pin" description="Generic connector, single row, 01x04, script generated"/>
+      <property name="Manufacturer" value="Amazon"/>
+      <property name="Part" value="B00LPK0Z9A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="Generic connector, single row, 01x04, script generated"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c96b8932-4898-4215-b20c-ec99ceb074a0</tstamps>
+    </comp>
+    <comp ref="J7">
+      <value>Wires to LED</value>
+      <datasheet>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">JST Sales America Inc.</field>
+        <field name="Part">SXH-001T-P0.6N</field>
+      </fields>
+      <libsource lib="Device" part="R_Pack02" description="2 resistor network, parallel topology"/>
+      <property name="Manufacturer" value="JST Sales America Inc."/>
+      <property name="Part" value="SXH-001T-P0.6N"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="2 resistor network, parallel topology"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3c68d3ae-55a9-410b-a7cf-ae5183338cce</tstamps>
+    </comp>
+    <comp ref="J8">
+      <value>JST-XH Connector</value>
+      <datasheet>https://www.jst-mfg.com/product/pdf/eng/eXH.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">JST Sales America Inc.</field>
+        <field name="Part">XHP-2</field>
+      </fields>
+      <libsource lib="Connector" part="Conn_01x02_Socket" description="Generic connector, single row, 01x02, script generated"/>
+      <property name="Manufacturer" value="JST Sales America Inc."/>
+      <property name="Part" value="XHP-2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="Generic connector, single row, 01x02, script generated"/>
+      <property name="ki_keywords" value="connector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d0339c02-7932-42da-aaa2-15c5a6645213</tstamps>
+    </comp>
+    <comp ref="LA1">
+      <value>E12 Socket</value>
+      <footprint>Connector_Wire:SolderWire-0.1sqmm_1x02_P3.6mm_D0.4mm_OD1mm</footprint>
+      <datasheet>https://www.amazon.com/Ulikeled-Listed-Holder-Candelabra-Socket/dp/B0BFDQR4KC/ref=sr_1_8?crid=2DWPNPUZJPKJ&amp;dib=eyJ2IjoiMSJ9.lxdk0NgUyc4Q4y-PEUBX-epJVlugxCVONeZgPK6XlsFPqrTc3hRfHMVMvvAYfepprkyz85KQRMukeeucTYz5QXbMwVNfDB4tSmvL1vyuFLLrVOmu5ULtgYkZI6uJVW3pAdXPTrsEzZe7RmRcXRULPUa-r4sXUe-wGH2rM2gO8Z8Dvh1FT7_QBzhBwZ_Pg3A_Kk_NiB1CM2lKCdPS_FaUUsA699wAKWzpZ8T-v8nCkpDRH1YP9aZMxl1CirDV8tLHDguBBMkUtVlrMOYZve_cm0MdjLjLBgobhuLBqBPk97I.LEGM4z7zaEsiKjAkv0EJXsXVgVDFb-y3Cq_rpROqlL8&amp;dib_tag=se&amp;keywords=candelabra+e12+socket&amp;qid=1726271680&amp;s=hi&amp;sprefix=candelabra+e12+socket%2Ctools%2C137&amp;sr=1-8#customerReviews</datasheet>
+      <fields>
+        <field name="Manufacturer">Amazon</field>
+        <field name="Part">B0BFDQR4KC</field>
+      </fields>
+      <libsource lib="Device" part="R_Pack02" description="2 resistor network, parallel topology"/>
+      <property name="Manufacturer" value="Amazon"/>
+      <property name="Part" value="B0BFDQR4KC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="2 resistor network, parallel topology"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18b6290e-9372-4c32-8f8c-3ea1b8fc9bf1</tstamps>
+    </comp>
+    <comp ref="LA2">
+      <value>10W</value>
+      <datasheet>https://www.amazon.com/CEC-Industries-10S6-Bulbs-shape/dp/B00JXI3TSU/ref=sr_1_8?crid=RT5CUBQEP6GD&amp;dib=eyJ2IjoiMSJ9.txlV4hYgIhUkyyrImcnv_u4jiOsMCDCrCMM-9qcqNFfWlJjMSNd0Oyf8z365QU9-ck3Xe01dWgGhKr22OgzRkO7qCSVVcantDhA6gDkknpOZZMkIdNrbWntBcjyubHpHODyTrAo7l4xPTspZECyJX-5zBDZC7SsO_--6ceGxh9irepBvCCiLKmeiVFKP-hAcnYDH2GjquX_fwP1ciEA6vFNGh9HFcnCIHLIBeKc79dk5YD2tXBdx_nxB-NlCy7kUmBZprSjYq0ZEpkV4yABGMGI65IlsC1bfLJ9vOPINC6s.J_mxMmnPD9cz1E-OXs--W5M2OOxe3HsT6-IUFoIWmgc&amp;dib_tag=se&amp;keywords=candelabra+S6+230V+incandescent+lamp&amp;qid=1726271192&amp;s=hi&amp;sprefix=candelabra+s6+230v+incandescent+lamp%2Ctools%2C157&amp;sr=1-8</datasheet>
+      <fields>
+        <field name="Manufacturer">Amazon</field>
+        <field name="Part">B00JXI3TSU</field>
+      </fields>
+      <libsource lib="Device" part="Lamp" description="Lamp"/>
+      <property name="Manufacturer" value="Amazon"/>
+      <property name="Part" value="B00JXI3TSU"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="Lamp"/>
+      <property name="ki_keywords" value="lamp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>871a05e6-80cf-47e8-a53f-1bf6fd7845f8</tstamps>
+    </comp>
+    <comp ref="LS1">
+      <value>Speaker_Crystal</value>
+      <footprint>Custom footprints:XDCR_SMT-0940-T-3V-R</footprint>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1294/SMT_09_Series_DS.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">PUI Audio, Inc.</field>
+        <field name="Part">SMT-0940-T-3V-R</field>
+      </fields>
+      <libsource lib="Device" part="Speaker_Crystal" description="Crystal speaker/transducer"/>
+      <property name="Manufacturer" value="PUI Audio, Inc."/>
+      <property name="Part" value="SMT-0940-T-3V-R"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Crystal speaker/transducer"/>
+      <property name="ki_keywords" value="crystal speaker ultrasonic transducer"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>183cb74c-c033-4c62-a47d-5855d0e71870</tstamps>
+    </comp>
+    <comp ref="MK1">
+      <value>Microphone</value>
+      <fields>
+        <field name="Manufacturer">Amazon</field>
+        <field name="Part">B08N4FNFTR</field>
+      </fields>
+      <libsource lib="Device" part="Microphone_Condenser" description="Condenser microphone"/>
+      <property name="Manufacturer" value="Amazon"/>
+      <property name="Part" value="B08N4FNFTR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Condenser microphone"/>
+      <property name="ki_keywords" value="capacitance condenser microphone"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e7eca389-4e3e-47f0-8ea1-8963ee0cdf9f</tstamps>
+    </comp>
+    <comp ref="N1">
+      <value>Housing_Pad</value>
+      <datasheet>https://www.budind.com/wp-content/uploads/2019/01/hb2100b-1.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Bud Industries</field>
+        <field name="Part">CU-3007-A</field>
+      </fields>
+      <libsource lib="Mechanical" part="Housing_Pad" description="Housing with connection pin"/>
+      <property name="Manufacturer" value="Bud Industries"/>
+      <property name="Part" value="CU-3007-A"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="Housing with connection pin"/>
+      <property name="ki_keywords" value="housing enclosure shield"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ad9b8148-d99c-49de-95f8-e6adc671a6f0</tstamps>
+    </comp>
+    <comp ref="N2">
+      <value>Bench Supply</value>
+      <datasheet>https://www.aliexpress.us/item/3256805746705663.html</datasheet>
+      <fields>
+        <field name="Manufacturer">NICE-POWER</field>
+        <field name="Part">R-SPS2005-232</field>
+      </fields>
+      <libsource lib="Mechanical" part="Housing" description="Housing"/>
+      <property name="Manufacturer" value="NICE-POWER"/>
+      <property name="Part" value="R-SPS2005-232"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="Housing"/>
+      <property name="ki_keywords" value="housing enclosure"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1abe959-9b9c-4839-86f2-3c7ed4a94357</tstamps>
+    </comp>
+    <comp ref="Q1">
+      <value>PMOS</value>
+      <footprint>Package_TO_SOT_SMD:TO-263-2</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/DMP45H4D9HK3.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Diodes Incorporated</field>
+        <field name="Part">DMP45H4D9HK3-13</field>
+      </fields>
+      <libsource lib="Device" part="Q_PMOS_GDS" description="P-MOSFET transistor, gate/drain/source"/>
+      <property name="Manufacturer" value="Diodes Incorporated"/>
+      <property name="Part" value="DMP45H4D9HK3-13"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="P-MOSFET transistor, gate/drain/source"/>
+      <property name="ki_keywords" value="transistor PMOS P-MOS P-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f0d24d2d-88ff-4e31-9181-fa83fe143a09</tstamps>
+    </comp>
+    <comp ref="Q2">
+      <value>TN2124</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-3</footprint>
+      <datasheet>https://ww1.microchip.com/downloads/en/DeviceDoc/TN2124-N-Channel-Enhancement-Mode-Vertical-DMOS-FET-Data-Sheet-20005698A.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Microchip Technology</field>
+        <field name="Part">TN2124K1-G</field>
+      </fields>
+      <libsource lib="Device" part="Q_NMOS_GSD" description="N-MOSFET transistor, gate/source/drain"/>
+      <property name="Manufacturer" value="Microchip Technology"/>
+      <property name="Part" value="TN2124K1-G"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="N-MOSFET transistor, gate/source/drain"/>
+      <property name="ki_keywords" value="transistor NMOS N-MOS N-MOSFET"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5bcffb55-6a31-4bce-9436-784ab062a5fa</tstamps>
+    </comp>
+    <comp ref="R1">
+      <value>1M</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.seielect.com/catalog/sei-rncf.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Stackpole Electronics Inc</field>
+        <field name="Part">RNCF1206BKE1M00</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Stackpole Electronics Inc"/>
+      <property name="Part" value="RNCF1206BKE1M00"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>082c4d06-f6a7-47a6-892f-9e284ac13082</tstamps>
+    </comp>
+    <comp ref="R2">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.bourns.com/docs/Product-Datasheets/CMP.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Part">CMP1206-FX-1003ELF</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Part" value="CMP1206-FX-1003ELF"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cd2b15b0-69f0-43df-8be5-3176c5502966</tstamps>
+    </comp>
+    <comp ref="R3">
+      <value>20k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Panasonic Electronic Components</field>
+        <field name="Part">ERA-3AEB203V</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Panasonic Electronic Components"/>
+      <property name="Part" value="ERA-3AEB203V"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c8454b66-3f57-409b-94d0-d96aa6e1def3</tstamps>
+    </comp>
+    <comp ref="R4">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <datasheet>https://www.bourns.com/docs/Product-Datasheets/CMP.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Bourns Inc.</field>
+        <field name="Part">CMP1206-FX-1003ELF</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Bourns Inc."/>
+      <property name="Part" value="CMP1206-FX-1003ELF"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f29e9aa8-b211-47a0-b6c9-d1c29691d0f7</tstamps>
+    </comp>
+    <comp ref="R5">
+      <value>1</value>
+      <footprint>Package_TO_SOT_THT:TO-126-2_Vertical</footprint>
+      <datasheet>https://www.caddock.com/online_catalog/mrktg_lit/MP9000_Series.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Caddock Electronics Inc.</field>
+        <field name="Part">MP915-1.00-1%</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Caddock Electronics Inc."/>
+      <property name="Part" value="MP915-1.00-1%"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4eab93de-1d03-46eb-b2c1-757ac95dbc92</tstamps>
+    </comp>
+    <comp ref="R6">
+      <value>10</value>
+      <footprint>Package_TO_SOT_THT:TO-247-2_Vertical</footprint>
+      <datasheet>https://riedon.com/media/pdf/PF2470.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Riedon products by Bourns</field>
+        <field name="Part">PF2472-10RF1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Riedon products by Bourns"/>
+      <property name="Part" value="PF2472-10RF1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7bf20eb0-dc1b-4d66-bbf0-4fb36bb3178d</tstamps>
+    </comp>
+    <comp ref="R7">
+      <value>10</value>
+      <footprint>Package_TO_SOT_THT:TO-247-2_Vertical</footprint>
+      <datasheet>https://riedon.com/media/pdf/PF2470.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Riedon products by Bourns</field>
+        <field name="Part">PF2472-10RF1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Riedon products by Bourns"/>
+      <property name="Part" value="PF2472-10RF1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a9df447e-1d9f-41ff-bead-b2a198fa35f2</tstamps>
+    </comp>
+    <comp ref="R8">
+      <value>10</value>
+      <footprint>Package_TO_SOT_THT:TO-247-2_Vertical</footprint>
+      <datasheet>https://riedon.com/media/pdf/PF2470.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Riedon products by Bourns</field>
+        <field name="Part">PF2472-10RF1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Riedon products by Bourns"/>
+      <property name="Part" value="PF2472-10RF1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>87b99a3f-fa62-48e2-99cc-5d848a73992a</tstamps>
+    </comp>
+    <comp ref="R9">
+      <value>20k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Panasonic Electronic Components</field>
+        <field name="Part">ERA-3AEB203V</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Manufacturer" value="Panasonic Electronic Components"/>
+      <property name="Part" value="ERA-3AEB203V"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8415d696-3416-43f1-a627-dd52ddbbbfd4</tstamps>
+    </comp>
+    <comp ref="RN1">
+      <value>R_Pack08</value>
+      <footprint>Resistor_SMD:R_Array_Convex_8x0602</footprint>
+      <datasheet>https://www.digikey.com/en/models/4083443</datasheet>
+      <fields>
+        <field name="Manufacturer">Rohm Semiconductor</field>
+        <field name="Part">MNR18ERAPJ620</field>
+      </fields>
+      <libsource lib="Device" part="R_Pack08" description="8 resistor network, parallel topology"/>
+      <property name="Manufacturer" value="Rohm Semiconductor"/>
+      <property name="Part" value="MNR18ERAPJ620"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="8 resistor network, parallel topology"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2a53eac1-1fda-4f48-a41d-c96d614e55ce</tstamps>
+    </comp>
+    <comp ref="RN3">
+      <value>Jumper wire</value>
+      <datasheet>https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/692/PRT-10364_Web.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">SparkFun Electronics</field>
+        <field name="Part">1568-1926-ND</field>
+      </fields>
+      <libsource lib="Device" part="R_Pack04" description="4 resistor network, parallel topology"/>
+      <property name="Manufacturer" value="SparkFun Electronics"/>
+      <property name="Part" value="1568-1926-ND"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="exclude_from_board"/>
+      <property name="ki_description" value="4 resistor network, parallel topology"/>
+      <property name="ki_keywords" value="R network parallel topology isolated"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1ccfb3c-2554-43ea-874e-15ac9ed3726c</tstamps>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_Push_LED</value>
+      <footprint>Connector_Wire:SolderWire-0.1sqmm_1x05_P3.6mm_D0.4mm_OD1mm</footprint>
+      <datasheet>https://configured-product-images.s3.amazonaws.com/Datasheets/PV6.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">E-Switch</field>
+        <field name="Part">PV6FW40SS3G1</field>
+      </fields>
+      <libsource lib="Custom" part="SW_Push_2x_LED_common_cathode" description="Push button switch with LED, generic"/>
+      <property name="Manufacturer" value="E-Switch"/>
+      <property name="Part" value="PV6FW40SS3G1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="Push button switch with LED, generic"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button LED"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>618da4ff-7817-4976-b8e3-c44687f3e297</tstamps>
+    </comp>
+    <comp ref="SW3">
+      <value>Door interlock</value>
+      <datasheet>https://comus-intl.com/wp-content/uploads/2019/03/RI-02SMDM.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Comus International</field>
+        <field name="Part">RI-02SMDM-1520-G1</field>
+      </fields>
+      <libsource lib="Switch" part="SW_Reed" description="reed switch"/>
+      <property name="Manufacturer" value="Comus International"/>
+      <property name="Part" value="RI-02SMDM-1520-G1"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <property name="ki_description" value="reed switch"/>
+      <property name="ki_keywords" value="reed magnetic switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>56a275b6-25c8-4cbf-b75a-1484f498ded3</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>Itsy_Bitsy_32u4</value>
+      <footprint>Custom footprints:Itsy Bitsy 32u4</footprint>
+      <datasheet>https://cdn-learn.adafruit.com/downloads/pdf/introducting-itsy-bitsy-32u4.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Adafruit, Samtec, Sullins</field>
+        <field name="Part">1x Itsy Bitsy - 3677, 1x SSW-105-01-T-S, 2x SSW-114-01-T-S, 1x PRPC040SAAN-RC</field>
+      </fields>
+      <libsource lib="custom" part="Itsy_Bitsy_32u4" description=""/>
+      <property name="Manufacturer" value="Adafruit, Samtec, Sullins"/>
+      <property name="Part" value="1x Itsy Bitsy - 3677, 1x SSW-105-01-T-S, 2x SSW-114-01-T-S, 1x PRPC040SAAN-RC"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>51457761-7a8b-4912-bfbc-d66ca35b6368</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>4.096V</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <datasheet>https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP1501-Data-Sheet-DS20005474F.pdf</datasheet>
+      <fields>
+        <field name="Manufacturer">Microchip Technology</field>
+        <field name="Part">MCP1501T-40E/CHY</field>
+      </fields>
+      <libsource lib="Custom" part="Vref" description=""/>
+      <property name="Manufacturer" value="Microchip Technology"/>
+      <property name="Part" value="MCP1501T-40E/CHY"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="LED driver switch.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>345a30e8-be51-49a6-bc1b-690d7cdfbc5a</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="8P8C_Shielded">
+      <description>RJ connector, 8P8C (8 positions 8 connected), RJ31/RJ32/RJ33/RJ34/RJ35/RJ41/RJ45/RJ49/RJ61, Shielded</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>8P8C*</fp>
+        <fp>RJ31*</fp>
+        <fp>RJ32*</fp>
+        <fp>RJ33*</fp>
+        <fp>RJ34*</fp>
+        <fp>RJ35*</fp>
+        <fp>RJ41*</fp>
+        <fp>RJ45*</fp>
+        <fp>RJ49*</fp>
+        <fp>RJ61*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">8P8C_Shielded</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="SH" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x02_Socket">
+      <description>Generic connector, single row, 01x02, script generated</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02_Socket</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x03_Socket">
+      <description>Generic connector, single row, 01x03, script generated</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03_Socket</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_01x04_Pin">
+      <description>Generic connector, single row, 01x04, script generated</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04_Pin</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Conn_Coaxial">
+      <description>coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)</description>
+      <docs> ~</docs>
+      <footprints>
+        <fp>*BNC*</fp>
+        <fp>*SMA*</fp>
+        <fp>*SMB*</fp>
+        <fp>*SMC*</fp>
+        <fp>*Cinch*</fp>
+        <fp>*LEMO*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_Coaxial</field>
+        <field name="Datasheet"> ~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="In" type="passive"/>
+        <pin num="2" name="Ext" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="USB_A">
+      <description>USB Type A connector</description>
+      <docs> ~</docs>
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_A</field>
+        <field name="Datasheet"> ~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="power_in"/>
+        <pin num="2" name="D-" type="bidirectional"/>
+        <pin num="3" name="D+" type="bidirectional"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Custom" part="ALF20G223EH063">
+      <docs>ALF20G223EH063</docs>
+      <footprints>
+        <fp>ALF20G223EH063_KEM</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">ALF20G223EH063</field>
+        <field name="Footprint">ALF20G223EH063_KEM</field>
+        <field name="Datasheet">ALF20G223EH063</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="unspecified"/>
+        <pin num="2" name="2" type="unspecified"/>
+        <pin num="3" name="3" type="unspecified"/>
+        <pin num="4" name="4" type="unspecified"/>
+        <pin num="5" name="NC" type="no_connect"/>
+      </pins>
+    </libpart>
+    <libpart lib="Custom" part="SW_Push_2x_LED_common_cathode">
+      <description>Push button switch with LED, generic</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Push_LED</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="A" type="passive"/>
+        <pin num="4" name="A" type="passive"/>
+        <pin num="5" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Custom" part="Vref">
+      <fields>
+        <field name="Reference">U</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OUT" type="input"/>
+        <pin num="2" name="GND" type="input"/>
+        <pin num="3" name="GND" type="input"/>
+        <pin num="4" name="SHDN" type="input"/>
+        <pin num="5" name="GND" type="input"/>
+        <pin num="6" name="Vdd" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D">
+      <description>Diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Schottky">
+      <description>Schottky diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Zener">
+      <description>Zener diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Fuse">
+      <description>Fuse</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Fuse*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Fuse</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Lamp">
+      <description>Lamp</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">LA</field>
+        <field name="Value">Lamp</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-" type="passive"/>
+        <pin num="2" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Microphone_Condenser">
+      <description>Condenser microphone</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">MK</field>
+        <field name="Value">Microphone_Condenser</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-" type="passive"/>
+        <pin num="2" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NMOS_GSD">
+      <description>N-MOSFET transistor, gate/source/drain</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NMOS_GSD</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_PMOS_GDS">
+      <description>P-MOSFET transistor, gate/drain/source</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_PMOS_GDS</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Pack02">
+      <description>2 resistor network, parallel topology</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>DIP*</fp>
+        <fp>SOIC*</fp>
+        <fp>R*Array*Concave*</fp>
+        <fp>R*Array*Convex*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">RN</field>
+        <field name="Value">R_Pack02</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="R1.1" type="passive"/>
+        <pin num="2" name="R2.1" type="passive"/>
+        <pin num="3" name="R2.2" type="passive"/>
+        <pin num="4" name="R1.2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Pack04">
+      <description>4 resistor network, parallel topology</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>DIP*</fp>
+        <fp>SOIC*</fp>
+        <fp>R*Array*Concave*</fp>
+        <fp>R*Array*Convex*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">RN</field>
+        <field name="Value">R_Pack04</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="R1.1" type="passive"/>
+        <pin num="2" name="R2.1" type="passive"/>
+        <pin num="3" name="R3.1" type="passive"/>
+        <pin num="4" name="R4.1" type="passive"/>
+        <pin num="5" name="R4.2" type="passive"/>
+        <pin num="6" name="R3.2" type="passive"/>
+        <pin num="7" name="R2.2" type="passive"/>
+        <pin num="8" name="R1.2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Pack08">
+      <description>8 resistor network, parallel topology</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>DIP*</fp>
+        <fp>SOIC*</fp>
+        <fp>R*Array*Concave*</fp>
+        <fp>R*Array*Convex*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">RN</field>
+        <field name="Value">R_Pack08</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="R1.1" type="passive"/>
+        <pin num="2" name="R2.1" type="passive"/>
+        <pin num="3" name="R3.1" type="passive"/>
+        <pin num="4" name="R4.1" type="passive"/>
+        <pin num="5" name="R5.1" type="passive"/>
+        <pin num="6" name="R6.1" type="passive"/>
+        <pin num="7" name="R7.1" type="passive"/>
+        <pin num="8" name="R8.1" type="passive"/>
+        <pin num="9" name="R8.2" type="passive"/>
+        <pin num="10" name="R7.2" type="passive"/>
+        <pin num="11" name="R6.2" type="passive"/>
+        <pin num="12" name="R5.2" type="passive"/>
+        <pin num="13" name="R4.2" type="passive"/>
+        <pin num="14" name="R3.2" type="passive"/>
+        <pin num="15" name="R2.2" type="passive"/>
+        <pin num="16" name="R1.2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Speaker_Crystal">
+      <description>Crystal speaker/transducer</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">LS</field>
+        <field name="Value">Speaker_Crystal</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+        <pin num="2" name="2" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Graphic" part="Logo_Open_Hardware_Small">
+      <description>Open Hardware logo, small</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">#SYM</field>
+        <field name="Value">Logo_Open_Hardware_Small</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Enable">0</field>
+      </fields>
+    </libpart>
+    <libpart lib="Graphic" part="SYM_Flash_Small">
+      <description>Flash symbol, small</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">#SYM</field>
+        <field name="Value">SYM_Flash_Small</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Enable">0</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="Housing">
+      <description>Housing</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Enclosure*</fp>
+        <fp>Housing*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">N</field>
+        <field name="Value">Housing</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="Housing_Pad">
+      <description>Housing with connection pin</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">N</field>
+        <field name="Value">Housing_Pad</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PAD" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+        <field name="Datasheet">~</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole_Pad">
+      <description>Mounting Hole with connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*Pad*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole_Pad</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_Reed">
+      <description>reed switch</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_Reed</field>
+        <field name="Datasheet">~</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="custom" part="Itsy_Bitsy_32u4">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">Itsy_Bitsy_32u4</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Reset" type="input"/>
+        <pin num="2" name="5V" type="power_in"/>
+        <pin num="3" name="ARef" type="input"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="18_A0" type="input"/>
+        <pin num="6" name="19_A1" type="input"/>
+        <pin num="7" name="20_A2" type="input"/>
+        <pin num="8" name="21_A3" type="input"/>
+        <pin num="9" name="22_A4" type="input"/>
+        <pin num="10" name="23_A5" type="input"/>
+        <pin num="11" name="15_SCK" type="input"/>
+        <pin num="12" name="16_MOSI" type="input"/>
+        <pin num="13" name="14_MISO" type="input"/>
+        <pin num="14" name="3.3V" type="input"/>
+        <pin num="15" name="Enable" type="input"/>
+        <pin num="16" name="Gnd" type="power_in"/>
+        <pin num="17" name="8_A8" type="input"/>
+        <pin num="18" name="6_A7" type="input"/>
+        <pin num="19" name="4_A6" type="input"/>
+        <pin num="20" name="0_RX" type="input"/>
+        <pin num="21" name="1_TX" type="input"/>
+        <pin num="22" name="2_SDA" type="input"/>
+        <pin num="23" name="~3_SCL" type="input"/>
+        <pin num="24" name="~5" type="input"/>
+        <pin num="25" name="7" type="input"/>
+        <pin num="26" name="~9_A9" type="input"/>
+        <pin num="27" name="~10_A10" type="input"/>
+        <pin num="28" name="~11" type="input"/>
+        <pin num="29" name="12_A11" type="input"/>
+        <pin num="30" name="~13_LED" type="input"/>
+        <pin num="31" name="VBus" type="power_in"/>
+        <pin num="32" name="Gnd" type="power_in"/>
+        <pin num="33" name="VBat" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Connector.kicad_sym</uri>
+    </library>
+    <library logical="Custom">
+      <uri>C:\Users\Ben\Documents\GitHub\Cryo_Plunber_LED_Array\KiCAD\LED driver switch/Custom.kicad_sym</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Device.kicad_sym</uri>
+    </library>
+    <library logical="Graphic">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Graphic.kicad_sym</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
+    </library>
+    <library logical="Switch">
+      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Switch.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+3.3V">
+      <node ref="U1" pin="14" pinfunction="3.3V" pintype="input"/>
+    </net>
+    <net code="2" name="+5V">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J4" pin="3" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="MK1" pin="1" pinfunction="-" pintype="passive"/>
+      <node ref="RN3" pin="8" pinfunction="R1.2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="5V" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="SHDN" pintype="input"/>
+      <node ref="U2" pin="6" pinfunction="Vdd" pintype="input"/>
+    </net>
+    <net code="3" name="+9V">
+      <node ref="U1" pin="33" pinfunction="VBat" pintype="power_in"/>
+    </net>
+    <net code="4" name="/0-200V">
+      <node ref="C4" pin="1" pinfunction="1" pintype="unspecified"/>
+      <node ref="C4" pin="2" pinfunction="2" pintype="unspecified"/>
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="F1" pin="2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="S" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="5" name="/Aref">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="ARef" pintype="input"/>
+      <node ref="U2" pin="1" pinfunction="OUT" pintype="input"/>
+    </net>
+    <net code="6" name="/Audio out">
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J4" pin="4" pintype="passive"/>
+      <node ref="MK1" pin="2" pinfunction="+" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="21_A3" pintype="input"/>
+    </net>
+    <net code="7" name="/Door safety interlock">
+      <node ref="J4" pin="1" pintype="passive"/>
+      <node ref="SW3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="20_A2" pintype="input"/>
+    </net>
+    <net code="8" name="/Green_LED">
+      <node ref="RN1" pin="13" pinfunction="R4.2" pintype="passive"/>
+      <node ref="U1" pin="28" pinfunction="~11" pintype="input"/>
+    </net>
+    <net code="9" name="/Isense">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="In" pintype="passive"/>
+      <node ref="J4" pin="5" pintype="passive"/>
+      <node ref="J4" pin="7" pintype="passive"/>
+      <node ref="J7" pin="2" pinfunction="R2.1" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="18_A0" pintype="input"/>
+    </net>
+    <net code="10" name="/LED+">
+      <node ref="J4" pin="6" pintype="passive"/>
+      <node ref="J4" pin="8" pintype="passive"/>
+      <node ref="J7" pin="1" pinfunction="R1.1" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="11" name="/LED_trigger">
+      <node ref="Q2" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="23" pinfunction="~3_SCL" pintype="input"/>
+    </net>
+    <net code="12" name="/Power supply+">
+      <node ref="F2" pin="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="Pin_1" pintype="passive"/>
+    </net>
+    <net code="13" name="/Pushbutton">
+      <node ref="RN1" pin="10" pinfunction="R7.2" pintype="passive"/>
+      <node ref="RN1" pin="7" pinfunction="R7.1" pintype="passive"/>
+      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="29" pinfunction="12_A11" pintype="input"/>
+    </net>
+    <net code="14" name="/RS-232 Rx">
+      <node ref="J5" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="RN3" pin="7" pinfunction="R2.2" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="4_A6" pintype="input"/>
+    </net>
+    <net code="15" name="/RS-232 Tx">
+      <node ref="J5" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="RN3" pin="6" pinfunction="R3.2" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="0_RX" pintype="input"/>
+    </net>
+    <net code="16" name="/Red_LED">
+      <node ref="RN1" pin="16" pinfunction="R1.2" pintype="passive"/>
+      <node ref="U1" pin="27" pinfunction="~10_A10" pintype="input"/>
+    </net>
+    <net code="17" name="/Vsense">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="17" pinfunction="8_A8" pintype="input"/>
+    </net>
+    <net code="18" name="GND">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="3" pinfunction="3" pintype="unspecified"/>
+      <node ref="C4" pin="4" pinfunction="4" pintype="unspecified"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="H2" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="J2" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="Ext" pintype="passive"/>
+      <node ref="J4" pin="2" pintype="passive"/>
+      <node ref="J4" pin="SH" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="LA1" pin="1" pinfunction="R1.1" pintype="passive"/>
+      <node ref="N1" pin="1" pinfunction="PAD" pintype="input"/>
+      <node ref="Q2" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="RN3" pin="5" pinfunction="R4.2" pintype="passive"/>
+      <node ref="SW1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="SW1" pin="5" pinfunction="K" pintype="passive"/>
+      <node ref="SW3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="16" pinfunction="Gnd" pintype="power_in"/>
+      <node ref="U1" pin="32" pinfunction="Gnd" pintype="power_in"/>
+      <node ref="U1" pin="4" pinfunction="GND" pintype="power_in"/>
+      <node ref="U2" pin="2" pinfunction="GND" pintype="input"/>
+      <node ref="U2" pin="3" pinfunction="GND" pintype="input"/>
+      <node ref="U2" pin="5" pinfunction="GND" pintype="input"/>
+    </net>
+    <net code="19" name="Net-(D1-A)">
+      <node ref="D1" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="F2" pin="2" pintype="passive"/>
+    </net>
+    <net code="20" name="Net-(D2-A)">
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="Q1" pin="1" pinfunction="G" pintype="input"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+    </net>
+    <net code="21" name="Net-(D3-A)">
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="F3" pin="2" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="22" name="Net-(F3-Pad1)">
+      <node ref="F3" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+    </net>
+    <net code="23" name="Net-(J6-Pin_1)">
+      <node ref="J6" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="RN3" pin="1" pinfunction="R1.1" pintype="passive"/>
+    </net>
+    <net code="24" name="Net-(J6-Pin_2)">
+      <node ref="J6" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="RN3" pin="2" pinfunction="R2.1" pintype="passive"/>
+    </net>
+    <net code="25" name="Net-(J6-Pin_3)">
+      <node ref="J6" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="RN3" pin="3" pinfunction="R3.1" pintype="passive"/>
+    </net>
+    <net code="26" name="Net-(J6-Pin_4)">
+      <node ref="J6" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="RN3" pin="4" pinfunction="R4.1" pintype="passive"/>
+    </net>
+    <net code="27" name="Net-(J7-R1.2)">
+      <node ref="J7" pin="4" pinfunction="R1.2" pintype="passive"/>
+      <node ref="J8" pin="1" pinfunction="Pin_1" pintype="passive"/>
+    </net>
+    <net code="28" name="Net-(J7-R2.2)">
+      <node ref="J7" pin="3" pinfunction="R2.2" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="Pin_2" pintype="passive"/>
+    </net>
+    <net code="29" name="Net-(LA1-R1.2)">
+      <node ref="LA1" pin="4" pinfunction="R1.2" pintype="passive"/>
+      <node ref="LA2" pin="2" pinfunction="+" pintype="passive"/>
+    </net>
+    <net code="30" name="Net-(LA1-R2.1)">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="LA1" pin="2" pinfunction="R2.1" pintype="passive"/>
+    </net>
+    <net code="31" name="Net-(LA1-R2.2)">
+      <node ref="LA1" pin="3" pinfunction="R2.2" pintype="passive"/>
+      <node ref="LA2" pin="1" pinfunction="-" pintype="passive"/>
+    </net>
+    <net code="32" name="Net-(Q2-D)">
+      <node ref="Q2" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="33" name="Net-(R6-Pad2)">
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+    </net>
+    <net code="34" name="Net-(R7-Pad2)">
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+    </net>
+    <net code="35" name="Net-(RN1-R1.1)">
+      <node ref="RN1" pin="1" pinfunction="R1.1" pintype="passive"/>
+      <node ref="RN1" pin="2" pinfunction="R2.1" pintype="passive"/>
+    </net>
+    <net code="36" name="Net-(RN1-R2.2)">
+      <node ref="RN1" pin="14" pinfunction="R3.2" pintype="passive"/>
+      <node ref="RN1" pin="15" pinfunction="R2.2" pintype="passive"/>
+    </net>
+    <net code="37" name="Net-(RN1-R3.1)">
+      <node ref="RN1" pin="3" pinfunction="R3.1" pintype="passive"/>
+      <node ref="SW1" pin="4" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="38" name="Net-(RN1-R4.1)">
+      <node ref="RN1" pin="4" pinfunction="R4.1" pintype="passive"/>
+      <node ref="RN1" pin="5" pinfunction="R5.1" pintype="passive"/>
+    </net>
+    <net code="39" name="Net-(RN1-R5.2)">
+      <node ref="RN1" pin="11" pinfunction="R6.2" pintype="passive"/>
+      <node ref="RN1" pin="12" pinfunction="R5.2" pintype="passive"/>
+      <node ref="RN1" pin="6" pinfunction="R6.1" pintype="passive"/>
+      <node ref="SW1" pin="3" pinfunction="A" pintype="passive"/>
+    </net>
+    <net code="40" name="Net-(U1-~5)">
+      <node ref="LS1" pin="2" pinfunction="2" pintype="input"/>
+      <node ref="U1" pin="24" pinfunction="~5" pintype="input"/>
+    </net>
+    <net code="41" name="Net-(U1-~9_A9)">
+      <node ref="LS1" pin="1" pinfunction="1" pintype="input"/>
+      <node ref="U1" pin="26" pinfunction="~9_A9" pintype="input"/>
+    </net>
+    <net code="42" name="unconnected-(C4-NC-Pad5)">
+      <node ref="C4" pin="5" pinfunction="NC" pintype="no_connect"/>
+    </net>
+    <net code="43" name="unconnected-(J1-D+-Pad3)">
+      <node ref="J1" pin="3" pinfunction="D+" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="44" name="unconnected-(J1-D--Pad2)">
+      <node ref="J1" pin="2" pinfunction="D-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="45" name="unconnected-(J1-GND-Pad4)">
+      <node ref="J1" pin="4" pinfunction="GND" pintype="power_in+no_connect"/>
+    </net>
+    <net code="46" name="unconnected-(J1-Shield-Pad5)">
+      <node ref="J1" pin="5" pinfunction="Shield" pintype="passive+no_connect"/>
+    </net>
+    <net code="47" name="unconnected-(J1-VBUS-Pad1)">
+      <node ref="J1" pin="1" pinfunction="VBUS" pintype="power_in+no_connect"/>
+    </net>
+    <net code="48" name="unconnected-(RN1-R8.1-Pad8)">
+      <node ref="RN1" pin="8" pinfunction="R8.1" pintype="passive+no_connect"/>
+    </net>
+    <net code="49" name="unconnected-(RN1-R8.2-Pad9)">
+      <node ref="RN1" pin="9" pinfunction="R8.2" pintype="passive+no_connect"/>
+    </net>
+    <net code="50" name="unconnected-(U1-1_TX-Pad21)">
+      <node ref="U1" pin="21" pinfunction="1_TX" pintype="input+no_connect"/>
+    </net>
+    <net code="51" name="unconnected-(U1-2_SDA-Pad22)">
+      <node ref="U1" pin="22" pinfunction="2_SDA" pintype="input+no_connect"/>
+    </net>
+    <net code="52" name="unconnected-(U1-6_A7-Pad18)">
+      <node ref="U1" pin="18" pinfunction="6_A7" pintype="input+no_connect"/>
+    </net>
+    <net code="53" name="unconnected-(U1-7-Pad25)">
+      <node ref="U1" pin="25" pinfunction="7" pintype="input+no_connect"/>
+    </net>
+    <net code="54" name="unconnected-(U1-14_MISO-Pad13)">
+      <node ref="U1" pin="13" pinfunction="14_MISO" pintype="input+no_connect"/>
+    </net>
+    <net code="55" name="unconnected-(U1-15_SCK-Pad11)">
+      <node ref="U1" pin="11" pinfunction="15_SCK" pintype="input+no_connect"/>
+    </net>
+    <net code="56" name="unconnected-(U1-16_MOSI-Pad12)">
+      <node ref="U1" pin="12" pinfunction="16_MOSI" pintype="input+no_connect"/>
+    </net>
+    <net code="57" name="unconnected-(U1-19_A1-Pad6)">
+      <node ref="U1" pin="6" pinfunction="19_A1" pintype="input+no_connect"/>
+    </net>
+    <net code="58" name="unconnected-(U1-22_A4-Pad9)">
+      <node ref="U1" pin="9" pinfunction="22_A4" pintype="input+no_connect"/>
+    </net>
+    <net code="59" name="unconnected-(U1-23_A5-Pad10)">
+      <node ref="U1" pin="10" pinfunction="23_A5" pintype="input+no_connect"/>
+    </net>
+    <net code="60" name="unconnected-(U1-Enable-Pad15)">
+      <node ref="U1" pin="15" pinfunction="Enable" pintype="input+no_connect"/>
+    </net>
+    <net code="61" name="unconnected-(U1-Reset-Pad1)">
+      <node ref="U1" pin="1" pinfunction="Reset" pintype="input+no_connect"/>
+    </net>
+    <net code="62" name="unconnected-(U1-VBus-Pad31)">
+      <node ref="U1" pin="31" pinfunction="VBus" pintype="power_in+no_connect"/>
+    </net>
+    <net code="63" name="unconnected-(U1-~13_LED-Pad30)">
+      <node ref="U1" pin="30" pinfunction="~13_LED" pintype="input+no_connect"/>
+    </net>
+  </nets>
+</export>
