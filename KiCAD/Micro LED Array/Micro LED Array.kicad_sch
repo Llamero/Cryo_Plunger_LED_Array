@@ -543,7 +543,7 @@
     (property "Value" "JST-XH" (at 68.5292 61.6023 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Custom footprints:SolderWire-0.1sqmm_1x02_P9.6mm_D0.4mm_OD1mm" (at 64.77 59.69 0)
+    (property "Footprint" "Custom footprints:SolderWire-0.5sqmm_1x02_P10.5mm_D0.9mm_OD2.1mm" (at 64.77 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf" (at 64.77 59.69 0)
