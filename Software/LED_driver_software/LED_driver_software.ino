@@ -135,6 +135,15 @@ void setup() {
 
   //Connect to powersupply
   if(!ps.connect()) status.state = state.com_failure;
+  ps.setVoltage(10);
+  ps.setCurrent(0.1);
+  ps.toggleOutput(true);
+  delay(500);
+  float test = ps.getCurrent();
+  Serial.println(test);
+  test = ps.getVoltage();
+  Serial.println(test);
+  ps.toggleOutput(false);
 
 
   //Initialize button

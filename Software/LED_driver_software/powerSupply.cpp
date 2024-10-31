@@ -38,7 +38,7 @@ bool powerSupply::disconnect(){
 }
 
 bool powerSupply::toggleOutput(bool out_on){
-  for(uint8_t i=0; i<sizeof(command); i++) rs232print(output_commands[(uint8_t) out_on]); //Load command into string buffer
+  rs232print(output_commands[(uint8_t) out_on]); //Load command into string buffer
   if (!rs232read()); //Toggle output does not have a reply
   return true;
 }
@@ -86,9 +86,9 @@ float powerSupply::formatReply(){
   float value = 0;
   float factor = 100;
   uint8_t integer;
-  for(uint8_t i = 0; i<9; i++){
+  for(uint8_t i = 0; i<7; i++){
     integer = command[i+3] - '0';
-    if(integer > 9) return -1;
+    if(command[i+3] < '0' || command[i+3] > '9') return -1;
     value += integer * factor;
     factor /= 10;
   }
