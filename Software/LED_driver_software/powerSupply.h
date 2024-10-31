@@ -12,15 +12,19 @@ class powerSupply{
     void init();
     bool connect();
     bool disconnect();
+    float getVoltage();
+    float getCurrent();
     bool setVoltage(float);
     bool setCurrent(float);
     bool toggleOutput(bool);
     bool disable();
+    void getCommand(char*);
 
   private:
     void psTx();
     void psRx();
     void formatCommand(char, char, float);
+    float formatReply();
     void rs232print(char*);
     bool rs232read();
     void SWprint(char);
@@ -29,6 +33,8 @@ class powerSupply{
     const static char powerSupply::connect_commands[][14]; //Sequence for starting  connection to power supply
     const static char powerSupply::disconnect_command[]; //Sequence for closing  connection to power supply
     const static char powerSupply::output_commands[][14]; //Disable and enable power supply output
+    const static char get_voltage_command[];
+    const static char get_current_command[];
     static char command[13]; //Array for RS-232 commands sent
     
     const static uint8_t com_delay = 50;
