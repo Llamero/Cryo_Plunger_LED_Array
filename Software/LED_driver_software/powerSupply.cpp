@@ -32,7 +32,7 @@ bool powerSupply::connect(){
 }
 
 bool powerSupply::disconnect(){
-  for(uint8_t i=0; i<sizeof(command); i++) rs232print(disconnect_command[i]); //Load command into string buffer
+  rs232print(disconnect_command); //Load command into string buffer
   if (!rs232read()) return false;
   return true;
 }

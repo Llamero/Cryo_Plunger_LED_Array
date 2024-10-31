@@ -6,7 +6,7 @@
 #warning Using Timer1, Timer3
 #include "TimerInterrupt_Generic.h"
 
-#define LED_PWM 10
+#define LED_PWM 1
 #define LED_FLASH_INTERVAL 500
 #define off 0
 #define red 10
@@ -73,7 +73,7 @@ const struct defaultStatusStruct{
 } default_status;
 
 struct statusStruct{
-  float driver_volt = 0;
+  float driver_voltage = 0;
   float driver_current = 0;
   float ps_volt = 0;
   float ps_current = 0;
@@ -85,7 +85,7 @@ struct statusStruct{
 } status;
 
 const uint16_t flash_interval = 500;
-const float vref = 4.096; //ADC Vref
+const float vref = 4.351; //ADC Vref
 const float vfactor = 0.01960784313; //Voltage divider on Vsense
 uint8_t status_index;
 
@@ -94,10 +94,20 @@ elapsedMicros led_timer;
 elapsedMillis driver_timer;
 
 void yellowLedHandler(){
-  status.button_led[0] = !status.button_led[0];
-  status.button_led[1] = !status.button_led[1];
-  digitalWriteFast(out.led[0], status.button_led[0]);
-  digitalWriteFast(out.led[1], status.button_led[1]);
+  static uint8_t i;
+  i++;
+  if(i<8){ //Yellow balance LED by adding more red
+    digitalWriteFast(out.led[0], 1);
+    digitalWriteFast(out.led[1], 0);
+  }
+  else if(i<10){
+    digitalWriteFast(out.led[0], 0);
+    digitalWriteFast(out.led[1], 1);
+  }
+  else{
+    i=255;
+  }
+
 }
 
 void flashLedHandler(){
@@ -117,9 +127,10 @@ void setup() {
   for(i=0; i<sizeof(ana_pins); i++) analogRead(ana_pins[i]);
   digitalWriteFast(out.led_trigger, LOW); //Ensure LED output is disabled
   pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(ana.isense+1, OUTPUT);
 
   //configrue adc
-  analogReference(EXTERNAL);
+  //analogReference(EXTERNAL); //External ADC is causing noise issues
 
   //Sertup serial
   Serial.begin(250000);
@@ -135,24 +146,28 @@ void setup() {
 
   //Connect to powersupply
   if(!ps.connect()) status.state = state.com_failure;
-  ps.setVoltage(10);
-  ps.setCurrent(0.1);
-  ps.toggleOutput(true);
-  delay(500);
-  float test = ps.getCurrent();
-  Serial.println(test);
-  test = ps.getVoltage();
-  Serial.println(test);
-  ps.toggleOutput(false);
+  
+  //Verify that led is not powered
+  checkPowerStatus();
 
-
+ps.setVoltage(31);
+ps.setCurrent(0.1);
+ps.toggleOutput(true);
+ps.disconnect();
+digitalWriteFast(out.led_trigger, HIGH);
   //Initialize button
   while(true){
+    float value;
     setColor(red);
+    value = checkCurrent() * 1000;
+    Serial.print(value);
     delay(LED_FLASH_INTERVAL);
     setColor(yellow);
+    Serial.print(" ");
     delay(LED_FLASH_INTERVAL);
     setColor(green);
+    value = checkVoltage();
+    Serial.println(value);
     delay(LED_FLASH_INTERVAL);
   }
 }
@@ -228,4 +243,36 @@ void setColor(uint8_t led, bool flashing){
   }
   digitalWriteFast(out.led[0], status.button_led[0]);
   digitalWriteFast(out.led[1], status.button_led[1]);
+}
+
+void checkPowerStatus(){
+  uint8_t i;
+  if(ps.getCurrent() > status.ps_current) status.state = state.ps_over_current;
+  if(ps.getVoltage() > status.ps_volt) status.state = state.ps_over_voltage;
+  if(checkCurrent() > status.driver_current + 0.01) status.state = state.driver_over_current;
+  if(checkVoltage() > status.driver_voltage + 1) status.state = state.driver_over_voltage;
+}
+
+float checkCurrent(){
+  float current = 0;
+  uint16_t adc = 0;
+  analogRead(ana.isense);
+  for(uint8_t i = 0; i < 64; i++){
+    adc += analogRead(ana.isense);
+    delayMicroseconds(100);
+  }
+  current = ((float) adc * vref) / 65535.0;
+  return current;
+}
+
+float checkVoltage(){
+  float voltage = 0;
+  uint16_t adc = 0;
+  analogRead(ana.vsense);
+  for(uint8_t i = 0; i < 64; i++){
+    adc += analogRead(ana.vsense);
+    delayMicroseconds(100);
+  }
+  voltage = ((float) adc * vref) / (65535 * vfactor);
+  return voltage;
 }
