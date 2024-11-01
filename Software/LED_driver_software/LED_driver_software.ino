@@ -6,6 +6,13 @@
 #warning Using Timer1, Timer3
 #include "TimerInterrupt_Generic.h"
 
+const struct pulseStruct{
+  uint8_t pulse_duration = 100; //Total duration of LED pulse: 0-255 ms
+  float pulse_current = 3; //Peak output current in amps
+  uint16_t  pulse_delay = 500; //Delay from trigger event to LED on: 0-65535 ms
+  uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms 
+} pulse;
+
 #define LED_PWM 1
 #define LED_FLASH_INTERVAL 500
 #define off 0
@@ -39,27 +46,25 @@ const struct analogPinsStruct{
 const uint8_t ana_pins[sizeof(ana)] = {ana.vsense, ana.isense, ana.audio};
 
 constexpr static struct stateStruct{
-  int standby = 0;
-  int door_open = 1;
-  int com_failure = 2;
-  int bulb_out = 3;
-  int driver_under_current = 4;
-  int driver_under_voltage = 5;
-  int driver_over_current = 6;
-  int driver_over_voltage = 7;
-  int ps_under_current = 8;
-  int ps_under_voltage = 9;
-  int ps_over_current = 10;
-  int ps_over_voltage = 11;
-  int no_mic = 13;
-
-
+  uint8_t standby = 0;
+  uint8_t calibrating_led = 1;
+  uint8_t waiting_trapdoor = 2;
+  uint8_t waiting_plunger = 3;
+  uint8_t led_on = 4;
+  uint8_t led_cooldown = 5;
   
-  int calibrating_led = 100;
-  int waiting_trapdoor = 101;
-  int waiting_plunger = 102;
-  int led_on = 103;
-  int led_cooldown = 104;
+  uint8_t door_open = 101;
+  uint8_t com_failure = 102;
+  uint8_t bulb_out = 103;
+  uint8_t driver_under_current = 104;
+  uint8_t driver_under_voltage = 105;
+  uint8_t driver_over_current = 106;
+  uint8_t driver_over_voltage = 107;
+  uint8_t ps_under_current = 108;
+  uint8_t ps_under_voltage = 109;
+  uint8_t ps_over_current = 110;
+  uint8_t ps_over_voltage = 111;
+  uint8_t no_mic = 113;
 } state;
 
 const struct defaultStatusStruct{
@@ -81,16 +86,17 @@ struct statusStruct{
   bool door_interlock = false;
   bool button_led[2] = {0, 0};
   uint8_t button_color = 0; //0=off, 10 = solid red, 11 = flashing red, 20 = solid yellow, 21 = flashing yellow, 31 = solid green, 32 = flashing green
-  uint8_t state = 0; //0 = standby, 1 = failsafe, 2 = minor error, 3 = critical error,      10 = calibrating LED, 11 = armed waiting for door open, 12 = armed waiting for plunger to drop, 13 = LED on, 14 = LED cool down 
+  uint8_t state = 0;
 } status;
 
+const int8_t tone_volume = 128; 
 const uint16_t flash_interval = 500;
 const float vref = 4.351; //ADC Vref
 const float vfactor = 0.01960784313; //Voltage divider on Vsense
 uint8_t status_index;
+bool flash; //Tracks whether led is on or off when flashing
 
 powerSupply ps;
-elapsedMicros led_timer;
 elapsedMillis driver_timer;
 
 void yellowLedHandler(){
@@ -111,7 +117,6 @@ void yellowLedHandler(){
 }
 
 void flashLedHandler(){
-  volatile static bool flash = false;
   flash = !flash;
   if(flash) setColor(status.button_color, true);
   else setColor(0, true);
@@ -120,35 +125,13 @@ void flashLedHandler(){
 void setColor(uint8_t led, bool flashing = false); //Declare prototype with default arguments
 
 void setup() {
-  //Set pin states
-  uint8_t i;
-  for(i=0; i<sizeof(in_pins); i++) pinMode(in_pins[i], INPUT_PULLUP);
-  for(i=0; i<sizeof(out_pins); i++) pinMode(out_pins[i], OUTPUT);
-  for(i=0; i<sizeof(ana_pins); i++) analogRead(ana_pins[i]);
-  digitalWriteFast(out.led_trigger, LOW); //Ensure LED output is disabled
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(ana.isense+1, OUTPUT);
-
-  //configrue adc
-  //analogReference(EXTERNAL); //External ADC is causing noise issues
-
   //Sertup serial
   Serial.begin(250000);
   while(!Serial);
 
-  //Initialize timer interrupts
-  ITimer1.init();
-  ITimer1.attachInterruptInterval(LED_PWM, yellowLedHandler);
-  ITimer1.pauseTimer();
-  ITimer3.init();
-  ITimer3.attachInterruptInterval(LED_FLASH_INTERVAL, flashLedHandler);
-  ITimer3.pauseTimer();
+  //Setup device
+  initialize();
 
-  //Connect to powersupply
-  if(!ps.connect()) status.state = state.com_failure;
-  
-  //Verify that led is not powered
-  checkPowerStatus();
 
 ps.setVoltage(31);
 ps.setCurrent(0.1);
@@ -185,6 +168,40 @@ void loop() {
   while(!digitalReadFast(in.pushbutton)) delay(10);
 }
 
+void initialize(){
+  //Set pin states
+  uint8_t i;
+  for(i=0; i<sizeof(in_pins); i++) pinMode(in_pins[i], INPUT_PULLUP);
+  for(i=0; i<sizeof(out_pins); i++) pinMode(out_pins[i], OUTPUT);
+  for(i=0; i<sizeof(ana_pins); i++) analogRead(ana_pins[i]);
+  digitalWriteFast(out.led_trigger, LOW); //Ensure LED output is disabled
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(ana.isense+1, OUTPUT);
+
+  //configrue adc
+  //analogReference(EXTERNAL); //External ADC is causing noise issues
+
+  //Initialize timer interrupts
+  ITimer1.init();
+  ITimer1.attachInterruptInterval(LED_PWM, yellowLedHandler);
+  ITimer1.pauseTimer();
+  ITimer3.init();
+  ITimer3.attachInterruptInterval(LED_FLASH_INTERVAL, flashLedHandler);
+  ITimer3.pauseTimer();
+
+  //Connect to powersupply
+  if(!ps.connect()) status.state = state.com_failure;
+  
+  //Verify that led is not powered
+  checkPowerStatus();
+  
+  //Make sure boot was without error
+  checkError();
+  playStatusTone();
+}
+
+
+
 void checkStatus(){
   status_index++;
   switch (status_index) {
@@ -198,16 +215,19 @@ void checkStatus(){
   }
 }
 
-void error(uint8_t error_num){
-  switch (error_num) {
-    case 0: //No active errors
-      break;
-    case 1:
-      //Com failure talking to power supply
-      break;
-    default:
-      // statements
-      break;
+void checkError(){
+  if(status.state < 100) return; //If there are no errors, then return
+  else{
+    switch (status.state) {
+      case state.standby: //No active errors
+        break;
+      case 1:
+        //Com failure talking to power supply
+        break;
+      default:
+        // statements
+        break;
+    }
   }
 }
 
@@ -275,4 +295,32 @@ float checkVoltage(){
   }
   voltage = ((float) adc * vref) / (65535 * vfactor);
   return voltage;
+}
+
+void playStatusTone(){
+  uint8_t i = 255;
+  while(i--){
+    digitalWriteFast(out.speaker[0], HIGH);
+    digitalWriteFast(out.speaker[1], LOW);
+    delayMicroseconds(tone_volume);
+    digitalWriteFast(out.speaker[0], LOW);
+    digitalWriteFast(out.speaker[1], HIGH);
+    delayMicroseconds(255-tone_volume);
+  }
+  digitalWriteFast(out.speaker[0], LOW);
+  digitalWriteFast(out.speaker[1], LOW);
+}
+
+void playAlarmTone(){
+  uint16_t i = 16000;
+  while(flash && i--){
+    digitalWriteFast(out.speaker[0], HIGH);
+    digitalWriteFast(out.speaker[1], LOW);
+    delayMicroseconds(127);
+    digitalWriteFast(out.speaker[0], LOW);
+    digitalWriteFast(out.speaker[1], HIGH);
+    delayMicroseconds(128);
+  }
+  digitalWriteFast(out.speaker[0], LOW);
+  digitalWriteFast(out.speaker[1], LOW);
 }
