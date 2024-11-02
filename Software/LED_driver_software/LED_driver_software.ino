@@ -6,13 +6,14 @@
 #warning Using Timer1, Timer3
 #include "TimerInterrupt_Generic.h"
 
-const struct pulseStruct{
-  uint8_t pulse_duration = 100; //Total duration of LED pulse: 0-255 ms
-  float pulse_current = 3; //Peak output current in amps
-  uint16_t  pulse_delay = 500; //Delay from trigger event to LED on: 0-65535 ms
+constexpr struct pulseStruct{
+  uint8_t duration = 100; //Total duration of LED pulse: 0-255 ms
+  float current = 3; //Peak output current in amps
+  uint16_t  delay = 500; //Delay from trigger event to LED on: 0-65535 ms
   uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms 
 } pulse;
 
+//Button LED 
 #define LED_PWM 1
 #define LED_FLASH_INTERVAL 500
 #define off 0
@@ -22,6 +23,13 @@ const struct pulseStruct{
 #define flashing_green 21
 #define yellow 40
 #define flashing_yellow 41
+
+//System parameters
+#define series_resistance 31 //Total series resistance of the LED driver
+#define max_safe_voltage 30 //Maximum voltage before performing high voltage checks
+#define max_ps_voltage 200 //Maximum voltage the power supply can output
+#define max_ps_current 1 //Maximum current the power supply can output
+#define debounce 50 //Debounce delay (ms)
 
 const struct inputPinsStruct{
   uint8_t rx = 4;
@@ -65,12 +73,14 @@ constexpr static struct stateStruct{
   uint8_t ps_over_current = 110;
   uint8_t ps_over_voltage = 111;
   uint8_t no_mic = 113;
+  uint8_t ps_output_fail = 114;
+  uint8_t ps_voltage_limit = 115;
 } state;
 
 const struct defaultStatusStruct{
-  float driver_volt = 0;
+  float driver_voltage = 0;
   float driver_current = 0;
-  float ps_volt = 0;
+  float ps_voltage = 0;
   float ps_current = 0;
   uint16_t audio = 0;
   bool door_interlock = false;
@@ -80,7 +90,7 @@ const struct defaultStatusStruct{
 struct statusStruct{
   float driver_voltage = 0;
   float driver_current = 0;
-  float ps_volt = 0;
+  float ps_voltage = 0;
   float ps_current = 0;
   uint16_t audio = 0;
   bool door_interlock = false;
@@ -113,7 +123,6 @@ void yellowLedHandler(){
   else{
     i=255;
   }
-
 }
 
 void flashLedHandler(){
@@ -129,43 +138,49 @@ void setup() {
   Serial.begin(250000);
   while(!Serial);
 
-  //Setup device
-  initialize();
-
-
-ps.setVoltage(31);
-ps.setCurrent(0.1);
-ps.toggleOutput(true);
-ps.disconnect();
-digitalWriteFast(out.led_trigger, HIGH);
-  //Initialize button
-  while(true){
-    float value;
-    setColor(red);
-    value = checkCurrent() * 1000;
-    Serial.print(value);
-    delay(LED_FLASH_INTERVAL);
-    setColor(yellow);
-    Serial.print(" ");
-    delay(LED_FLASH_INTERVAL);
-    setColor(green);
-    value = checkVoltage();
-    Serial.println(value);
-    delay(LED_FLASH_INTERVAL);
-  }
+// ps.setVoltage(31);
+// ps.setCurrent(0.1);
+// ps.toggleOutput(true);
+// ps.disconnect();
+// digitalWriteFast(out.led_trigger, HIGH);
+//   //Initialize button
+//   while(true){
+//     float value;
+//     setColor(red);
+//     value = checkCurrent() * 1000;
+//     Serial.print(value);
+//     delay(LED_FLASH_INTERVAL);
+//     setColor(yellow);
+//     Serial.print(" ");
+//     delay(LED_FLASH_INTERVAL);
+//     setColor(green);
+//     value = checkVoltage();
+//     Serial.println(value);
+//     delay(LED_FLASH_INTERVAL);
+//   }
 }
 
 void loop() {
-  digitalWriteFast(out.led[0], LOW);
-  digitalWriteFast(out.led[1], HIGH);
-  while(digitalReadFast(in.pushbutton)) delay(10);
-  digitalWriteFast(out.led[0], HIGH);
-  digitalWriteFast(out.led[1], LOW);
-  digitalWriteFast(out.led_trigger, HIGH);
-  delay(100);
-  digitalWriteFast(out.led_trigger, LOW);
-  delay(3000);
-  while(!digitalReadFast(in.pushbutton)) delay(10);
+  //Setup device
+  initialize();
+
+  //Wait for pushbutton to be pressed and released
+  while(digitalReadFast(in.pushbutton)) checkStatus(); 
+  delay(debounce);
+  while(!digitalReadFast(in.pushbutton)) checkStatus();
+  delay(debounce);
+  
+  //Start LED calibration
+  calibrate();
+
+  //Wait for pushbutton to be pressed and released
+  while(digitalReadFast(in.pushbutton)) checkStatus(); 
+  delay(debounce);
+  while(!digitalReadFast(in.pushbutton)) checkStatus();
+  delay(debounce);
+
+  //Start LED pulse sequence
+  
 }
 
 void initialize(){
@@ -196,21 +211,86 @@ void initialize(){
   checkPowerStatus();
   
   //Make sure boot was without error
-  checkError();
+  checkStatus();
+  setColor(green); //update button color
   playStatusTone();
 }
 
+void calibrate(){
+  float set_voltage = pulse.current * series_resistance; //Calculate the starting test current
+  
+  status.state = state.calibrating_led; //Update state
+  setColor(flashing_yellow);
+  if(Serial) Serial.println("Starting LED current calibration...");
+
+  if(!ps.setCurrent(pulse.current)) status.state = state.com_failure;//Set driver current limit to pulse current
+  if(!ps.setVoltage(1)) status.state = state.com_failure; //Set voltage to 1 before turning on output
+  ps.toggleOutput(true); //Turn on output
+  delay(500);
+  status.driver_current = 0; //Reset driver current
+  while (status.driver_current < pulse.current){
+    if(set_voltage > max_ps_voltage){
+      status.state = state.ps_voltage_limit;
+      break;
+    }
+    
+    //Increment power supply to new voltage and perform safety checks
+    digitalWriteFast(out.led_trigger, LOW);
+    ps.setVoltage(set_voltage);
+    delay(10);
+    while(status.ps_voltage != set_voltage){ //Wait for voltage to stabilize at new value
+      status.ps_voltage = ps.getVoltage();
+      if(status.ps_voltage < 0) status.state = state.com_failure;
+      else if(status.ps_voltage == 0) status.state = state.ps_under_voltage;
+      delay(10);
+      checkStatus();
+    }
+    if(status.ps_voltage > max_safe_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
+      status.ps_current = ps.getCurrent(); 
+      if(status.ps_current == 0) status.state = state.bulb_out;
+      else if (status.ps_current < 0) status.state = state.com_failure;
+    }
+
+    //Briefly pulse LED to measure its current
+    digitalWriteFast(out.led_trigger, HIGH); //Turn LED on to check current
+    delayMicroseconds(50); //Wait for current to stabilize
+    checkCurrent(); //Measure LED current
+    digitalWriteFast(out.led_trigger, LOW); //Turn off LED
+    
+    if(Serial){
+      Serial.print("Calibrating... Volt: ");
+      Serial.print(status.ps_voltage);
+      Serial.print(", Current: ");
+      Serial.println(status.driver_current);
+    }
+
+    //Increment the set voltage by 1
+    set_voltage++; 
+  }
+  ps.toggleOutput(false); //Disable the power supply
+  delay(500);
+  status.ps_current = ps.getCurrent();
+  if(status.ps_current > 0) status.state = state.ps_over_current;
+  checkStatus();
+  setColor(yellow);
+  if(Serial){
+    if(status.driver_current < pulse.current) Serial.print("Calibration stopped - power supply maximum voltage reached.");
+    else Serial.print("Success, LED current calibration complete!");
+  }
+}
 
 
 void checkStatus(){
   status_index++;
+  checkError(); //Always check error codes
   switch (status_index) {
   case state.com_failure: //Check door interlock
-    status.door_interlock = digitalReadFast(in.door);
-    if(!status.door_interlock) status.state = state.com_failure;
     break;
   case 1:
     //Com failure talking to power supply
+    break;
+  default:
+    // statements
     break;
   }
 }
@@ -266,35 +346,19 @@ void setColor(uint8_t led, bool flashing){
 }
 
 void checkPowerStatus(){
-  uint8_t i;
   if(ps.getCurrent() > status.ps_current) status.state = state.ps_over_current;
-  if(ps.getVoltage() > status.ps_volt) status.state = state.ps_over_voltage;
-  if(checkCurrent() > status.driver_current + 0.01) status.state = state.driver_over_current;
-  if(checkVoltage() > status.driver_voltage + 1) status.state = state.driver_over_voltage;
+  if(ps.getVoltage() > status.ps_voltage) status.state = state.ps_over_voltage;
+  checkStatus();
 }
 
-float checkCurrent(){
-  float current = 0;
-  uint16_t adc = 0;
-  analogRead(ana.isense);
-  for(uint8_t i = 0; i < 64; i++){
-    adc += analogRead(ana.isense);
-    delayMicroseconds(100);
-  }
-  current = ((float) adc * vref) / 65535.0;
-  return current;
+void checkCurrent(){
+  status.driver_current = analogRead(ana.isense);
+  status.driver_current *= vref / 1023.0;
 }
 
 float checkVoltage(){
-  float voltage = 0;
-  uint16_t adc = 0;
-  analogRead(ana.vsense);
-  for(uint8_t i = 0; i < 64; i++){
-    adc += analogRead(ana.vsense);
-    delayMicroseconds(100);
-  }
-  voltage = ((float) adc * vref) / (65535 * vfactor);
-  return voltage;
+  status.driver_voltage = analogRead(ana.vsense);
+  status.driver_voltage *= vref / (1023.0 * vfactor);
 }
 
 void playStatusTone(){
