@@ -17,12 +17,12 @@ constexpr struct pulseStruct{
 #define LED_PWM 1
 #define LED_FLASH_INTERVAL 500
 #define off 0
-#define red 10
-#define flashing_red 11
-#define green 20
-#define flashing_green 21
-#define yellow 40
-#define flashing_yellow 41
+#define red 10 //Device armed for LED trigger
+#define flashing_red 11 //Cooling down LED and discharging cap
+#define green 20 //Driver in standby
+#define flashing_green 21 //Driver in standby due to error condition
+#define yellow 40 //Calibrated waiting for press to arm trigger
+#define flashing_yellow 41 //Calibrating
 
 //System parameters
 #define series_resistance 31 //Total series resistance of the LED driver
