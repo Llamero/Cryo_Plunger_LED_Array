@@ -58,8 +58,8 @@ constexpr static struct stateStruct{
   uint8_t calibrating_led = 1;
   uint8_t waiting_trapdoor = 2;
   uint8_t waiting_plunger = 3;
-  uint8_t led_on = 4;
-  uint8_t led_cooldown = 5;
+  uint8_t led_on = 5;
+  uint8_t led_cooldown = 6;
   
   uint8_t door_open = 101;
   uint8_t com_failure = 102;
@@ -73,8 +73,7 @@ constexpr static struct stateStruct{
   uint8_t ps_over_current = 110;
   uint8_t ps_over_voltage = 111;
   uint8_t no_mic = 113;
-  uint8_t ps_output_fail = 114;
-  uint8_t ps_voltage_limit = 115;
+  uint8_t ps_voltage_limit = 114;
 } state;
 
 const struct defaultStatusStruct{
@@ -138,6 +137,12 @@ void setup() {
   Serial.begin(250000);
   while(!Serial);
 
+  //Initialize timers
+  ITimer1.init();
+  ITimer1.attachInterruptInterval(LED_PWM, yellowLedHandler);
+  ITimer3.init();
+  ITimer3.attachInterruptInterval(LED_FLASH_INTERVAL, flashLedHandler);
+
 // ps.setVoltage(31);
 // ps.setCurrent(0.1);
 // ps.toggleOutput(true);
@@ -165,7 +170,8 @@ void loop() {
   initialize();
 
   //Wait for pushbutton to be pressed and released
-  while(digitalReadFast(in.pushbutton)) checkStatus(); 
+  while(digitalReadFast(in.pushbutton)) checkStatus();
+  playStatusTone(); 
   delay(debounce);
   while(!digitalReadFast(in.pushbutton)) checkStatus();
   delay(debounce);
@@ -174,7 +180,8 @@ void loop() {
   calibrate();
 
   //Wait for pushbutton to be pressed and released
-  while(digitalReadFast(in.pushbutton)) checkStatus(); 
+  while(digitalReadFast(in.pushbutton)) checkStatus();
+  playStatusTone(); 
   delay(debounce);
   while(!digitalReadFast(in.pushbutton)) checkStatus();
   delay(debounce);
@@ -196,12 +203,9 @@ void initialize(){
   //configrue adc
   //analogReference(EXTERNAL); //External ADC is causing noise issues
 
-  //Initialize timer interrupts
-  ITimer1.init();
-  ITimer1.attachInterruptInterval(LED_PWM, yellowLedHandler);
+  //Pause timers interrupts
+  interrupts();
   ITimer1.pauseTimer();
-  ITimer3.init();
-  ITimer3.attachInterruptInterval(LED_FLASH_INTERVAL, flashLedHandler);
   ITimer3.pauseTimer();
 
   //Connect to powersupply
@@ -211,8 +215,9 @@ void initialize(){
   checkPowerStatus();
   
   //Make sure boot was without error
-  checkStatus();
+  checkStatus(); //Check for errors
   setColor(green); //update button color
+  status.state = state.standby;
   playStatusTone();
 }
 
@@ -284,25 +289,124 @@ void checkStatus(){
   status_index++;
   checkError(); //Always check error codes
   switch (status_index) {
-  case state.com_failure: //Check door interlock
+  case 1: //Check door
+    if(!digitalReadFast(in.door)){
+      if(status.state){
+        status.state = state.door_open;
+      }
+    }
     break;
-  case 1:
-    //Com failure talking to power supply
+  case 2: //Check driver current
+    checkCurrent();
+    if(status.driver_current > 0 && status.state != state.led_on) status.state = state.driver_over_current;
+    break;
+  case 3: //Check driver voltage
+    checkVoltage();
+    if(status.driver_voltage > 0 && (status.state >= 100 || !status.state)) status.state = state.driver_over_voltage;
+    else if(status.driver_voltage == 0 && status.ps_voltage > 0) status.state = state.driver_under_voltage;
+    break;
+  case 4: //Check PS voltage
+    status.ps_voltage = ps.getVoltage();
+    if(status.ps_voltage > 0 && (status.state >= 100 || !status.state)) status.state = state.ps_over_voltage;
+    else if(status.ps_voltage < 0) status.state = state.com_failure;
+    break;
+  case 5: //Check PS current
+    status.ps_current = ps.getCurrent();
+    if(status.ps_voltage > max_safe_voltage && status.ps_current == 0) status.state = state.bulb_out;
+    else if(status.ps_voltage < 0) status.state = state.com_failure;
+    break;
+  case 6: //Check pushbutton
+    if(!digitalReadFast(in.pushbutton)){
+      playStatusTone();
+      delay(debounce);
+      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) initialize(); //Initialize if press isn't to cycle to next driver step
+      while(!digitalReadFast(in.pushbutton)); // Wait for button release
+      delay(debounce);
+    }
+    break;
+  case 7:
+    if(status.state >= state.led_cooldown){
+      if(status.ps_current == 0 && status.ps_voltage == 0 && status.driver_current == 0 && status.driver_voltage == 0){ //If LED driver is fully safed and is cooling down or in error, restart driver
+        initialize();
+      }
+    }
     break;
   default:
     // statements
     break;
   }
+  checkError(); //Always check error codes
 }
-
+  uint8_t no_mic = 113;
+  uint8_t ps_voltage_limit = 115;
 void checkError(){
   if(status.state < 100) return; //If there are no errors, then return
   else{
     switch (status.state) {
-      case state.standby: //No active errors
+      case state.door_open: //No active errors
+        if(Serial) Serial.println("Error: Chamber door opened while driver was armed.");
+        failSafe();
+        playAlarmTone();
         break;
-      case 1:
-        //Com failure talking to power supply
+      case state.com_failure: 
+        if(Serial) Serial.println("Error: No communication with power supply.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.bulb_out: 
+        if(Serial) Serial.println("Error: No current through light bulb.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.driver_under_current: 
+        if(Serial) Serial.println("Error: Insufficient LED current.  Check LED connection and fuses.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.driver_under_voltage: 
+        if(Serial) Serial.println("Error: No voltage on LED driver.  Check power supply connection and fuses.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.driver_over_current: 
+        if(Serial) Serial.println("Error: Excessive LED current.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.driver_over_voltage: 
+        if(Serial) Serial.println("Error: Driver over-voltage.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.ps_under_current: 
+        if(Serial) Serial.println("Error: Insufficient power supply current.  Check LED connection and fuses.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.ps_under_voltage: 
+        if(Serial) Serial.println("Error: Power supply over voltage.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.ps_over_current: 
+        if(Serial) Serial.println("Error: Power supply over current.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.ps_over_voltage: 
+        if(Serial) Serial.println("Error: Power supply over voltage.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.no_mic: //No active errors
+        if(Serial) Serial.println("Error: Mic not connected.");
+        failSafe();
+        playAlarmTone();
+        break;
+      case state.ps_voltage_limit:
+        if(Serial) Serial.println("Error: Power supply voltage limit reached.");
+        failSafe();
+        playAlarmTone();
         break;
       default:
         // statements
