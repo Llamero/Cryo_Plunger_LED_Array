@@ -116,7 +116,6 @@ void(* resetFunc) (void) = 0;//declare reset function at address 0
 void setup() {
   //Sertup serial
   Serial.begin(250000);
-  while(!Serial);
 }
 
 void loop() {
