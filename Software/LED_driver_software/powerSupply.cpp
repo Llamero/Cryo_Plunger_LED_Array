@@ -6,8 +6,9 @@
 #define halfBit9600Delay 52
 #define rx_pin 4
 #define tx_pin 0
+#define debug false
 
-char powerSupply::command[13];
+char powerSupply::command[14];
 const char powerSupply::connect_commands[][14] = {"<09100000000>", "<08000000000>", "<01000000000>", "<03000000000>"}; //Sequence for starting  connection to power supply
 const char powerSupply::disconnect_command[] = {"<09200000000>"}; //Sequence for closing  connection to power supply
 const char powerSupply::output_commands[][14] = {"<08000000000>", "<07000000000>"}; //Disable and enable power supply output
@@ -25,15 +26,25 @@ bool powerSupply::connect(){
   digitalWrite(tx_pin, HIGH); //Force clean start bit on init
   delay(1);
   for(uint8_t i=0; i<sizeof(connect_commands)/sizeof(connect_commands[0]); i++){
-    rs232print(connect_commands[i]);
-    if (!rs232read() && i != 1){ com_success = false;} //Toggle output (second command) does not have a reply
+    retry_counter = retry_limit;
+    while(retry_counter--){ 
+      rs232print(connect_commands[i]);
+      if (rs232read() || i == 1) break; //Toggle output (second command) does not have a reply
+      delay(retry_delay);
+      if(!retry_counter) com_success = false;
+    }
   }
   return com_success;
 }
 
 bool powerSupply::disconnect(){
-  rs232print(disconnect_command); //Load command into string buffer
-  if (!rs232read()) return false;
+  retry_counter = retry_limit;
+  while(retry_counter--){ 
+    rs232print(disconnect_command); //Load command into string buffer
+    if (rs232read()) break; //Toggle output (second command) does not have a reply
+    delay(retry_delay);
+    if(!retry_counter) return false;
+  }
   return true;
 }
 
@@ -44,34 +55,54 @@ bool powerSupply::toggleOutput(bool out_on){
 }
 
 float powerSupply::getVoltage(){
-  rs232print(get_voltage_command);
-  if (!rs232read()) return -1;
+  retry_counter = retry_limit;
+  while(retry_counter--){ 
+    rs232print(get_voltage_command);
+    if (rs232read()) break; //Toggle output (second command) does not have a reply
+    delay(retry_delay);
+    if(!retry_counter) return -1;
+  }
   return formatReply();
 }
 
 float powerSupply::getCurrent(){
-  rs232print(get_current_command);
-  if (!rs232read()) return -1;
+  retry_counter = retry_limit;
+  while(retry_counter--){
+    rs232print(get_current_command);
+    if (rs232read()) break; //Toggle output (second command) does not have a reply
+    delay(retry_delay);
+    if(!retry_counter) return -1;
+  }
   return formatReply();
 }
 
 void powerSupply::getCommand(char* out_array){
-  for(uint8_t i = 0; i<sizeof(out_array) && i < sizeof(command); i++) out_array[i] = command[i];
+  for(uint8_t i = 0; i<sizeof(out_array) && i < sizeof(command)-1; i++) out_array[i] = command[i];
 }
 
 bool powerSupply::setVoltage(float volt){
+  retry_counter = retry_limit;
   if(volt > voltage_limit) volt = voltage_limit;
   if(volt < 0) volt = 0;
-  formatCommand('0', '1', volt);
-  if (!rs232read()) return false;
+  while(retry_counter--){
+    formatCommand('0', '1', volt);
+    if (rs232read()) break; //Toggle output (second command) does not have a reply
+    delay(retry_delay);
+    if(!retry_counter) return false;
+  }
   return true;
 }
 
 bool powerSupply::setCurrent(float amps){
+  retry_counter = retry_limit;
   if(amps > current_limit) amps = current_limit;
   if(amps < 0) amps = 0;
-  formatCommand('0', '3', amps);
-  if (!rs232read()) return false;
+  while(retry_counter--){
+    formatCommand('0', '3', amps);
+    if (rs232read()) break; //Toggle output (second command) does not have a reply
+    delay(retry_delay);
+    if(!retry_counter) return false;
+  }
   return true;
 }
 
@@ -102,12 +133,12 @@ void powerSupply::formatCommand(char com1, char com2, float value){
   value *= 100; //Remove extra precision
   value = round(value);
   value /= 100;
-  for(i=0; i<sizeof(command); i++) command[i] = '0'; //Clear out command with '0' 
+  for(i=0; i<sizeof(command)-1; i++) command[i] = '0'; //Clear out command with '0' 
   dtostrf(value, 6, 2, temp_command);
   command[0] = '<';
   command[1] = com1;
   command[2] = com2;
-  command[sizeof(command)-1] = '>';
+  command[sizeof(command)-2] = '>';
   for(i=0; i<sizeof(temp_command); i++){
     if(temp_command[i] == ' ' || temp_command[i] == 0) command[i+offset] = '0';
     else if (temp_command[i] == '.'){
@@ -122,8 +153,8 @@ void powerSupply::formatCommand(char com1, char com2, float value){
 
 
 void powerSupply::rs232print(char* data){
-  if(Serial){Serial.print("tx->: "); Serial.println(data);}
-  for(uint8_t i=0; i<sizeof(command); i++) SWprint(data[i]);
+  if(Serial && debug){Serial.print("tx->: "); Serial.println(data);}
+  for(uint8_t i=0; i<sizeof(command)-1; i++) SWprint(data[i]);
 }
 
 void powerSupply::SWprint(char data)
@@ -148,15 +179,16 @@ void powerSupply::SWprint(char data)
 }
 
 bool powerSupply::rs232read(){
-  bool valid_reply;
-  for(uint8_t i=0; i<sizeof(command); i++){
+  for(uint8_t i=0; i<sizeof(command)-1; i++){
     command[i] = SWread();
-    if(!command[i]) valid_reply = false; //Null terminator means incomplete message received
+    if(command[i] < '0' || command[i] > 'O'){ //Check that character is valid
+       if(Serial && debug){Serial.print("<-Bad reply. Retries remaining: "); Serial.println(retry_counter);}
+       return false;
+    } 
   }
   delay(1); //pad time between commands 
-  if(Serial){Serial.print("<-rx: "); Serial.println(command);}
-  valid_reply = true;
-  return valid_reply;
+  if(Serial && debug){Serial.print("<-rx: "); Serial.println(command);}
+  return true;
 }
 
 char powerSupply::SWread(){
