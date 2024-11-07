@@ -9,8 +9,9 @@
 constexpr struct pulseStruct{
   uint8_t duration = 100; //Total duration of LED pulse: 0-255 ms
   float current = 3; //Peak output current in amps
-  uint16_t  delay = 500; //Delay from trigger event to LED on: 0-65535 ms
-  uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms 
+  uint16_t  delay = 2000; //Delay from trigger event to LED on: 0-65535 ms
+  uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms
+  float voltage = -1; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage 
 } pulse;
 
 //Button LED 
@@ -25,11 +26,13 @@ constexpr struct pulseStruct{
 #define flashing_yellow 41 //Calibrating
 
 //System parameters
+#define max_led_current 3 //Maximum current for the LED
 #define series_resistance 31 //Total series resistance of the LED driver
 #define max_safe_voltage 30 //Maximum voltage before performing high voltage checks
 #define max_ps_voltage 200 //Maximum voltage the power supply can output
 #define max_ps_current 1 //Maximum current the power supply can output
 #define debounce 100 //Debounce delay (ms)
+#define driver_timeout 600000 //Revert to standby if there hasn't been a button press in x ms
 
 const struct inputPinsStruct{
   uint8_t rx = 4;
@@ -77,6 +80,7 @@ constexpr static struct stateStruct{
   uint8_t ps_voltage_limit = 114;
   uint8_t ps_unstable = 115;
   uint8_t reboot = 116;
+  uint8_t timeout = 117;
 } state;
 
 const struct defaultStatusStruct{
@@ -106,6 +110,7 @@ const float vref = 4.2; //ADC Vref
 const float vfactor = 0.01960784313; //Voltage divider on Vsense
 uint8_t status_index;
 bool flash; //Tracks whether led is on or off when flashing
+float pulse_voltage;
 
 powerSupply ps;
 elapsedMillis driver_timer;
@@ -121,43 +126,164 @@ void setup() {
 void loop() {
   //Setup device
   initialize();
- 
-  //Wait for pushbutton to be pressed and released
-  while(digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  playStatusTone(); 
-  delay(debounce);
-  while(!digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  delay(debounce);
-  
-  //Start LED calibration
+  waitForButton();
   calibrate();
+  while(true){
+    waitForButton();
+    ledPulse();
+  }
+}
 
-  //Wait for pushbutton to be pressed and released
-  while(digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  playStatusTone(); 
-  delay(debounce);
-  while(!digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  delay(debounce);
+void waitForButton(){
+  uint32_t timer[3];
+  uint32_t start_countdown = 10240;
+  bool button_state = true;
+  bool connect_sent;
+
+  auto checkButton = [&] (){ //Wait for the trigger event to reset - used to initially sync the LED driver to the trigger input
+    //Wait for pushbutton to be pressed and released
+    timer[0] = driver_timer;
+    timer[1] = timer[0];
+    timer[2] = timer[0];
+    while(digitalReadFast(in.pushbutton) == button_state && (driver_timer - timer[0] <= driver_timeout || status.state == state.standby)){
+      if(!button_state && (driver_timer - timer[2] > 3000)) status.state = state.reboot; //If button is held reboot.
+      checkStatus(); 
+      if(status.state != state.standby){ //Flash LED if not in stndby
+        if(driver_timer - timer[0]> driver_timeout-start_countdown){ //Give a warning beep each second during final timeout countdown
+          playStatusTone();
+          start_countdown -= 1024;
+        }
+        if(driver_timer & 512){
+          setColor(green);
+          if(!connect_sent){
+            if(!ps.connect()) status.state = state.com_failure; //send a connection request once a second to disarm PS
+            else connect_sent = true;
+          }
+        }
+        else{
+          setColor(off);
+          connect_sent = false;
+        } 
+      }
+    }
+    if(driver_timer - timer[0]> driver_timeout && status.state != state.standby) status.state = state.timeout;
+    checkStatus();
+    if(button_state) playStatusTone();
+    delay(debounce);
+    button_state = !button_state;
+  };
+
+  checkButton();
+  checkButton();
+}
+
+void ledPulse(){
+  uint32_t timer[3];
+  float start_current;
+  float avg_current;
+  uint32_t n_samples;
+  bool ps_stable;
+  float prev_voltage;
+
+  auto checkDriver = [&] (){ //Wait for the trigger event to reset - used to initially sync the LED driver to the trigger input
+    status.ps_voltage = ps.getVoltage();
+    if(status.ps_voltage < 0) status.state = state.com_failure;
+    delay(50);
+    if(status.ps_voltage > max_safe_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
+      status.ps_current = ps.getCurrent(); 
+      if(status.ps_current == 0) status.state = state.bulb_out;
+      else if (status.ps_current < 0) status.state = state.com_failure;
+    }
+    delay(50);
+    checkStatus();
+  };
 
   //Start LED pulse sequence
+  Serial.println("Arming power supply...");
+  status.state = state.waiting_plunger;
+  setColor(red);
   ps.toggleOutput(true);
-  delay(3000);
+  delay(100);
+  while (status.ps_voltage < pulse_voltage){
+    timer[0] = driver_timer;
+    ps_stable = false;
+    while(driver_timer - timer[0] < 10000 && !ps_stable){ //Increment PS voltage and wait for it to stabilize
+      //Increment power supply to new voltage and perform safety checks
+      digitalWriteFast(out.led_trigger, LOW);
+      if(!ps.setVoltage(pulse_voltage)) status.state = state.com_failure; //Set voltage to 1 before turning on output
+      if(!ps.setCurrent(pulse.current)) status.state = state.com_failure;//Set driver current limit to pulse current
+      ps.toggleOutput(true); //Turn on output
+      delay(100);
+      timer[1] = driver_timer;
+      while(driver_timer - timer[1] < 5000 && !ps_stable){
+        checkDriver();
+        timer[2] = driver_timer;
+        while(status.ps_voltage == pulse_voltage && driver_timer - timer[2] < 500 && !ps_stable){
+          checkDriver();
+        }
+        if(driver_timer - timer[2] >= 500) ps_stable = true;
+      }
+    }
+    if(ps_stable){
+      prev_voltage = 0;
+      while(prev_voltage < status.driver_voltage*0.999 || prev_voltage > status.driver_voltage*1.001){ //Wait for driver voltage to stabilize
+        prev_voltage = status.driver_voltage;
+        checkVoltage();
+        checkStatus();
+        delay(200);
+      }
+    }
+    else{
+      status.state = state.ps_unstable;
+      checkStatus();
+    } 
+  }
+  Serial.println("Power supply stable, sending trigger...");
+  timer[0] = driver_timer;
+
+
+//Send / receive trigger
+
+
+  while(driver_timer - timer[0] < pulse.delay - 200) checkStatus();
+  status.state = state.led_on;
+  while(driver_timer - timer[0] < pulse.delay); //Wait for pulse timer 
   digitalWriteFast(out.led_trigger, HIGH);
-  delay(50);
+  delayMicroseconds(10);
+  checkCurrent();
+  start_current = status.driver_current;
+  avg_current += start_current;
+  n_samples++;
+  while(driver_timer - timer[0] < pulse.delay + pulse.duration){
+    checkCurrent();
+    avg_current += status.driver_current;
+    n_samples++;
+    if(avg_current / n_samples > max_led_current){
+      digitalWriteFast(out.led_trigger, LOW);
+      status.state = state.driver_over_current;
+      checkStatus();
+    }
+  }
   digitalWriteFast(out.led_trigger, LOW);
+  timer[1] = driver_timer;
   ps.toggleOutput(false);
+  Serial.print("Pulse complete! Start: ");
+  Serial.print(start_current);
+  Serial.print(" amps, end: ");
+  Serial.print(status.driver_current);
+  Serial.print(" amps, average: ");
+  Serial.print(avg_current / n_samples);
+  Serial.print(" amps, duration: ");
+  Serial.print(timer[1] - timer[0] - pulse.delay);
+  Serial.print(" ms, # of samples: ");
+  Serial.println(n_samples);
   dischargeCapacitor();
-
-
-  //Wait for pushbutton to be pressed and released
-  while(digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  playStatusTone(); 
-  delay(debounce);
-  while(!digitalReadFast(in.pushbutton)){checkStatus(); delay(50);}
-  delay(debounce);
+  status.state = state.waiting_trapdoor;
 }
 
 void initialize(){
+  Serial.println("Initializing LED driver...");
+  
   //Set pin states
   uint8_t i;
   for(i=0; i<sizeof(in_pins); i++) pinMode(in_pins[i], INPUT_PULLUP);
@@ -176,9 +302,16 @@ void initialize(){
   //Verify that led is not powered
   checkPowerStatus();
   
+  //Check that the pulse current and voltage are valid
+  if(pulse.current > max_led_current) status.state = state.driver_over_current;
+  if(pulse.current <= 0) status.state = state.driver_under_current;
+  if(pulse.voltage > max_ps_voltage) status.state = state.ps_over_voltage;
+  if(pulse.voltage == 0) status.state = state.ps_under_voltage;
+
   //Make sure boot was without error
   checkStatus();
   setColor(green); //update button color
+  Serial.println("Driver initalized. Press button to start calibration.");
   playStatusTone();
 }
 
@@ -190,6 +323,11 @@ void calibrate(){
   float prev_voltage;
   float led_voltage;
 
+  if(pulse.voltage > 0){ //If voltage is already set, do not calibrate
+    pulse_voltage = pulse.voltage;
+    status.state = state.waiting_trapdoor;
+    return;
+  }
 
   auto checkDriver = [&] (){ //Wait for the trigger event to reset - used to initially sync the LED driver to the trigger input
     status.ps_voltage = ps.getVoltage();
@@ -207,12 +345,6 @@ void calibrate(){
   status.state = state.calibrating_led; //Update state
   setColor(red);
   if(Serial) Serial.println("Starting LED current calibration...");
-  delay(100);
-  ps.toggleOutput(true); //Turn on output
-  delay(200);
-  pinMode(in.rx, INPUT_PULLUP);
-  if(!ps.setVoltage(set_voltage));// status.state = state.com_failure; //Set voltage to 1 before turning on output
-  if(!ps.setCurrent(pulse.current));// status.state = state.com_failure;//Set driver current limit to pulse current
   status.driver_current = 0; //Reset driver current
   
   while (status.driver_current < pulse.current){
@@ -225,8 +357,10 @@ void calibrate(){
     while(driver_timer - timer[0] < 10000 && !ps_stable){ //Increment PS voltage and wait for it to stabilize
       //Increment power supply to new voltage and perform safety checks
       digitalWriteFast(out.led_trigger, LOW);
-      ps.setVoltage(set_voltage);
-      delay(100);
+      if(!ps.setVoltage(set_voltage)) status.state = state.com_failure; //Set voltage to 1 before turning on output
+      if(!ps.setCurrent(pulse.current)) status.state = state.com_failure;//Set driver current limit to pulse current
+      ps.toggleOutput(true); //Turn on output
+      delay(200);
       timer[1] = driver_timer;
       while(driver_timer - timer[1] < 5000 && !ps_stable){
         checkDriver();
@@ -264,6 +398,7 @@ void calibrate(){
         Serial.println(led_voltage);
 
       }
+      pulse_voltage = set_voltage - 1; //Prevent overcurrent by setting the pulse 1 volt lower
 
       //Increment the set voltage by 1
       set_voltage = floor((pulse.current * series_resistance) + led_voltage);
@@ -278,11 +413,11 @@ void calibrate(){
   delay(500);
   status.ps_current = ps.getCurrent();
   if(status.ps_current > 0) status.state = state.ps_over_current;
-  checkStatus();
   if(Serial){
     if(status.driver_current < pulse.current) Serial.println("Calibration stopped - power supply maximum voltage reached.");
     else Serial.println("Success, LED current calibration complete!");
   }
+  checkStatus();
   dischargeCapacitor();
   status.state = state.waiting_trapdoor;
 }
@@ -294,7 +429,9 @@ void dischargeCapacitor(){
 
   status.state = state.capacitor_discharging;
   Serial.println("Waiting for capacitor to discharge to a safe voltage...");
-  delay(500);
+  if(!ps.connect()) status.state = state.com_failure;
+  timer = driver_timer;
+  while(driver_timer - timer > 500) checkStatus();
   checkVoltage();
   prev_voltage = status.driver_voltage;
   timer = driver_timer;
@@ -319,9 +456,7 @@ void checkStatus(){
   switch (status_index) {
   case 1: //Check door
     if(!digitalReadFast(in.door)){
-      if(status.state){
-        status.state = state.door_open;
-      }
+      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) status.state = state.door_open;
     }
     break;
   case 2: //Check driver current
@@ -330,37 +465,31 @@ void checkStatus(){
     break;
   case 3: //Check driver voltage
     checkVoltage();
-    if(status.driver_voltage > max_safe_voltage && (status.state >= 100 || !status.state)){
+    if(status.driver_voltage > max_safe_voltage && (status.state >= 100 || status.state == state.standby || status.state == state.waiting_trapdoor)){
       status.state = state.driver_over_voltage;
     } 
     else if(status.driver_voltage == 0 && status.ps_voltage > 0) status.state = state.driver_under_voltage;
     break;
   case 4: //Check PS voltage
     status.ps_voltage = ps.getVoltage();
-    if(status.ps_voltage > 0 && (status.state >= 100 || !status.state)){status.state = state.ps_over_voltage;} 
+    if(status.ps_voltage > 0 && (status.state >= 100 || status.state == state.standby || status.state == state.waiting_trapdoor)){status.state = state.ps_over_voltage;} 
     else if(status.ps_voltage < 0) status.state = state.com_failure;
     break;
   case 5: //Check PS current
     status.ps_current = ps.getCurrent();
-    if(status.ps_voltage > max_safe_voltage && status.ps_current == 0){
+    if(status.ps_current < 0) status.state = state.com_failure;
+    else if(status.ps_voltage > max_safe_voltage && status.ps_current == 0){
        status.ps_voltage = ps.getVoltage(); //Double check voltage in case output was just disabled
        if(status.ps_voltage > max_safe_voltage) status.state = state.bulb_out;
     }
     else if(status.ps_voltage < 0) status.state = state.com_failure;
     break;
   case 6: //Check pushbutton
-    if(!digitalReadFast(in.pushbutton)){
-      playStatusTone();
-      delay(debounce);
-      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) status.state = state.reboot; //Initialize if press isn't to cycle to next driver step
-      while(!digitalReadFast(in.pushbutton)); // Wait for button release
-      delay(debounce);
-    }
-    break;
-  case 7:
-    if(status.state >= state.led_cooldown){
-      if(status.ps_current == 0 && status.ps_voltage == 0 && status.driver_current == 0 && status.driver_voltage == 0){ //If LED driver is fully safed and is cooling down or in error, restart driver
-        initialize();
+    if(!(status.state == state.standby || status.state == state.waiting_trapdoor)){
+      if(!digitalReadFast(in.pushbutton)){
+        delay(debounce);
+        playStatusTone();
+        status.state = state.reboot; //Initialize if press isn't to cycle to next driver step
       }
     }
     break;
@@ -422,6 +551,8 @@ void checkError(){
         break;
       case state.reboot:
         if(Serial) Serial.println("Rebooting LED driver, please wait...");
+      case state.timeout:
+        if(Serial) Serial.println("Driver timed out waiting for button press, rebooting...");
       default:
         // statements
         break;
