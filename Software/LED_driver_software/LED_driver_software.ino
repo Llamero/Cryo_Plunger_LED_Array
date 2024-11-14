@@ -8,7 +8,7 @@
 
 constexpr struct pulseStruct{
   uint8_t duration = 100; //Total duration of LED pulse: 0-255 ms
-  float current = 3; //Peak output current in amps
+  float current = 2.98; //Peak output current in amps
   uint16_t  delay = 2000; //Delay from trigger event to LED on: 0-65535 ms
   uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms
   float voltage = -1; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage 
@@ -27,8 +27,10 @@ constexpr struct pulseStruct{
 
 //System parameters
 #define max_led_current 3 //Maximum current for the LED
+#define max_ps_current 5 //Maximum output current for the power supply
 #define series_resistance 31 //Total series resistance of the LED driver
 #define max_safe_voltage 30 //Maximum voltage before performing high voltage checks
+#define min_bulb_voltage 105 //Minimum voltage needed to see current across the bulb
 #define max_ps_voltage 200 //Maximum voltage the power supply can output
 #define max_ps_current 1 //Maximum current the power supply can output
 #define debounce 100 //Debounce delay (ms)
@@ -189,7 +191,7 @@ void ledPulse(){
     status.ps_voltage = ps.getVoltage();
     if(status.ps_voltage < 0) status.state = state.com_failure;
     delay(50);
-    if(status.ps_voltage > max_safe_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
+    if(status.ps_voltage > min_bulb_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
       status.ps_current = ps.getCurrent(); 
       if(status.ps_current == 0) status.state = state.bulb_out;
       else if (status.ps_current < 0) status.state = state.com_failure;
@@ -258,7 +260,7 @@ void ledPulse(){
     checkCurrent();
     avg_current += status.driver_current;
     n_samples++;
-    if(avg_current / n_samples > max_led_current){
+    if(status.driver_current > max_led_current){
       digitalWriteFast(out.led_trigger, LOW);
       status.state = state.driver_over_current;
       checkStatus();
@@ -316,7 +318,7 @@ void initialize(){
 }
 
 void calibrate(){
-  float set_voltage = pulse.current * series_resistance; //Calculate the starting test current
+  float set_voltage = round(pulse.current * series_resistance); //Calculate the starting test current
   uint8_t i;
   uint32_t timer[3];
   bool ps_stable;
@@ -333,7 +335,7 @@ void calibrate(){
     status.ps_voltage = ps.getVoltage();
     if(status.ps_voltage < 0) status.state = state.com_failure;
     delay(50);
-    if(status.ps_voltage > max_safe_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
+    if(status.ps_voltage > min_bulb_voltage){ //If DC voltage above safe level, check that bulb is discharching the capacitor
       status.ps_current = ps.getCurrent(); 
       if(status.ps_current == 0) status.state = state.bulb_out;
       else if (status.ps_current < 0) status.state = state.com_failure;
@@ -373,7 +375,7 @@ void calibrate(){
     }
     if(ps_stable){
       prev_voltage = 0;
-      while(prev_voltage < status.driver_voltage*0.999 || prev_voltage > status.driver_voltage*1.001){ //Wait for driver voltage to stabilize
+      while(prev_voltage < status.driver_voltage*0.99 || prev_voltage > status.driver_voltage*1.01){ //Wait for driver voltage to stabilize
         prev_voltage = status.driver_voltage;
         checkVoltage();
         checkStatus();
@@ -478,9 +480,9 @@ void checkStatus(){
   case 5: //Check PS current
     status.ps_current = ps.getCurrent();
     if(status.ps_current < 0) status.state = state.com_failure;
-    else if(status.ps_voltage > max_safe_voltage && status.ps_current == 0){
+    else if(status.ps_voltage > min_bulb_voltage && status.ps_current == 0){
        status.ps_voltage = ps.getVoltage(); //Double check voltage in case output was just disabled
-       if(status.ps_voltage > max_safe_voltage) status.state = state.bulb_out;
+       if(status.ps_voltage > min_bulb_voltage) status.state = state.bulb_out;
     }
     else if(status.ps_voltage < 0) status.state = state.com_failure;
     break;

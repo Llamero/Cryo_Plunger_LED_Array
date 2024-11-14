@@ -5,7 +5,8 @@
 #define powerSupply_h
 
 #include "Arduino.h"
-#include <SoftwareSerial.h>
+#include <elapsedMillis.h>
+
 class powerSupply{
   public:
     powerSupply();
@@ -37,8 +38,10 @@ class powerSupply{
     const static char get_current_command[];
     static char command[14]; //Array for RS-232 commands sent
     
+    static elapsedMicros com_timer;
+
     const static uint8_t com_delay = 50;
-    const static uint8_t current_limit = 1;
+    const static uint8_t current_limit = 5;
     const static uint8_t voltage_limit = 200;
     const static uint8_t retry_limit = 10;
     const static uint8_t retry_delay = 10;
@@ -48,5 +51,6 @@ class powerSupply{
     float active_output;
     uint8_t tx_pin;
     uint8_t rx_pin;
+    uint32_t cur_time;
 };
 #endif
