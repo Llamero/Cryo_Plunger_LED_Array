@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "powerSupply.h"
 #include <digitalWriteFast.h>
+#include <elapsedMillis.h>
 
 #define bit9600Delay 104  
 #define halfBit9600Delay 52
@@ -14,6 +15,7 @@ const char powerSupply::disconnect_command[] = {"<09200000000>"}; //Sequence for
 const char powerSupply::output_commands[][14] = {"<08000000000>", "<07000000000>"}; //Disable and enable power supply output
 const char powerSupply::get_voltage_command[] = {"<02012200000>"};
 const char powerSupply::get_current_command[] = {"<04003300000>"};
+static elapsedMicros powerSupply::com_timer;
 
 powerSupply::powerSupply(){
 }
@@ -161,8 +163,10 @@ void powerSupply::SWprint(char data)
 {
   byte mask;
   //startbit
+  cur_time = com_timer;
   digitalWrite(tx_pin,LOW);
-  delayMicroseconds(bit9600Delay);
+  while(com_timer - cur_time < bit9600Delay);
+  cur_time += bit9600Delay;
   for (mask = 0x01; mask>0; mask <<= 1) {
     if (data & mask){ // choose bit
      digitalWrite(tx_pin,HIGH); // send 1
@@ -170,12 +174,13 @@ void powerSupply::SWprint(char data)
     else{
      digitalWrite(tx_pin,LOW); // send 0
     }
-    delayMicroseconds(bit9600Delay);
+    while(com_timer - cur_time < bit9600Delay);
+    cur_time += bit9600Delay;
   }
   //stop bit
   digitalWrite(tx_pin, HIGH);
-  delayMicroseconds(bit9600Delay);
-  delayMicroseconds(bit9600Delay);
+  while(com_timer - cur_time < 2*bit9600Delay);
+  cur_time += 2*bit9600Delay;
 }
 
 bool powerSupply::rs232read(){
@@ -204,11 +209,13 @@ char powerSupply::SWread(){
   
   //wait for start bit
   if (digitalRead(rx_pin) == LOW) {
-    //digitalWrite(LED_BUILTIN, HIGH);
-    delayMicroseconds(halfBit9600Delay);
+    cur_time = com_timer;
+    while(com_timer - cur_time < halfBit9600Delay);
+    cur_time += halfBit9600Delay;
     for (int offset = 0; offset < 8; offset++) {
-     delayMicroseconds(bit9600Delay);
-     val |= digitalRead(rx_pin) << offset;
+      while(com_timer - cur_time < bit9600Delay);
+      cur_time += bit9600Delay;
+      val |= digitalRead(rx_pin) << offset;
     }
     //wait for stop bit + extra
     delayMicroseconds(halfBit9600Delay);
