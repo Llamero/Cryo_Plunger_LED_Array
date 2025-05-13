@@ -1,0 +1,157 @@
+(footprint "1X06-SMD-FEMALE"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "Header - 6 pin Female SMD Right angle 0.1\"\n\nSpecifications:\n\n• Pin count:6\n• Pin pitch:0.1\"\n\nDatasheet referenced for footprint:\n\nExample device(s):\n\n• CONN_06")
+	(property "Reference" "REF**"
+		(at -1.524 3.302 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "60a2dc5d-444a-4952-ab26-02ae01400d4d")
+		(effects
+			(font
+				(size 0.48768 0.48768)
+				(thickness 0.12192)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Value" "1X06-SMD-FEMALE"
+		(at -1.778 4.826 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "f31531ca-e579-4e73-a9fd-e6d1906cad49")
+		(effects
+			(font
+				(size 0.48768 0.48768)
+				(thickness 0.12192)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "11aaf64b-bb06-4d53-ac29-71d7b6b764d2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d93d0a6a-0a2a-4cc1-a5ff-40ec7e4ebb1d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a0ac8358-dafd-447e-8977-7293c980a23b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start -7.5 -0.45)
+		(end -7.5 8.05)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c8925d07-8fed-457b-b2b3-c7615fc8bb8a")
+	)
+	(fp_line
+		(start -7.5 8.05)
+		(end 7.5 8.05)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "81be70d1-54d0-418b-a929-21e83aa13df3")
+	)
+	(fp_line
+		(start 7.5 -0.45)
+		(end -7.5 -0.45)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6e913687-4b4e-418e-a78d-29ad030f4f8a")
+	)
+	(fp_line
+		(start 7.5 8.05)
+		(end 7.5 -0.45)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "fe7181cd-7859-4f0b-98b4-d4db8034610d")
+	)
+	(pad "1" smd rect
+		(at 6.35 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "4980b07a-c078-4f8f-94ed-0a749dd92edd")
+	)
+	(pad "2" smd rect
+		(at 3.81 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "53fa3d5e-691a-45ca-9b9f-00fa049571b5")
+	)
+	(pad "3" smd rect
+		(at 1.27 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "0a0cf02f-69f8-43bb-aee0-9c0d0d4cc93e")
+	)
+	(pad "4" smd rect
+		(at -1.27 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "6d448626-b82d-4c04-b72e-1652a050640d")
+	)
+	(pad "5" smd rect
+		(at -3.81 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "155692a7-e409-4317-9972-2b4f310d82c4")
+	)
+	(pad "6" smd rect
+		(at -6.35 -3.425 180)
+		(size 1.25 3)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.1016)
+		(thermal_bridge_angle 0)
+		(uuid "5196c080-d3cb-4185-9577-aef213ba6204")
+	)
+)

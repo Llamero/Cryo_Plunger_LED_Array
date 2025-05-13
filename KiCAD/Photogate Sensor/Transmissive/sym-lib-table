@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Custom")(type "KiCad")(uri "${KIPRJMOD}/Custom.kicad_sym")(options "")(descr ""))
+  (lib (name "Serial-Basic-CH340C-and-USBC-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/Serial-Basic-CH340C-and-USBC-eagle-import.kicad_sym")(options "")(descr ""))
+)
