@@ -1,17 +1,18 @@
 #include <digitalWriteFast.h>
 #include <elapsedMillis.h>
 #include "powerSupply.h"
-#define USE_TIMER_1     true
-#define USE_TIMER_3     true
-#warning Using Timer1, Timer3
-#include "TimerInterrupt_Generic.h"
+//#define USE_TIMER_1     true
+//#define USE_TIMER_3     true
+//#warning Using Timer1, Timer3
+//#include "TimerInterrupt_Generic.h"
 
 constexpr struct pulseStruct{
-  uint8_t duration = 100; //Total duration of LED pulse: 0-255 ms
-  float current = 2.98; //Peak output current in amps
-  uint16_t  delay = 2000; //Delay from trigger event to LED on: 0-65535 ms
+  uint16_t duration = 500; //Total duration of LED pulse: 0-255 ms
+  float current = 1; //Peak output current in amps
+  uint16_t  led_delay = 6300; //Delay from trigger event to LED on: 0-65535 ms  //6500 for initial setup
   uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms
-  float voltage = -1; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage 
+  float voltage = -1; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage
+  bool timing_test = false; //Whether to strobe the light in 1/10 second intervals for delay timing 
 } pulse;
 
 //Button LED 
@@ -38,10 +39,11 @@ constexpr struct pulseStruct{
 
 const struct inputPinsStruct{
   uint8_t rx = 4;
-  uint8_t door = 20;
+  uint8_t door = 21;
   uint8_t pushbutton = 12;
+  uint8_t pedal = 20;
 } in;
-const uint8_t in_pins[sizeof(in)] = {in.rx, in.door, in.pushbutton};
+const uint8_t in_pins[sizeof(in)] = {in.rx, in.door, in.pushbutton, in.pedal};
 
 const struct outputPinsStruct{
   uint8_t led[2] = {10, 11};
@@ -54,9 +56,8 @@ const uint8_t out_pins[sizeof(out)] = {out.led[0], out.led[1], out.speaker[0], o
 const struct analogPinsStruct{
   uint8_t vsense = 8;
   uint8_t isense = 18;
-  uint8_t audio = 21;
 } ana;
-const uint8_t ana_pins[sizeof(ana)] = {ana.vsense, ana.isense, ana.audio};
+const uint8_t ana_pins[sizeof(ana)] = {ana.vsense, ana.isense};
 
 constexpr static struct stateStruct{
   uint8_t standby = 0;
@@ -107,6 +108,8 @@ struct statusStruct{
   uint8_t state = 0;
 } status;
 
+const uint8_t timing_pulse_interval = 100;
+const uint8_t timing_pulse_duration = 50;
 const uint16_t flash_interval = 500;
 const float vref = 4.2; //ADC Vref
 const float vfactor = 0.01960784313; //Voltage divider on Vsense
@@ -180,6 +183,8 @@ void waitForButton(){
 }
 
 void ledPulse(){
+  uint32_t pedal_time;
+  uint32_t led_time;
   uint32_t timer[3];
   float start_current;
   float avg_current;
@@ -243,44 +248,62 @@ void ledPulse(){
   Serial.println("Power supply stable, sending trigger...");
   timer[0] = driver_timer;
 
+  pedal_time = driver_timer;
+  pinMode(in.pedal, OUTPUT);
+  digitalWrite(in.pedal, LOW);
+  delay(50);
+  pinMode(in.pedal, INPUT_PULLUP);
 
-//Send / receive trigger
-
-
-  while(driver_timer - timer[0] < pulse.delay - 200) checkStatus();
-  status.state = state.led_on;
-  while(driver_timer - timer[0] < pulse.delay); //Wait for pulse timer 
-  digitalWriteFast(out.led_trigger, HIGH);
-  delayMicroseconds(10);
-  checkCurrent();
-  start_current = status.driver_current;
-  avg_current += start_current;
-  n_samples++;
-  while(driver_timer - timer[0] < pulse.delay + pulse.duration){
-    checkCurrent();
-    avg_current += status.driver_current;
-    n_samples++;
-    if(status.driver_current > max_led_current){
-      digitalWriteFast(out.led_trigger, LOW);
-      status.state = state.driver_over_current;
-      checkStatus();
+  if(pulse.timing_test){
+    timer[1] = driver_timer;
+    while(driver_timer - timer[0] < 10000){
+      if(driver_timer - timer[1] > timing_pulse_interval){
+        digitalWriteFast(out.led_trigger, HIGH);
+        timer[1] += 100;
+        while(driver_timer - timer[1] > timing_pulse_duration);
+        digitalWriteFast(out.led_trigger, LOW);
+      }
     }
   }
-  digitalWriteFast(out.led_trigger, LOW);
-  timer[1] = driver_timer;
-  ps.toggleOutput(false);
-  Serial.print("Pulse complete! Start: ");
-  Serial.print(start_current);
-  Serial.print(" amps, end: ");
-  Serial.print(status.driver_current);
-  Serial.print(" amps, average: ");
-  Serial.print(avg_current / n_samples);
-  Serial.print(" amps, duration: ");
-  Serial.print(timer[1] - timer[0] - pulse.delay);
-  Serial.print(" ms, # of samples: ");
-  Serial.println(n_samples);
-  dischargeCapacitor();
-  status.state = state.waiting_trapdoor;
+  else{
+    while(driver_timer - timer[0] < pulse.led_delay - 500) checkStatus();
+    status.state = state.led_on;
+    while(driver_timer - timer[0] < pulse.led_delay); //Wait for pulse timer
+    led_time = driver_timer; 
+    digitalWriteFast(out.led_trigger, HIGH);
+    delayMicroseconds(10); //Wait for LED to get to full current
+    checkCurrent();
+    start_current = status.driver_current;
+    avg_current += start_current;
+    n_samples++;
+    while(driver_timer - timer[0] < pulse.led_delay + pulse.duration){
+      checkCurrent();
+      avg_current += status.driver_current;
+      n_samples++;
+      if(status.driver_current > max_led_current){
+        digitalWriteFast(out.led_trigger, LOW);
+        status.state = state.driver_over_current;
+        checkStatus();
+      }
+    }
+    digitalWriteFast(out.led_trigger, LOW);
+    timer[1] = driver_timer;
+    ps.toggleOutput(false);
+    Serial.print("Pulse complete! Start: ");
+    Serial.print(start_current);
+    Serial.print(" amps, end: ");
+    Serial.print(status.driver_current);
+    Serial.print(" amps, average: ");
+    Serial.print(avg_current / n_samples);
+    Serial.print(" amps, duration: ");
+    Serial.print(timer[1] - timer[0] - pulse.led_delay);
+    Serial.print(" ms, # of samples: ");
+    Serial.print(n_samples);
+    Serial.print(", LED delay: ");
+    Serial.println(led_time - pedal_time);
+    dischargeCapacitor();
+    status.state = state.waiting_trapdoor;
+  }
 }
 
 void initialize(){
@@ -457,9 +480,9 @@ void checkStatus(){
   checkError(); //Always check error codes
   switch (status_index) {
   case 1: //Check door
-    if(!digitalReadFast(in.door)){
-      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) status.state = state.door_open;
-    }
+//    if(!digitalReadFast(in.door)){
+//      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) status.state = state.door_open;
+//    }
     break;
   case 2: //Check driver current
     checkCurrent();

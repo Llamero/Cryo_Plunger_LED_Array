@@ -2381,97 +2381,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Potentiometer")
-		(at 144.78 68.58 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2ca7d9df-3e31-481d-a435-67469c6ce383")
-		(property "Reference" "RV2"
-			(at 143.002 69.7922 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "50k"
-			(at 143.002 67.3679 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Custom:TRIM_PV36W503C01B00"
-			(at 144.78 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/pv36.pdf"
-			(at 144.78 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "50 kOhms 0.5W, 1/2W PC Pins Through Hole Trimmer Potentiometer Cermet 25.0 Turn Top Adjustment"
-			(at 144.78 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Bourns Inc."
-			(at 144.78 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "PV36W503C01B00"
-			(at 144.78 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c9e390d2-dad2-4499-a74b-ed79303a6a22")
-		)
-		(pin "2"
-			(uuid "0d0d165e-7b45-41fe-9c76-3e4314d714d5")
-		)
-		(pin "3"
-			(uuid "4f28150c-d76a-45c4-8d36-0dfa6c528b7a")
-		)
-		(instances
-			(project "Photogate sensor"
-				(path "/7be8810e-dd34-4e84-b77c-11bc43af94a9"
-					(reference "RV2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 153.67 73.66 0)
 		(unit 1)
@@ -2809,7 +2718,7 @@
 		(dnp no)
 		(uuid "62e66eab-cc78-4f07-9026-a2c14d7e9a8b")
 		(property "Reference" "RV3"
-			(at 114.3578 59.182 0)
+			(at 113.538 58.674 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2817,8 +2726,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "50k"
-			(at 116.7821 59.182 0)
+		(property "Value" "500"
+			(at 113.792 61.214 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2844,7 +2753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "50 kOhms 0.5W, 1/2W PC Pins Through Hole Trimmer Potentiometer Cermet 25.0 Turn Top Adjustment"
+		(property "Description" "TRIMMER 500 OHM 0.5W PC PIN TOP"
 			(at 115.57 60.96 0)
 			(effects
 				(font
@@ -2862,7 +2771,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PV36W503C01B00"
+		(property "Part" "PV36W501C01B00"
 			(at 115.57 60.96 0)
 			(effects
 				(font
@@ -3025,7 +2934,7 @@
 		(lib_id "Graphic:Logo_Open_Hardware_Small")
 		(at 162.56 90.17 0)
 		(unit 1)
-		(exclude_from_sim no)
+		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
 		(dnp no)
@@ -3068,15 +2977,6 @@
 			)
 		)
 		(property "Description" "Open Hardware logo, small"
-			(at 162.56 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Enable" "0"
 			(at 162.56 90.17 0)
 			(effects
 				(font
@@ -3184,6 +3084,97 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Potentiometer")
+		(at 144.78 68.58 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8f188625-eafe-4f1c-982c-b060ea4c09a1")
+		(property "Reference" "RV2"
+			(at 143.002 67.564 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "2M"
+			(at 144.78 70.104 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Custom:TRIM_PV36W503C01B00"
+			(at 144.78 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/pv36.pdf"
+			(at 144.78 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TRIMMER 2M OHM 0.5W PC PIN TOP"
+			(at 144.78 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Bourns Inc."
+			(at 144.78 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "PV36W205C01B00"
+			(at 144.78 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f67638b-9d6b-47bb-ac1c-84dbacd18519")
+		)
+		(pin "2"
+			(uuid "3e365b19-9cc0-43fb-aa35-af7364da6e36")
+		)
+		(pin "3"
+			(uuid "c15ab54e-d23b-4148-a80c-4f7c636604bd")
+		)
+		(instances
+			(project "Photogate sensor"
+				(path "/7be8810e-dd34-4e84-b77c-11bc43af94a9"
+					(reference "RV2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 123.19 78.74 0)
 		(unit 1)
@@ -3260,7 +3251,7 @@
 		(dnp no)
 		(uuid "91c75d27-9fc2-4203-bd94-43d32c36ad64")
 		(property "Reference" "RV1"
-			(at 121.9778 73.152 0)
+			(at 121.158 72.644 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3268,8 +3259,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "50k"
-			(at 124.4021 73.152 0)
+		(property "Value" "2M"
+			(at 121.666 74.93 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3295,7 +3286,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "50 kOhms 0.5W, 1/2W PC Pins Through Hole Trimmer Potentiometer Cermet 25.0 Turn Top Adjustment"
+		(property "Description" "TRIMMER 2M OHM 0.5W PC PIN TOP"
 			(at 123.19 74.93 0)
 			(effects
 				(font
@@ -3313,7 +3304,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PV36W503C01B00"
+		(property "Part" "PV36W205C01B00"
 			(at 123.19 74.93 0)
 			(effects
 				(font
