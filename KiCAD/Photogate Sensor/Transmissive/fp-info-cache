@@ -1,4 +1,4 @@
-24243482340070364
+24248723957696781
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54803,6 +54803,20 @@ AMPHENOL_10118193-0001LF
 11
 6
 Custom
+AMPHENOL_SFW8S-2STE1LF
+
+
+0
+8
+8
+Custom
+CUI_UJ2-MIBH-G-SMT-TR
+
+
+0
+9
+6
+Custom
 Filter_Murata_BNX025
 https://www.murata.com/en-us/products/productdata/8796778004510/QNFH9101.pdf?1496719830000
 EMI Filter
@@ -54820,6 +54834,13 @@ Custom
 Photodiode
 
 
+0
+2
+2
+Custom
+RES_SMF5_TYCO_TYC
+
+SMW547RJT 
 0
 2
 2
