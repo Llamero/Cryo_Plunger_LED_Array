@@ -5407,10 +5407,22 @@
 		)
 	)
 	(junction
+		(at 67.31 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "01c550a2-1d46-4ece-ba7c-6e35a00a78a1")
+	)
+	(junction
 		(at 229.87 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0cc74f76-e725-49ed-8ccb-1dce7ece90fb")
+	)
+	(junction
+		(at 260.35 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "154420ab-8798-40f5-aa6a-c7b52833b6a1")
 	)
 	(junction
 		(at 222.25 36.83)
@@ -5425,22 +5437,34 @@
 		(uuid "1f976399-94a5-4545-a2c0-95262e70daf4")
 	)
 	(junction
+		(at 264.16 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "26befeba-d47b-4c79-891b-16b2526e72f8")
+	)
+	(junction
+		(at 196.85 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2725fbee-356b-4f15-a7da-f3048179fed1")
+	)
+	(junction
 		(at 254 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "27ecd0c5-2d98-4645-837b-52a54074a055")
 	)
 	(junction
+		(at 264.16 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2ebe0b46-7827-45d5-a40f-b719b3955c6c")
+	)
+	(junction
 		(at 55.88 162.56)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2efb0ef2-452c-455a-b25f-63c6999c75ff")
-	)
-	(junction
-		(at 196.85 96.52)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3177f143-0f96-4a59-9912-f505ba3284a4")
 	)
 	(junction
 		(at 130.81 88.9)
@@ -5455,6 +5479,12 @@
 		(uuid "48465ab8-0a6c-4633-bf8d-0bf2229a643a")
 	)
 	(junction
+		(at 265.43 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "502d695a-f00a-4160-8a98-2425d2ecf7ca")
+	)
+	(junction
 		(at 35.56 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5465,12 +5495,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "61e51851-6aea-45da-ad00-4c3240e30260")
-	)
-	(junction
-		(at 64.77 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "697962a1-f91a-4c7f-8f4c-afbfbf1794ca")
 	)
 	(junction
 		(at 90.17 33.02)
@@ -5485,22 +5509,28 @@
 		(uuid "741c7d8c-5577-48ab-b46c-bdb14a787656")
 	)
 	(junction
+		(at 64.77 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "74804be8-8e64-4b3c-934d-4b8c1bd62e78")
+	)
+	(junction
 		(at 245.11 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7c79d15e-659d-48c1-8cbe-f2042c7f6bab")
 	)
 	(junction
+		(at 262.89 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80250c53-3ebf-4baa-826a-a68584033a91")
+	)
+	(junction
 		(at 245.11 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "842b2033-c474-453c-b313-a81e861f6c60")
-	)
-	(junction
-		(at 214.63 29.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8c929712-9eb2-454b-a1f8-18b368486efc")
 	)
 	(junction
 		(at 63.5 33.02)
@@ -5539,22 +5569,46 @@
 		(uuid "af38fe0b-35d1-4f05-b336-3b8350622dbf")
 	)
 	(junction
-		(at 41.91 104.14)
+		(at 35.56 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b82723f6-886a-4c85-86be-82400a235fb4")
 	)
 	(junction
-		(at 27.94 104.14)
+		(at 21.59 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b9e13afa-dfee-46cf-8e57-16d01a290cdd")
+	)
+	(junction
+		(at 31.75 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bba56b05-12de-492d-a7af-dffe16bf43b6")
+	)
+	(junction
+		(at 214.63 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bc1d0832-cb61-44fb-ada7-6416a58d9972")
+	)
+	(junction
+		(at 265.43 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c1be97d3-c6db-44f1-ad8a-c4a69e279264")
 	)
 	(junction
 		(at 55.88 157.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c3ae6733-3826-4e57-be60-6978cef39c59")
+	)
+	(junction
+		(at 67.31 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cad7407a-d4c3-4410-92ed-03006c05e156")
 	)
 	(junction
 		(at 63.5 40.64)
@@ -5575,16 +5629,16 @@
 		(uuid "e114fc74-17de-45d6-8461-3e0581323021")
 	)
 	(junction
+		(at 260.35 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e42ef804-3550-4ae0-961c-79d88eb08aeb")
+	)
+	(junction
 		(at 104.14 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e56f991d-df68-4572-b59d-0d69b5a530c5")
-	)
-	(junction
-		(at 38.1 95.25)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e63f57b1-e807-4751-ad3d-9ab697230494")
 	)
 	(junction
 		(at 130.81 99.06)
@@ -5724,6 +5778,26 @@
 	)
 	(wire
 		(pts
+			(xy 265.43 104.14) (xy 267.97 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09f33747-ffbb-49df-9215-964779c76c69")
+	)
+	(wire
+		(pts
+			(xy 69.85 91.44) (xy 69.85 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ba96f8c-24fc-4f20-b709-3d9063cd4911")
+	)
+	(wire
+		(pts
 			(xy 130.81 99.06) (xy 151.13 99.06)
 		)
 		(stroke
@@ -5734,7 +5808,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 104.14) (xy 31.75 104.14)
+			(xy 21.59 104.14) (xy 25.4 104.14)
 		)
 		(stroke
 			(width 0)
@@ -5751,6 +5825,16 @@
 			(type default)
 		)
 		(uuid "13092860-96e6-412e-8f4c-86695d730f02")
+	)
+	(wire
+		(pts
+			(xy 260.35 109.22) (xy 264.16 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1449abdb-8197-46e2-a55c-e0282d0b13bf")
 	)
 	(wire
 		(pts
@@ -5804,16 +5888,6 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 111.76) (xy 264.16 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d2845b5-fb2f-4955-b4ad-9af0b1dd6066")
-	)
-	(wire
-		(pts
 			(xy 88.9 106.68) (xy 88.9 109.22)
 		)
 		(stroke
@@ -5854,23 +5928,33 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 95.25) (xy 38.1 99.06)
+			(xy 264.16 93.98) (xy 265.43 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21c6a11e-e303-4759-b273-f5e2391667bd")
+	)
+	(wire
+		(pts
+			(xy 31.75 91.44) (xy 21.59 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22769786-426f-4d5b-813e-9834d4b61597")
+	)
+	(wire
+		(pts
+			(xy 31.75 91.44) (xy 31.75 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "22ba7564-128f-4a9e-b581-b7cad19e066b")
-	)
-	(wire
-		(pts
-			(xy 67.31 95.25) (xy 67.31 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a71848a-7d5b-4467-889b-409718e2387a")
 	)
 	(wire
 		(pts
@@ -5881,6 +5965,16 @@
 			(type default)
 		)
 		(uuid "2a9eb9f6-096f-4b95-8e01-fc2a74e35ef3")
+	)
+	(wire
+		(pts
+			(xy 233.68 111.76) (xy 264.16 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ccfadb3-d795-4781-ae0b-3e3461fa27d4")
 	)
 	(wire
 		(pts
@@ -5924,6 +6018,46 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 91.44) (xy 67.31 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f2a76ce-de58-4c10-90e3-458c57fdb558")
+	)
+	(wire
+		(pts
+			(xy 260.35 104.14) (xy 262.89 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47c98802-a0a4-45fc-8245-532b5d9f45c9")
+	)
+	(wire
+		(pts
+			(xy 260.35 93.98) (xy 262.89 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a2f0a64-ac5e-49c1-b699-ea173ce5ebf1")
+	)
+	(wire
+		(pts
+			(xy 69.85 91.44) (xy 67.31 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b7f895c-05bc-443e-b659-21ab91565c2b")
+	)
+	(wire
+		(pts
 			(xy 55.88 175.26) (xy 55.88 173.99)
 		)
 		(stroke
@@ -5934,13 +6068,13 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 99.06) (xy 67.31 99.06)
+			(xy 262.89 93.98) (xy 264.16 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4c52d425-12f8-40aa-89a3-e62fc6aaefa8")
+		(uuid "4ded352f-3920-4940-ae80-ab0d89fb8c27")
 	)
 	(wire
 		(pts
@@ -5951,6 +6085,16 @@
 			(type default)
 		)
 		(uuid "577eb553-2c79-4f95-ac4c-26f63cd2f891")
+	)
+	(wire
+		(pts
+			(xy 264.16 104.14) (xy 265.43 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57e8c52d-c6a6-4f99-ab40-3483c4fc69d6")
 	)
 	(wire
 		(pts
@@ -6004,6 +6148,16 @@
 	)
 	(wire
 		(pts
+			(xy 264.16 104.14) (xy 264.16 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76126169-389a-4db1-b701-57823e499569")
+	)
+	(wire
+		(pts
 			(xy 242.57 44.45) (xy 242.57 39.37)
 		)
 		(stroke
@@ -6014,16 +6168,6 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 95.25) (xy 27.94 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78179d25-9021-4e72-afae-caec800b013a")
-	)
-	(wire
-		(pts
 			(xy 233.68 99.06) (xy 243.84 99.06)
 		)
 		(stroke
@@ -6031,6 +6175,16 @@
 			(type default)
 		)
 		(uuid "784f7f65-a85e-417e-b162-e2e8209dcfee")
+	)
+	(wire
+		(pts
+			(xy 67.31 99.06) (xy 71.12 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a352e9c-c1d3-457e-bee2-0759fc53f2f1")
 	)
 	(wire
 		(pts
@@ -6064,7 +6218,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 99.06) (xy 41.91 99.06)
+			(xy 31.75 99.06) (xy 35.56 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6074,7 +6228,7 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 109.22) (xy 264.16 109.22)
+			(xy 233.68 109.22) (xy 260.35 109.22)
 		)
 		(stroke
 			(width 0)
@@ -6084,13 +6238,23 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 95.25) (xy 27.94 96.52)
+			(xy 21.59 91.44) (xy 21.59 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "84dcc73f-4436-48c6-b09e-e443d9095505")
+	)
+	(wire
+		(pts
+			(xy 67.31 101.6) (xy 50.8 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85e13e42-8d7b-481e-989e-0b9863d9ddad")
 	)
 	(wire
 		(pts
@@ -6114,6 +6278,16 @@
 	)
 	(wire
 		(pts
+			(xy 265.43 93.98) (xy 267.97 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92c075a3-9f40-491e-922c-acca41f80797")
+	)
+	(wire
+		(pts
 			(xy 88.9 96.52) (xy 104.14 96.52)
 		)
 		(stroke
@@ -6124,7 +6298,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 106.68) (xy 31.75 109.22)
+			(xy 25.4 106.68) (xy 25.4 109.22)
 		)
 		(stroke
 			(width 0)
@@ -6161,6 +6335,16 @@
 			(type default)
 		)
 		(uuid "a4510644-b148-4209-817c-6ea723218e57")
+	)
+	(wire
+		(pts
+			(xy 260.35 104.14) (xy 260.35 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a98dbeb9-f45f-4ef0-bae8-aa5b0ba89914")
 	)
 	(wire
 		(pts
@@ -6204,7 +6388,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 104.14) (xy 41.91 106.68)
+			(xy 35.56 104.14) (xy 35.56 106.68)
 		)
 		(stroke
 			(width 0)
@@ -6221,16 +6405,6 @@
 			(type default)
 		)
 		(uuid "c1034114-194c-456b-a430-435a74281584")
-	)
-	(wire
-		(pts
-			(xy 67.31 95.25) (xy 38.1 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1f21d00-3a2b-496f-a310-2fdeba1a912e")
 	)
 	(wire
 		(pts
@@ -6251,16 +6425,6 @@
 			(type solid)
 		)
 		(uuid "c5976ea8-9899-449f-bce5-424b598eb877")
-	)
-	(wire
-		(pts
-			(xy 57.15 101.6) (xy 71.12 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6b06e7d-2a2e-44ad-8585-6c4585e19026")
 	)
 	(wire
 		(pts
@@ -6304,6 +6468,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.31 99.06) (xy 67.31 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8ad083e-39bf-4205-8f53-33dca39dd2ac")
+	)
+	(wire
+		(pts
 			(xy 59.69 40.64) (xy 63.5 40.64)
 		)
 		(stroke
@@ -6324,7 +6498,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 109.22) (xy 41.91 111.76)
+			(xy 35.56 109.22) (xy 35.56 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6351,6 +6525,16 @@
 			(type default)
 		)
 		(uuid "ef0157cb-2f05-4fb3-96dc-0504e9afcd44")
+	)
+	(wire
+		(pts
+			(xy 71.12 101.6) (xy 69.85 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef4ed7d9-2568-4061-867c-e4beffacb3df")
 	)
 	(wire
 		(pts
@@ -6469,7 +6653,7 @@
 		(uuid 4b544612-d3e3-4b42-84ff-41a2014d36cd)
 	)
 	(rectangle
-		(start 163.195 71.755)
+		(start 158.75 71.755)
 		(end 281.305 116.84)
 		(stroke
 			(width 0)
@@ -6516,6 +6700,16 @@
 		)
 		(uuid d9e1b353-7b7d-481f-a3db-863fc6c8a2cb)
 	)
+	(text "I2C Pullup"
+		(exclude_from_sim no)
+		(at 264.414 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0c4d640a-2220-4f2c-91d8-4eee5b0023e9")
+	)
 	(text "Optional RC Filter"
 		(exclude_from_sim no)
 		(at 181.864 101.6 0)
@@ -6536,6 +6730,16 @@
 		)
 		(uuid "1a1ad511-27a5-4e4a-a20c-ebb32f710d88")
 	)
+	(text "I2C\nConnector"
+		(exclude_from_sim no)
+		(at 274.828 111.76 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "2320d23a-9616-42d8-9969-47383c8b9544")
+	)
 	(text "Microcontroller"
 		(exclude_from_sim no)
 		(at 220.472 69.342 0)
@@ -6545,6 +6749,16 @@
 			)
 		)
 		(uuid "34d571d8-c407-4554-854b-4b271ec349ed")
+	)
+	(text "Constant\nCurrent\nSource"
+		(exclude_from_sim no)
+		(at 115.316 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "58fe15e4-37d0-48f6-8f0a-59101c3dc04d")
 	)
 	(text "pseudo-log pot\nhttps://www.desmos.com/\ncalculator/bm9tqk4f8c"
 		(exclude_from_sim no)
@@ -6556,6 +6770,16 @@
 		)
 		(uuid "749cd0c4-8f88-4154-892e-0a8bebfa779e")
 	)
+	(text "Transimpedance\nAmplifier"
+		(exclude_from_sim no)
+		(at 38.608 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "79bf20ce-d4a1-4961-874c-acef7ebc5114")
+	)
 	(text "https://github.com/wagiminator/AVR-Programmer/blob/\nmaster/SerialUPDI_Programmer/SerialUPDI_Programmer_schematic.pdf"
 		(exclude_from_sim no)
 		(at 73.914 146.05 0)
@@ -6565,6 +6789,16 @@
 			)
 		)
 		(uuid "89720475-97b5-47f3-9c77-48e39c3ce5df")
+	)
+	(text "Optional digipot\nbypass resistor"
+		(exclude_from_sim no)
+		(at 58.166 95.504 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9c9d6e88-44be-48b7-85ad-50e3f31133b0")
 	)
 	(text "5V Voltage Supply"
 		(exclude_from_sim no)
@@ -6724,17 +6958,6 @@
 		)
 		(uuid "29e1184c-8d86-49a2-b018-d7e1bac134bc")
 	)
-	(label "W1"
-		(at 71.12 99.06 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "30d6eeb4-0d5c-4baf-a31a-249e152c1cb9")
-	)
 	(label "Heater3"
 		(at 82.55 45.72 180)
 		(fields_autoplaced yes)
@@ -6812,14 +7035,14 @@
 		)
 		(uuid "6ea2392a-b380-407e-b10e-d5328f852aee")
 	)
-	(label "Photo_output"
-		(at 71.12 101.6 180)
+	(label "Amplifier_output"
+		(at 50.8 101.6 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "6f63b633-5ac6-41b7-90ba-6f880bac0a79")
 	)
@@ -6844,17 +7067,6 @@
 			(justify left bottom)
 		)
 		(uuid "7c9352f1-e329-44d5-be8e-a2584ea10de8")
-	)
-	(label "Photo_output"
-		(at 176.53 106.68 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "8613128b-273d-49f6-aedf-b79877154e7e")
 	)
 	(label "Therm2"
 		(at 71.12 31.75 0)
@@ -6977,6 +7189,28 @@
 		)
 		(uuid "cf4b4208-48a6-426b-97b9-b59399d68f35")
 	)
+	(label "Amplifier_output"
+		(at 152.4 27.94 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d417acb1-53b4-4190-abdc-7bbb136a1f7c")
+	)
+	(label "Amplifier_output"
+		(at 176.53 106.68 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ddc34b3d-cc96-458f-9423-832aa81db96a")
+	)
 	(label "D-"
 		(at 58.42 167.64 0)
 		(fields_autoplaced yes)
@@ -7032,17 +7266,6 @@
 		)
 		(uuid "ef369399-e9d1-441e-91e4-64234f71becf")
 	)
-	(label "Photo_output"
-		(at 152.4 27.94 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "f0853056-8ce5-45d9-a0d2-bc90f871507a")
-	)
 	(label "Vled-ref+"
 		(at 91.44 96.52 0)
 		(fields_autoplaced yes)
@@ -7053,6 +7276,17 @@
 			(justify left bottom)
 		)
 		(uuid "f56e8119-eaa6-4c2d-bcd9-e28c15c63cea")
+	)
+	(label "Photo_current"
+		(at 50.8 91.44 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fe603453-4a60-4706-8a0c-9a4e27b64a62")
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -7290,6 +7524,94 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 214.63 31.75 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "05fd5844-0267-4163-8fad-43d11bc89dc9")
+		(property "Reference" "C1"
+			(at 212.3059 30.5441 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7µF"
+			(at 212.3059 32.9684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 214.63 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRT21BR61H475KE13-01.pdf"
+			(at 214.63 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "4.7 µF ±10% 50V Ceramic Capacitor X5R 0805 (2012 Metric)"
+			(at 214.63 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Murata Electronics"
+			(at 214.63 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "GRT21BR61H475KE13L"
+			(at 214.63 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9873a853-7758-4296-b26d-3dbd82ac8fee")
+		)
+		(pin "1"
+			(uuid "a0587fd1-1f7d-4e76-a216-9bfc77c63363")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -7674,10 +7996,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "13c895a2-c725-4254-9b99-330179395485")
 		(property "Reference" "R2"
-			(at 65.278 35.6178 0)
+			(at 64.77 37.084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7686,7 +8007,7 @@
 			)
 		)
 		(property "Value" "47"
-			(at 65.278 38.0421 0)
+			(at 63.5 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7909,6 +8230,91 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 67.31 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "29973a3c-435c-4769-b096-16b411ad996e")
+		(property "Reference" "R8"
+			(at 67.31 89.916 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 67.31 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 69.088 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/28952/mcr0201at-mca1206at.pdf"
+			(at 67.31 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "2 MOhms ±0.1% 0.125W, 1/8W Chip Resistor 0805 (2012 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
+			(at 67.31 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Vishay Beyschlag/Draloric/BC Components"
+			(at 67.31 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MCU0805MD2004BP500"
+			(at 67.31 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "17bda402-6c95-480c-b8fc-3004d6390fba")
+		)
+		(pin "2"
+			(uuid "1451b264-033b-488e-89f0-8dd44d76cd4c")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 35.56 31.75 0)
 		(unit 1)
@@ -7976,94 +8382,6 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 55.88 171.45 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2f802e34-4c2c-40f3-a560-8f9f9fd73ce0")
-		(property "Reference" "C6"
-			(at 58.2041 170.2441 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 58.2041 172.6684 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 55.88 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
-			(at 55.88 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
-			(at 55.88 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 55.88 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CC0805KRX7R9BB104"
-			(at 55.88 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "93e52df6-f660-48d4-aa75-5711914c3260")
-		)
-		(pin "1"
-			(uuid "238a955d-feae-4696-ab09-3db98de64dbe")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
 		(at 186.69 109.22 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8098,7 +8416,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
 			(at 186.69 109.22 0)
 			(effects
 				(font
@@ -8107,7 +8425,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
 			(at 186.69 109.22 0)
 			(effects
 				(font
@@ -8116,7 +8434,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Walsin Technology Corporation"
 			(at 186.69 109.22 0)
 			(effects
 				(font
@@ -8125,7 +8443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "CC0805KRX7R9BB104"
+		(property "Part" "MT21B104K500CT"
 			(at 186.69 109.22 0)
 			(effects
 				(font
@@ -8151,7 +8469,7 @@
 	)
 	(symbol
 		(lib_id "Device:Opamp_Dual")
-		(at 49.53 101.6 0)
+		(at 43.18 101.6 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8160,7 +8478,7 @@
 		(dnp no)
 		(uuid "30f54017-6e32-42b4-b914-f656b9ad0b08")
 		(property "Reference" "U2"
-			(at 49.53 110.8245 0)
+			(at 43.18 110.8245 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8168,7 +8486,7 @@
 			)
 		)
 		(property "Value" "Opamp_Dual"
-			(at 49.53 108.4002 0)
+			(at 43.18 108.4002 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8176,7 +8494,7 @@
 			)
 		)
 		(property "Footprint" "Package_SO:MSOP-8_3x3mm_P0.65mm"
-			(at 49.53 101.6 0)
+			(at 43.18 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8185,7 +8503,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/AD8603_8607_8609.pdf"
-			(at 49.53 101.6 0)
+			(at 43.18 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8194,7 +8512,7 @@
 			)
 		)
 		(property "Description" "CMOS Amplifier 2 Circuit Rail-to-Rail 8-MSOP"
-			(at 49.53 101.6 0)
+			(at 43.18 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8203,7 +8521,7 @@
 			)
 		)
 		(property "Manufacturer" "Analog Devices Inc."
-			(at 49.53 101.6 0)
+			(at 43.18 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8212,7 +8530,7 @@
 			)
 		)
 		(property "Part" "AD8607ARMZ-REEL"
-			(at 49.53 101.6 0)
+			(at 43.18 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8741,7 +9059,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 31.75 111.76 90)
+		(at 25.4 111.76 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8750,7 +9068,7 @@
 		(fields_autoplaced yes)
 		(uuid "3a7d8882-d60b-41a5-ab40-18c43a49a29a")
 		(property "Reference" "#PWR022"
-			(at 35.56 111.76 0)
+			(at 29.21 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8759,7 +9077,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 28.5751 111.76 90)
+			(at 22.2251 111.76 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8768,7 +9086,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 31.75 111.76 0)
+			(at 25.4 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8777,7 +9095,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 31.75 111.76 0)
+			(at 25.4 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8786,7 +9104,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 31.75 111.76 0)
+			(at 25.4 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9063,7 +9381,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/41/CL21A475KAQNNNE_Spec.pdf"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRT21BR61H475KE13-01.pdf"
 			(at 229.87 31.75 0)
 			(effects
 				(font
@@ -9072,7 +9390,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "4.7 µF ±10% 25V Ceramic Capacitor X5R 0805 (2012 Metric)"
+		(property "Description" "4.7 µF ±10% 50V Ceramic Capacitor X5R 0805 (2012 Metric)"
 			(at 229.87 31.75 0)
 			(effects
 				(font
@@ -9081,7 +9399,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
+		(property "Manufacturer" "Murata Electronics"
 			(at 229.87 31.75 0)
 			(effects
 				(font
@@ -9090,7 +9408,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "CL21A475KAQNNNE"
+		(property "Part" "GRT21BR61H475KE13L"
 			(at 229.87 31.75 0)
 			(effects
 				(font
@@ -9242,182 +9560,6 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 64.77 109.22 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4a279b06-79ec-45f5-8e06-c99d90c3350d")
-		(property "Reference" "C5"
-			(at 62.4459 108.0141 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 62.4459 110.4384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 64.77 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
-			(at 64.77 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
-			(at 64.77 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 64.77 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CC0805KRX7R9BB104"
-			(at 64.77 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "76ab103e-6dfc-491e-bd6d-9dd1471c7473")
-		)
-		(pin "1"
-			(uuid "cd6bd60f-9054-40ef-ab39-e97e84acfd2d")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 66.04 171.45 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4c13d734-db8d-4025-994d-dad9d8154804")
-		(property "Reference" "C7"
-			(at 68.3641 170.2441 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 68.3641 172.6684 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 66.04 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
-			(at 66.04 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
-			(at 66.04 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 66.04 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CC0805KRX7R9BB104"
-			(at 66.04 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "324e4cfa-6e6d-4156-b751-7e477764a4be")
-		)
-		(pin "1"
-			(uuid "21cf0d53-bde4-4cd2-a92c-fdf04549033c")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -9612,7 +9754,7 @@
 	)
 	(symbol
 		(lib_id "Device:D_Photo")
-		(at 27.94 101.6 90)
+		(at 21.59 101.6 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9621,7 +9763,7 @@
 		(dnp no)
 		(uuid "51433d04-3a65-42ee-8e6e-aab84ead78a6")
 		(property "Reference" "D3"
-			(at 24.003 99.4353 90)
+			(at 26.162 99.314 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9630,7 +9772,7 @@
 			)
 		)
 		(property "Value" "D_Photo"
-			(at 24.003 101.8596 90)
+			(at 31.242 101.092 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9639,7 +9781,7 @@
 			)
 		)
 		(property "Footprint" "Custom:Solder pads"
-			(at 27.94 100.33 0)
+			(at 21.59 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9648,7 +9790,7 @@
 			)
 		)
 		(property "Datasheet" "https://look.ams-osram.com/m/3798e9afd3f63ea8/original/SFH-213-FA.pdf"
-			(at 27.94 100.33 0)
+			(at 21.59 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9657,7 +9799,7 @@
 			)
 		)
 		(property "Description" "Photodiode 900nm 5ns 20° Radial"
-			(at 27.94 101.6 0)
+			(at 21.59 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9666,7 +9808,7 @@
 			)
 		)
 		(property "Manufacturer" "ams-OSRAM USA INC."
-			(at 27.94 101.6 0)
+			(at 21.59 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9675,7 +9817,7 @@
 			)
 		)
 		(property "Part" "SFH 213 FA"
-			(at 27.94 101.6 0)
+			(at 21.59 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10080,7 +10222,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 27.94 104.14 0)
+		(at 21.59 104.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10089,7 +10231,7 @@
 		(fields_autoplaced yes)
 		(uuid "6fc15613-4632-4a74-bca3-7cbf7af1357b")
 		(property "Reference" "#PWR019"
-			(at 27.94 110.49 0)
+			(at 21.59 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10098,7 +10240,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 27.94 108.2731 0)
+			(at 21.59 108.2731 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10106,7 +10248,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 27.94 104.14 0)
+			(at 21.59 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10115,7 +10257,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 27.94 104.14 0)
+			(at 21.59 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10124,7 +10266,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 27.94 104.14 0)
+			(at 21.59 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10278,41 +10420,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 180.34 106.68 90)
+		(lib_id "Device:R_Pack04")
+		(at 265.43 99.06 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "78f3cd30-54b2-4153-8b1d-b7d6204544ff")
-		(property "Reference" "R7"
-			(at 180.594 104.394 90)
+		(uuid "75e66d38-3d93-49e2-8f36-39a8a5126557")
+		(property "Reference" "RN3"
+			(at 273.3845 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "470"
-			(at 180.34 106.68 90)
+		(property "Value" "4.7k"
+			(at 270.9602 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 180.34 108.458 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
-			(at 180.34 106.68 0)
+		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x1206"
+			(at 272.415 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10320,8 +10454,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 470 OHM 0.1% 1/8W 0805"
-			(at 180.34 106.68 0)
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-yc_tc_group_51_rohs_l.pdf"
+			(at 265.43 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10329,8 +10463,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic Electronic Components"
-			(at 180.34 106.68 0)
+		(property "Description" "RES ARRAY 4 RES 4.7K OHM 2012"
+			(at 265.43 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10338,8 +10472,122 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "ERA-6AEB471V"
-			(at 180.34 106.68 0)
+		(property "Manufacturer" "YAGEO"
+			(at 265.43 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "YC324-FK-074K7L"
+			(at 265.43 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "7"
+			(uuid "1f166b28-ed94-44bd-ac9e-08f098075a5b")
+		)
+		(pin "8"
+			(uuid "fb59826e-d9ef-45cf-ba49-bb6915b26fee")
+		)
+		(pin "2"
+			(uuid "938f24c5-dfaf-4b7c-ba85-140995219045")
+		)
+		(pin "6"
+			(uuid "4c295fc0-b8eb-41f9-89df-448c564df008")
+		)
+		(pin "5"
+			(uuid "9c2d72c4-b3dc-4e8a-8a35-882fb7f44fcd")
+		)
+		(pin "4"
+			(uuid "3f83f6af-6706-4ec1-8e06-e4a635f035a7")
+		)
+		(pin "1"
+			(uuid "15b7a0dd-2dd7-45bd-9a68-6054b2d1ee1c")
+		)
+		(pin "3"
+			(uuid "46493e1a-f722-4415-a4ef-2051b9aba7a0")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "RN3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 66.04 171.45 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "78d1765c-b45f-419c-8ae1-6b093897ebcf")
+		(property "Reference" "C7"
+			(at 71.628 169.418 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 73.914 171.704 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 66.04 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
+			(at 66.04 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
+			(at 66.04 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 66.04 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MT21B104K500CT"
+			(at 66.04 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10348,15 +10596,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "477a7c6f-4c57-4f95-a990-950aa7181354")
+			(uuid "fc467496-d291-409a-9af2-c0a12f9c5b40")
 		)
 		(pin "1"
-			(uuid "2a74366c-e78e-4786-88c3-f568e458d574")
+			(uuid "2347f47a-2e66-4275-860d-b00b5fb39c18")
 		)
 		(instances
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "R7")
+					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -10448,94 +10696,6 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "Q4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 196.85 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7a0cb765-929a-4994-9122-4206cfdbeefa")
-		(property "Reference" "C4"
-			(at 199.1741 92.7741 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 199.1741 95.1984 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 196.85 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
-			(at 196.85 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
-			(at 196.85 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 196.85 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CC0805KRX7R9BB104"
-			(at 196.85 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "aaae1c94-25bc-4957-b188-5c2a8ab68e1b")
-		)
-		(pin "1"
-			(uuid "1a1ddb56-3b37-496f-aea0-c229ed14853e")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -10706,6 +10866,94 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 242.57 36.83 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7ffb5867-a80b-4845-a807-d76d88533785")
+		(property "Reference" "C3"
+			(at 236.728 34.544 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 234.442 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 242.57 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
+			(at 242.57 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
+			(at 242.57 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 242.57 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MT21B104K500CT"
+			(at 242.57 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "827e7de8-1653-4f92-ae41-0896cfb4d2fc")
+		)
+		(pin "1"
+			(uuid "bacbd55f-df54-4311-bc04-102406d3abca")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -10919,6 +11167,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C_Small")
+		(at 64.77 109.22 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "886ba940-80d0-4cf3-9533-0df99755df60")
+		(property "Reference" "C5"
+			(at 58.42 108.712 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 57.15 110.998 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MT21B104K500CT"
+			(at 64.77 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "008c6846-7ac6-451f-8633-c91f52d45523")
+		)
+		(pin "1"
+			(uuid "ce6e6033-4a91-4f1f-9ad8-9fd8bd29eef4")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x08_Pin")
 		(at 199.39 143.51 0)
 		(unit 1)
@@ -11117,10 +11453,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "931262b1-8004-4f25-a7e8-a418c9d1956c")
 		(property "Reference" "R3"
-			(at 91.948 35.6178 0)
+			(at 91.44 37.084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11129,7 +11464,7 @@
 			)
 		)
 		(property "Value" "47"
-			(at 91.948 38.0421 0)
+			(at 90.424 38.354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11426,10 +11761,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9b2d904f-d682-4c50-a781-0787e83caf99")
 		(property "Reference" "R1"
-			(at 37.338 34.3478 0)
+			(at 37.084 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11438,7 +11772,7 @@
 			)
 		)
 		(property "Value" "47"
-			(at 37.338 36.7721 0)
+			(at 35.56 36.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11676,7 +12010,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
+		(property "Datasheet" "https://www.te.com/usa-en/product-6-2176238-8.datasheet.pdf"
 			(at 104.14 101.6 0)
 			(effects
 				(font
@@ -11685,7 +12019,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "200 kOhms ±0.1% 0.125W, 1/8W Chip Resistor 0805 (2012 Metric) Automotive AEC-Q200 Thin Film"
+		(property "Description" "200 kOhms ±0.1% 0.1W, 1/10W Chip Resistor 0805 (2012 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
 			(at 104.14 101.6 0)
 			(effects
 				(font
@@ -11694,7 +12028,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic Electronic Components"
+		(property "Manufacturer" "TE Connectivity Passive Product"
 			(at 104.14 101.6 0)
 			(effects
 				(font
@@ -11703,7 +12037,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "ERA-6AEB204V"
+		(property "Part" "CPF-A-0805B200KE"
 			(at 104.14 101.6 0)
 			(effects
 				(font
@@ -12233,96 +12567,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 214.63 31.75 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ba45f87a-2227-4872-a419-a3f364871804")
-		(property "Reference" "C1"
-			(at 212.3059 30.5441 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1µF"
-			(at 212.3059 32.9684 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 214.63 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL21B105KBFNNNE_Spec.pdf"
-			(at 214.63 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
-			(at 214.63 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 214.63 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CL21B105KBFNNNE"
-			(at 214.63 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "60ba368f-a97b-4af9-a28b-cfe6d95830e5")
-		)
-		(pin "1"
-			(uuid "014b740d-99eb-4e56-9de2-6af72e94900f")
-		)
-		(instances
-			(project ""
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Pack04")
-		(at 36.83 109.22 90)
+		(at 30.48 109.22 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12331,7 +12577,7 @@
 		(dnp no)
 		(uuid "bb03974d-ae91-4979-886e-0d54c4868f98")
 		(property "Reference" "RN2"
-			(at 36.83 117.1745 90)
+			(at 30.48 117.1745 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12339,7 +12585,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 36.83 114.7502 90)
+			(at 30.48 114.7502 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12347,7 +12593,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_Array_Convex_4x1206"
-			(at 36.83 116.205 90)
+			(at 30.48 116.205 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12356,7 +12602,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-yc_tc_group_51_rohs_l.pdf"
-			(at 36.83 109.22 0)
+			(at 30.48 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12365,7 +12611,7 @@
 			)
 		)
 		(property "Description" "RES ARRAY 4 RES 4.7K OHM 2012"
-			(at 36.83 109.22 0)
+			(at 30.48 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12374,7 +12620,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO"
-			(at 36.83 109.22 0)
+			(at 30.48 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12383,7 +12629,7 @@
 			)
 		)
 		(property "Part" "YC324-FK-074K7L"
-			(at 36.83 109.22 0)
+			(at 30.48 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12419,6 +12665,93 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "RN2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 55.88 171.45 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be5be2cc-bb0d-4c9b-aaaf-90259e3ddc27")
+		(property "Reference" "C6"
+			(at 61.722 169.164 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 64.008 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 55.88 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
+			(at 55.88 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
+			(at 55.88 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 55.88 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MT21B104K500CT"
+			(at 55.88 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "564d2ccf-b650-4baf-971f-62416658bfbe")
+		)
+		(pin "1"
+			(uuid "7f54cc7a-0cc5-41b0-b3f3-7f64d24b0bfd")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -12851,7 +13184,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12860,7 +13193,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 470 OHM 0.1% 1/8W 0805"
+		(property "Description" "470 Ohms ±1% 0.125W, 1/8W Chip Resistor 0805 (2012 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12869,7 +13202,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Panasonic Electronic Components"
+		(property "Manufacturer" "YAGEO"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12878,7 +13211,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "ERA-6AEB471V"
+		(property "Part" "RP0805FRE07470RL"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12897,94 +13230,6 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 242.57 36.83 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cf4842d5-471b-4d1c-8f6f-321cd5b82218")
-		(property "Reference" "C3"
-			(at 240.2459 35.6241 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 240.2459 38.0484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 242.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
-			(at 242.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
-			(at 242.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "YAGEO"
-			(at 242.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "CC0805KRX7R9BB104"
-			(at 242.57 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "2d74a9d8-2526-4310-8acf-91e459b71eb8")
-		)
-		(pin "1"
-			(uuid "db70f475-9424-469a-8e5c-0761d0412edb")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -13272,6 +13517,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 264.16 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "df19a949-21ed-4523-85e3-b51a33186a10")
+		(property "Reference" "#PWR037"
+			(at 264.16 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 264.16 89.8469 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 264.16 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 264.16 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 264.16 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a04db81d-ec30-4767-bc88-4729ebe8084e")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 63.5 50.8 0)
 		(unit 1)
@@ -13332,6 +13643,91 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 180.34 106.68 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e59d40ed-ea63-431b-8a1c-14770db0f719")
+		(property "Reference" "R7"
+			(at 180.594 104.394 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 180.34 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 180.34 108.458 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "470 Ohms ±1% 0.125W, 1/8W Chip Resistor 0805 (2012 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "RP0805FRE07470RL"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e4990a5f-f188-43ff-8952-0817c022054f")
+		)
+		(pin "1"
+			(uuid "4fad1032-2900-4351-9dbd-ea975e72e0f4")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -13429,7 +13825,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Custom:GCT_BG300-03-X-X-A_REVC"
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical_SMD_Pin1Right"
 			(at 269.24 111.76 0)
 			(effects
 				(font
@@ -13438,7 +13834,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://gct.co/files/specs/2.54mm-socket-spec.pdf"
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2900/NPxCxx1KFXx-RC%2010487-D.pdf"
 			(at 269.24 111.76 0)
 			(effects
 				(font
@@ -13447,7 +13843,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "3 Position Receptacle Connector 0.100\" (2.54mm) Surface Mount, Right Angle Gold"
+		(property "Description" "3 Position Header, Top or Bottom Entry Connector 0.100\" (2.54mm) Surface Mount Gold"
 			(at 269.24 111.76 0)
 			(effects
 				(font
@@ -13456,7 +13852,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "GCT"
+		(property "Manufacturer" "Sullins Connector Solutions"
 			(at 269.24 111.76 0)
 			(effects
 				(font
@@ -13465,7 +13861,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "BG300-03-A-L-A"
+		(property "Part" "NPPC031KFXC-RC"
 			(at 269.24 111.76 0)
 			(effects
 				(font
@@ -13674,10 +14070,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fa8c1d5a-3b2b-4d66-81d0-34cefa4735d0")
 		(property "Reference" "R5"
-			(at 132.588 101.6578 0)
+			(at 132.334 103.124 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13686,7 +14081,7 @@
 			)
 		)
 		(property "Value" "100"
-			(at 132.588 104.0821 0)
+			(at 130.81 104.648 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13703,7 +14098,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.seielect.com/catalog/sei-rncp.pdf"
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf"
 			(at 130.81 102.87 0)
 			(effects
 				(font
@@ -13712,7 +14107,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100 Ohms ±1% 0.5W, 1/2W Chip Resistor 1206 (3216 Metric) Anti-Sulfur Thin Film"
+		(property "Description" "100 Ohms ±0.1% 0.25W, 1/4W Chip Resistor 1206 (3216 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
 			(at 130.81 102.87 0)
 			(effects
 				(font
@@ -13721,7 +14116,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Stackpole Electronics Inc"
+		(property "Manufacturer" "YAGEO"
 			(at 130.81 102.87 0)
 			(effects
 				(font
@@ -13730,7 +14125,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "RNCP1206FTD100R"
+		(property "Part" "RP1206BRD07100RL"
 			(at 130.81 102.87 0)
 			(effects
 				(font
@@ -13749,6 +14144,93 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 196.85 93.98 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fb2ea910-371b-4534-8d58-abc362233f2d")
+		(property "Reference" "C4"
+			(at 202.692 91.694 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 204.978 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.1 µF ±10% 50V Ceramic Capacitor X7R 0805 (2012 Metric)"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Walsin Technology Corporation"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "MT21B104K500CT"
+			(at 196.85 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5d9ae5e9-95db-461a-a278-b290c3d3369d")
+		)
+		(pin "1"
+			(uuid "23a73484-2a7f-421d-951f-e286ff6e3080")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "C4")
 					(unit 1)
 				)
 			)
