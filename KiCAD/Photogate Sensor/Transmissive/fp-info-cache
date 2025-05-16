@@ -1,4 +1,4 @@
-24250471230479787
+24259207988473065
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -54782,6 +54782,13 @@ SMD SMT ceramic resonator filter filter hand-soldering
 3
 3
 Custom
+1x Solder pads
+
+
+0
+1
+1
+Custom
 AD5242BRUZ1M
 
 AD5242BRUZ1M 
@@ -54810,6 +54817,13 @@ AMPHENOL_SFW8S-2STE1LF
 8
 8
 Custom
+Bridged_0805_2012Metric
+Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor
+0
+2
+2
+Custom
 CUI_UJ2-MIBH-G-SMT-TR
 
 
@@ -54823,6 +54837,20 @@ EMI Filter
 0
 6
 4
+Custom
+GCT_BG300-02-X-X-A_REVC
+
+
+0
+2
+2
+Custom
+GCT_BG300-03-X-X-A_REVC
+
+
+0
+3
+3
 Custom
 POT_PV36W_MUR
 
@@ -54858,6 +54886,13 @@ MCP6489-E/SL
 0
 14
 14
+Custom
+Solder pads
+
+
+0
+2
+2
 Custom
 XDCR_SFH_229
 

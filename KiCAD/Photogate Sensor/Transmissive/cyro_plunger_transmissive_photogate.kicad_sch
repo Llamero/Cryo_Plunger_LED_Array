@@ -5,6 +5,210 @@
 	(uuid "99ca36d5-bbf3-497e-815f-42a5447a2ddc")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:Conn_01x03_Socket"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03_Socket"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_Socket_1_1"
+				(arc
+					(start 0 -2.032)
+					(mid -0.5058 -2.54)
+					(end 0 -3.048)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.54) (xy -0.508 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0.508)
+					(mid -0.5058 0)
+					(end 0 -0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 3.048)
+					(mid -0.5058 2.54)
+					(end 0 2.032)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Conn_01x06_Socket"
 			(pin_names
 				(offset 1.016) hide)
@@ -5287,12 +5491,6 @@
 		(uuid "7c79d15e-659d-48c1-8cbe-f2042c7f6bab")
 	)
 	(junction
-		(at 104.14 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8344b6f0-6d39-4843-b80d-bfdc4609440f")
-	)
-	(junction
 		(at 245.11 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5321,6 +5519,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9e09773c-b7d8-40a7-a666-c4930346ba05")
+	)
+	(junction
+		(at 186.69 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a354b32e-cdfa-47e8-855a-11c58b78b2ad")
 	)
 	(junction
 		(at 88.9 106.68)
@@ -5371,6 +5575,12 @@
 		(uuid "e114fc74-17de-45d6-8461-3e0581323021")
 	)
 	(junction
+		(at 104.14 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e56f991d-df68-4572-b59d-0d69b5a530c5")
+	)
+	(junction
 		(at 38.1 95.25)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5381,12 +5591,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e9ec85ed-4777-4c60-bbfa-12402d0b9e2a")
-	)
-	(junction
-		(at 130.81 106.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eab4cea5-3aef-4372-93ee-8c28aad7db9f")
 	)
 	(junction
 		(at 35.56 39.37)
@@ -5500,6 +5704,16 @@
 	)
 	(wire
 		(pts
+			(xy 97.79 105.41) (xy 97.79 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01002d92-910c-4023-b889-050a3d688121")
+	)
+	(wire
+		(pts
 			(xy 93.98 160.02) (xy 101.6 160.02)
 		)
 		(stroke
@@ -5587,6 +5801,16 @@
 			(type default)
 		)
 		(uuid "1c93718e-85c8-48a0-8d67-96b8cc1e4ccd")
+	)
+	(wire
+		(pts
+			(xy 233.68 111.76) (xy 264.16 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d2845b5-fb2f-4955-b4ad-9af0b1dd6066")
 	)
 	(wire
 		(pts
@@ -5700,16 +5924,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 99.06) (xy 88.9 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48f2f86c-111f-428a-a673-62f0db278669")
-	)
-	(wire
-		(pts
 			(xy 55.88 175.26) (xy 55.88 173.99)
 		)
 		(stroke
@@ -5737,6 +5951,26 @@
 			(type default)
 		)
 		(uuid "577eb553-2c79-4f95-ac4c-26f63cd2f891")
+	)
+	(wire
+		(pts
+			(xy 186.69 106.68) (xy 204.47 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "624873cb-7f8e-477f-b12e-eb931a826761")
+	)
+	(wire
+		(pts
+			(xy 104.14 105.41) (xy 97.79 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63a07147-8191-41ec-b80b-7be38fe2fc58")
 	)
 	(wire
 		(pts
@@ -5840,6 +6074,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 109.22) (xy 264.16 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84c4f4f1-a0c3-4b8f-b68f-d667a5e32546")
+	)
+	(wire
+		(pts
 			(xy 27.94 95.25) (xy 27.94 96.52)
 		)
 		(stroke
@@ -5920,16 +6164,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 106.68) (xy 104.14 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6080fb9-fb37-4c3a-9ee1-afacce1fea09")
-	)
-	(wire
-		(pts
 			(xy 31.75 31.75) (xy 35.56 31.75)
 		)
 		(stroke
@@ -5937,26 +6171,6 @@
 			(type default)
 		)
 		(uuid "ab11f973-999c-48dc-a232-f862b954e7a0")
-	)
-	(wire
-		(pts
-			(xy 104.14 105.41) (xy 104.14 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ac5cf43f-b5fe-4b65-9b49-5978963306fe")
-	)
-	(wire
-		(pts
-			(xy 96.52 99.06) (xy 96.52 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b163b660-b490-4e74-9330-12a0667445e3")
 	)
 	(wire
 		(pts
@@ -6120,16 +6334,6 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 106.68) (xy 130.81 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e2b26b2c-6ec0-4401-a463-81f9993d02de")
-	)
-	(wire
-		(pts
 			(xy 73.66 160.02) (xy 66.04 160.02)
 		)
 		(stroke
@@ -6167,6 +6371,16 @@
 			(type default)
 		)
 		(uuid "f0b6d1b3-a873-449b-93fb-c499cf1070f8")
+	)
+	(wire
+		(pts
+			(xy 184.15 106.68) (xy 186.69 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f24ab1e7-b3d5-49be-9b1d-091ebd3b4c06")
 	)
 	(wire
 		(pts
@@ -6208,6 +6422,16 @@
 		)
 		(uuid "f8b75cad-9bb6-4f8d-8334-8382ffa26e0d")
 	)
+	(wire
+		(pts
+			(xy 97.79 99.06) (xy 88.9 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb5c7d79-6e1d-43ec-be88-9a4343e40847")
+	)
 	(rectangle
 		(start 15.875 72.39)
 		(end 153.035 120.65)
@@ -6246,7 +6470,7 @@
 	)
 	(rectangle
 		(start 163.195 71.755)
-		(end 281.305 114.935)
+		(end 281.305 116.84)
 		(stroke
 			(width 0)
 			(type dash)
@@ -6292,6 +6516,16 @@
 		)
 		(uuid d9e1b353-7b7d-481f-a3db-863fc6c8a2cb)
 	)
+	(text "Optional RC Filter"
+		(exclude_from_sim no)
+		(at 181.864 101.6 0)
+		(effects
+			(font
+				(size 2.032 2.032)
+			)
+		)
+		(uuid "12d89182-d228-4757-9293-79990a34d19d")
+	)
 	(text "https://www.youtube.com/watch?v=k264JhDUcH0\nhttps://github.com/SpenceKonde/megaTinyCore/tree/master/megaavr/libraries/Comparator\nComparator Pinout - Datasheet P. 18\nmegaTinyCore pinout - https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/ATtiny_x14.md"
 		(exclude_from_sim no)
 		(at 221.996 78.486 0)
@@ -6314,7 +6548,7 @@
 	)
 	(text "pseudo-log pot\nhttps://www.desmos.com/\ncalculator/bm9tqk4f8c"
 		(exclude_from_sim no)
-		(at 104.902 109.728 0)
+		(at 104.648 113.538 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6414,7 +6648,7 @@
 		(uuid "043c1e68-44b7-4528-88a2-d6988bf6cdc3")
 	)
 	(label "SCL"
-		(at 233.68 111.76 0)
+		(at 233.68 109.22 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6545,17 +6779,6 @@
 		)
 		(uuid "58fc46d0-13ef-44f4-a90a-e680380fee29")
 	)
-	(label "Photo_output"
-		(at 134.62 27.94 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "62c89d93-901c-466d-8fc1-4f8a0b328a56")
-	)
 	(label "D-"
 		(at 214.63 138.43 180)
 		(fields_autoplaced yes)
@@ -6622,8 +6845,8 @@
 		)
 		(uuid "7c9352f1-e329-44d5-be8e-a2584ea10de8")
 	)
-	(label "W1"
-		(at 140.97 27.94 270)
+	(label "Photo_output"
+		(at 176.53 106.68 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6631,7 +6854,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "92aa8d1a-41aa-458f-b2d3-2a4e2367d92d")
+		(uuid "8613128b-273d-49f6-aedf-b79877154e7e")
 	)
 	(label "Therm2"
 		(at 71.12 31.75 0)
@@ -6688,6 +6911,17 @@
 		)
 		(uuid "a8c0298d-f9ef-4e0e-a34f-52dc549e1897")
 	)
+	(label "Filtered_output"
+		(at 190.5 106.68 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a94f39e0-4730-46b4-91ca-fa9a42d82664")
+	)
 	(label "UPDI"
 		(at 233.68 106.68 0)
 		(fields_autoplaced yes)
@@ -6733,7 +6967,7 @@
 		(uuid "cb4252c6-0b2d-438e-be9e-58f16439c5f8")
 	)
 	(label "SDA"
-		(at 233.68 109.22 0)
+		(at 233.68 111.76 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6742,17 +6976,6 @@
 			(justify left bottom)
 		)
 		(uuid "cf4b4208-48a6-426b-97b9-b59399d68f35")
-	)
-	(label "Photo_output"
-		(at 204.47 106.68 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e3e858ef-02e3-4ee9-9eef-e31b1ac8464e")
 	)
 	(label "D-"
 		(at 58.42 167.64 0)
@@ -6809,16 +7032,16 @@
 		)
 		(uuid "ef369399-e9d1-441e-91e4-64234f71becf")
 	)
-	(label "Vled-ref-"
-		(at 91.44 99.06 0)
+	(label "Photo_output"
+		(at 152.4 27.94 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "ef3f66fe-cea7-4ac8-a4aa-9eb6467b0060")
+		(uuid "f0853056-8ce5-45d9-a0d2-bc90f871507a")
 	)
 	(label "Vled-ref+"
 		(at 91.44 96.52 0)
@@ -6982,6 +7205,91 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "TH3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 152.4 27.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0541e496-ed5b-4f6c-b2e6-8846bf8b7cc4")
+		(property "Reference" "TP1"
+			(at 153.797 23.4258 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 153.797 25.8501 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Custom:1x Solder pads"
+			(at 157.48 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 152.4 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 152.4 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
+			(at 152.4 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "463bf109-0254-4c9d-b2b6-48f7289b8b09")
+		)
+		(instances
+			(project ""
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -7162,7 +7470,7 @@
 		(dnp no)
 		(uuid "0dfde38e-a3fa-4272-bebb-c4dae0d0eb52")
 		(property "Reference" "RN1"
-			(at 248.92 112.0945 90)
+			(at 248.92 94.488 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7170,7 +7478,7 @@
 			)
 		)
 		(property "Value" "4.7k"
-			(at 248.92 109.6702 90)
+			(at 248.92 96.52 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7755,17 +8063,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 160.02 27.94 0)
+		(lib_id "Device:C_Small")
+		(at 186.69 109.22 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "30b9709e-c8b3-43c9-b45d-c3475d9e2321")
-		(property "Reference" "TP5"
-			(at 161.417 23.4258 0)
+		(uuid "309af9a7-c368-4935-9fd5-7d3792f6047a")
+		(property "Reference" "C8"
+			(at 187.96 103.632 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7773,18 +8080,17 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
-			(at 161.417 25.8501 0)
+		(property "Value" "100nF"
+			(at 189.738 105.664 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 165.1 27.94 0)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 186.69 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7792,8 +8098,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 165.1 27.94 0)
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_24.pdf"
+			(at 186.69 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7801,8 +8107,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "test point"
-			(at 160.02 27.94 0)
+		(property "Description" "CAP CER 0.1UF 50V X7R 0805"
+			(at 186.69 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7810,8 +8116,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 160.02 27.94 0)
+		(property "Manufacturer" "YAGEO"
+			(at 186.69 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7819,22 +8125,25 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
-			(at 160.02 27.94 0)
+		(property "Part" "CC0805KRX7R9BB104"
+			(at 186.69 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
+		)
+		(pin "2"
+			(uuid "519bc00d-0d6b-4679-86bc-c9de73e01ef2")
 		)
 		(pin "1"
-			(uuid "60c6efce-22f6-4482-baf3-eb84b899bcf0")
+			(uuid "cc409449-7cdb-4b2a-bfea-5c4ad1b66c0e")
 		)
 		(instances
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP5")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -8005,6 +8314,72 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 186.69 111.76 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "32d06031-8479-45c4-9754-f37688a6ae69")
+		(property "Reference" "#PWR033"
+			(at 186.69 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 186.69 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 186.69 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 186.69 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 186.69 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "038354a9-7aa8-4b21-b9a4-4eafa804c591")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -9263,7 +9638,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Custom:Solder pads"
 			(at 27.94 100.33 0)
 			(effects
 				(font
@@ -9897,6 +10272,91 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 180.34 106.68 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "78f3cd30-54b2-4153-8b1d-b7d6204544ff")
+		(property "Reference" "R7"
+			(at 180.594 104.394 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 180.34 106.68 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 180.34 108.458 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 470 OHM 0.1% 1/8W 0805"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Panasonic Electronic Components"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "ERA-6AEB471V"
+			(at 180.34 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "477a7c6f-4c57-4f95-a990-950aa7181354")
+		)
+		(pin "1"
+			(uuid "2a74366c-e78e-4786-88c3-f568e458d574")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -11268,6 +11728,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 104.14 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a8087604-61ff-411b-ab69-5c7184e91c4a")
+		(property "Reference" "#PWR026"
+			(at 104.14 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 104.14 109.5431 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 104.14 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "634dd836-e811-404f-85ad-14b972c0823c")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+12V")
 		(at 214.63 146.05 90)
 		(unit 1)
@@ -11485,92 +12011,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 153.67 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ace8b4b4-870a-4e3c-aa6e-230b37d94221")
-		(property "Reference" "TP4"
-			(at 155.067 23.4258 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 155.067 25.8501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 158.75 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 158.75 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 153.67 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 153.67 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 153.67 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7fa46272-cb5a-41af-9079-738bdae38a72")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 88.9 93.98 270)
 		(unit 1)
@@ -11732,7 +12172,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z9.0mm"
+		(property "Footprint" "Custom:Solder pads"
 			(at 130.81 85.09 0)
 			(effects
 				(font
@@ -11985,178 +12425,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 166.37 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bb7fc6c0-e63f-4f7f-91f7-20b6d31b1e28")
-		(property "Reference" "TP6"
-			(at 167.767 23.4258 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 167.767 25.8501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 171.45 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 171.45 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 166.37 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 166.37 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 166.37 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3452e059-7cae-426e-952d-2af37354262d")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 140.97 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bee397f2-eda1-4b52-872b-16fc2a4b48bb")
-		(property "Reference" "TP2"
-			(at 142.367 23.4258 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 142.367 25.8501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 146.05 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 146.05 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 140.97 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 140.97 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 140.97 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "460f60fc-47dd-4611-ab2c-739fbcf87ea3")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:Thermistor")
 		(at 43.18 35.56 0)
 		(mirror x)
@@ -12378,92 +12646,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 134.62 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cd4f6df2-0440-45d6-a0e7-5c9e0ce2ba0a")
-		(property "Reference" "TP1"
-			(at 136.017 23.4258 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 136.017 25.8501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 139.7 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 139.7 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 134.62 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 134.62 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 134.62 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "73c4cbf6-3307-4b8a-bba9-b000814bfb7d")
-		)
-		(instances
-			(project ""
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Conn_01x08_Socket")
 		(at 219.71 143.51 0)
 		(unit 1)
@@ -12569,6 +12751,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 264.16 114.3 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ce1eaa97-070d-4a8d-aa60-e2a19b12a133")
+		(property "Reference" "#PWR025"
+			(at 257.81 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 260.9851 114.3 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 264.16 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 264.16 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 264.16 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d8194e98-f31e-427d-a72d-e388c4445d85")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 105.41 160.02 90)
 		(unit 1)
@@ -12602,7 +12851,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.te.com/usa-en/product-1-2176342-7.datasheet.pdf"
+		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/AOA0000C307.pdf"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12611,7 +12860,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 470 OHM 5% 1/8W 0805"
+		(property "Description" "RES SMD 470 OHM 0.1% 1/8W 0805"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12620,7 +12869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "TE Connectivity Passive Product"
+		(property "Manufacturer" "Panasonic Electronic Components"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -12629,7 +12878,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "CRGCQ0805J470R"
+		(property "Part" "ERA-6AEB471V"
 			(at 105.41 160.02 0)
 			(effects
 				(font
@@ -13155,6 +13404,95 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x03_Socket")
+		(at 269.24 111.76 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "eb4ee015-fdbf-4cb0-a8d7-25e33506b7d8")
+		(property "Reference" "J6"
+			(at 265.684 105.918 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x03_Socket"
+			(at 268.605 116.4774 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Custom:GCT_BG300-03-X-X-A_REVC"
+			(at 269.24 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://gct.co/files/specs/2.54mm-socket-spec.pdf"
+			(at 269.24 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3 Position Receptacle Connector 0.100\" (2.54mm) Surface Mount, Right Angle Gold"
+			(at 269.24 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "GCT"
+			(at 269.24 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "BG300-03-A-L-A"
+			(at 269.24 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "3ce2d75a-1635-4438-9042-1b205a81523e")
+		)
+		(pin "2"
+			(uuid "dea021c5-2652-4576-b3e7-50e9742bc05d")
+		)
+		(pin "1"
+			(uuid "ed44ca51-d138-4cc0-99e0-b4a61e4f8eb1")
+		)
+		(instances
+			(project ""
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D")
 		(at 97.79 157.48 0)
 		(unit 1)
@@ -13235,92 +13573,6 @@
 			(project ""
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "D5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 147.32 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f1acec90-1ec6-4600-92b1-4efd59f2c123")
-		(property "Reference" "TP3"
-			(at 148.717 23.4258 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 148.717 25.8501 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
-			(at 152.4 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 152.4 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 147.32 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" ""
-			(at 147.32 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 147.32 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8f191476-9b91-4e4a-8c7e-779a93aa834c")
-		)
-		(instances
-			(project "cyro_plunger_transmissive_photogate"
-				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
-					(reference "TP3")
 					(unit 1)
 				)
 			)
