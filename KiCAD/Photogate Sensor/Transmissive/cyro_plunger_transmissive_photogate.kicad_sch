@@ -6812,7 +6812,7 @@
 	)
 	(text "https://www.instructables.com/Adrianino-ATtiny-1614-UPDI/\nhttps://www.youtube.com/watch?app=desktop&v=k264JhDUcH0&ab_channel=GrugHuhler"
 		(exclude_from_sim no)
-		(at 130.556 -24.892 0)
+		(at 153.416 6.858 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10882,7 +10882,7 @@
 		(dnp no)
 		(uuid "7ffb5867-a80b-4845-a807-d76d88533785")
 		(property "Reference" "C3"
-			(at 236.728 34.544 0)
+			(at 236.728 35.814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10891,7 +10891,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 234.442 36.83 0)
+			(at 234.442 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
