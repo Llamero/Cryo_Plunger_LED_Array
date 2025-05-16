@@ -14488,6 +14488,16 @@
 		(layer "F.SilkS")
 		(uuid "d284f13c-8226-45b4-8b16-4702f9c3753e")
 	)
+	(gr_line
+		(start 161 135)
+		(end 160.99 171.67)
+		(stroke
+			(width 0.3)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e599a6d8-0ddc-4ebe-b90e-7b0f9de37c71")
+	)
 	(gr_arc
 		(start 143 100)
 		(mid 146.330738 101.785009)
