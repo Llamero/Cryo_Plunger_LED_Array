@@ -11899,7 +11899,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 214.63 144.78 270)
+		(at 214.63 142.24 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11908,7 +11908,7 @@
 		(fields_autoplaced yes)
 		(uuid "9d0f0355-33e8-49e1-a2f8-03d8ef818ca8")
 		(property "Reference" "#PWR028"
-			(at 208.28 144.78 0)
+			(at 208.28 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11917,7 +11917,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 211.4551 144.78 90)
+			(at 211.4551 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11926,7 +11926,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 144.78 0)
+			(at 214.63 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11935,7 +11935,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 144.78 0)
+			(at 214.63 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11944,7 +11944,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 214.63 144.78 0)
+			(at 214.63 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12555,7 +12555,7 @@
 	)
 	(symbol
 		(lib_id "power:+12V")
-		(at 214.63 142.24 90)
+		(at 214.63 144.78 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12564,7 +12564,7 @@
 		(fields_autoplaced yes)
 		(uuid "b4a149af-c78d-4a53-964e-7fafcea5de31")
 		(property "Reference" "#PWR027"
-			(at 218.44 142.24 0)
+			(at 218.44 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12573,7 +12573,7 @@
 			)
 		)
 		(property "Value" "+12V"
-			(at 211.455 142.24 90)
+			(at 211.455 144.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12582,7 +12582,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 142.24 0)
+			(at 214.63 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12591,7 +12591,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 142.24 0)
+			(at 214.63 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12600,7 +12600,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 214.63 142.24 0)
+			(at 214.63 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
