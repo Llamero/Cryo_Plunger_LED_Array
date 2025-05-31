@@ -1,0 +1,30 @@
+Reference,Value,Datasheet,Footprint,Qty,Manufacturer,Part
+"C1,C2",4.7µF,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRT21BR61H475KE13-01.pdf,Capacitor_SMD:C_0805_2012Metric,2,Murata Electronics,GRT21BR61H475KE13L
+"C3,C4,C5,C6,C7,C8",100nF,https://www.passivecomponent.com/wp-content/uploads/datasheet/WTC_MLCC_Automotive_MT.pdf,Capacitor_SMD:C_0805_2012Metric,6,Walsin Technology Corporation,MT21B104K500CT
+D1,LED,https://look.ams-osram.com/m/7d214b223a9adb85/original/SFH-4550.pdf,Custom:Solder pads,1,ams-OSRAM USA INC.,SFH 4550
+"D2,D4,D6,D7,D8,D9,D10,D11,D12",D_Schottky,https://toshiba.semicon-storage.com/info/docget.jsp?did=14077&prodName=CUS10S30,Diode_SMD:D_SOD-323,9,Toshiba Semiconductor and Storage,"CUS10S30,H3F"
+D3,D_Photo,https://look.ams-osram.com/m/3798e9afd3f63ea8/original/SFH-213-FA.pdf,Custom:Solder pads,1,ams-OSRAM USA INC.,SFH 213 FA
+D5,D,https://www.mccsemi.com/pdf/Products/1N4148WX(SOD-323).pdf,Diode_SMD:D_SOD-323,1,MCC (Micro Commercial Components),1N4148WX-TP
+H1,Light Barrier,uxcell 4Pcs Carbon Fiber Tube 4 x 6 x 200mm Pultruded Carbon Fiber Tubing for RC Airplane Kite Wing Tube Quadcopter Arm,,1,Amazon,B0CZ3GRKQH
+J1,FFC,https://tools.molex.com/pdm_docs/ps/PS-15167-001-001.pdf,,1,Molex,151670243
+"J2,J8",FFC Socket,https://cdn.amphenol-cs.com/media/wysiwyg/files/documentation/datasheet/flex/flexconnectors_100mm_sfw_s.pdf,Custom:AMPHENOL_SFW8S-2STE1LF,2,Amphenol ICC (FCI),SFW8S-2STE1LF
+"J3,J7",USB_B_Micro,https://www.cuidevices.com/product/resource/uj2-mibh-g-smt-tr.pdf,Custom:CUI_UJ2-MIBH-G-SMT-TR,2,Same Sky (Formerly CUI Devices),UJ2-MIBH-G-SMT-TR
+J4,UPDI socket,https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2900/NPxCxx1KFXx-RC%2010487-D.pdf,Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical_SMD_Pin1Right,1,Sullins Connector Solutions,NPTC061KFXC-RC
+J5,DC Jack,https://tensility.s3.us-west-2.amazonaws.com/uploads/pdffiles/54-00165.pdf,Custom:TENSILITY_54-00165,1,Tensility International Corp,54-00165
+"J6,J9",Conn_01x03_Socket,https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2900/NPxCxx1KFXx-RC%2010487-D.pdf,Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical_SMD_Pin1Right,2,Sullins Connector Solutions,NPPC031KFXC-RC
+PS1,VTX-214-015-103,http://www.vigortronix.com/15WattSMPSPCBModuleAC-DC,,1,,
+"Q1,Q2,Q3,Q4",Q_NMOS_GSD,https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/3133/AS2312.pdf,Package_TO_SOT_SMD:SOT-23-3,4,ANBON SEMICONDUCTOR (INT'L) LIMITED,AS2312
+"R1,R2",47,https://www.te.com/usa-en/product-6-1879233-5.datasheet.pdf,Custom:RES_SMF5_TYCO_TYC,2,TE Connectivity Passive Product,SMW547RJT
+R3,47,https://www.te.com/usa-en/product-9-2176404-1.datasheet.pdf,Custom:RES_3550_TEC,1,TE Connectivity Passive Product,355047RJT
+R4,200k,https://www.te.com/usa-en/product-6-2176238-8.datasheet.pdf,Resistor_SMD:R_0805_2012Metric,1,TE Connectivity Passive Product,CPF-A-0805B200KE
+R5,100,https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf,Resistor_SMD:R_1206_3216Metric,1,YAGEO,RP1206BRD07100RL
+"R6,R7",470,https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf,Resistor_SMD:R_0805_2012Metric,2,YAGEO,RP0805FRE07470RL
+R8,2M,https://www.vishay.com/docs/28952/mcr0201at-mca1206at.pdf,Resistor_SMD:R_0805_2012Metric,1,Vishay Beyschlag/Draloric/BC Components,MCU0805MD2004BP500
+"RN1,RN2,RN3",4.7k,https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-yc_tc_group_51_rohs_l.pdf,Resistor_SMD:R_Array_Convex_4x1206,3,YAGEO,YC324-FK-074K7L
+"TH1,TH2,TH3",Thermistor,https://www.murata.com/products/productdata/8796839149598/NTHCG158.txt?1437969900000,Resistor_SMD:R_0805_2012Metric,3,Murata Electronics,NCP21XM472J03RA
+TP1,TestPoint,~,Custom:1x Solder pads,1,,
+U1,5V LDO,https://www.st.com/content/ccc/resource/technical/document/datasheet/group3/0e/5a/00/ca/10/1a/4f/a5/DM00366442/files/DM00366442.pdf/jcr:content/translations/en.DM00366442.pdf,Package_TO_SOT_SMD:SOT-223-3_TabPin2,1,STMicroelectronics,LDL1117S50R
+U2,Opamp_Dual,https://www.analog.com/media/en/technical-documentation/data-sheets/AD8603_8607_8609.pdf,Package_SO:MSOP-8_3x3mm_P0.65mm,1,Analog Devices Inc.,AD8607ARMZ-REEL
+U3,AD5242BRUZ1M,https://www.analog.com/media/en/technical-documentation/data-sheets/ad5241_ad5242.pdf,Custom:AD5242BRUZ1M,1,Analog Devices Inc.,AD5242BRUZ1M
+U4,ATTiny1614,http://ww1.microchip.com/downloads/en/DeviceDoc/ATtiny1614-16-17-DataSheet-DS40002204A.pdf,Package_SO:SOIC-14_3.9x8.7mm_P1.27mm,1,Microchip Technology,ATTINY1614-SSNR
+U5,CH340C,https://docs.sparkfun.com/SparkFun_RTK_Facet_mosaic/assets/component_documentation/CH340DS1.PDF,Package_SO:SOP-16_3.9x9.9mm_P1.27mm,1,Amazon,B0BK991VVV
