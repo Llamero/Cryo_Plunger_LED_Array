@@ -36,7 +36,7 @@ void loop() {
   }
   buffer_len = 6;
   sendDataWire();
-  delay(100);
+  delay(500);
 }
 
 void sendDataWire() {
