@@ -1,85 +1,63 @@
-/*  
-  Simple demo of using all the timing helpers elapsedMillis makes available.
+// Wire Slave Receiver
+// by Nicholas Zambetti <http://www.zambetti.com>
 
-  Either attach LEDs with series resistors to the indicated pins, or a
-  six led / six bit 'Chartreuse' module plugged into pins 8 through GND. 
-  
-  Wired up in order, the leds have a nice walking/counting effect.
-  
-  This example code is in the public domain.
-*/
+// Demonstrates use of the Wire library
+// Receives data as an I2C/TWI slave device
+// Refer to the "Wire Master Writer" example for use with this
 
-#include <elapsedMillis.h>
+// Created 29 March 2006
 
-//declare these global if you don't want them reset every time loop runs
-elapsedMicros LED1micro;
-elapsedMicros LED2micro;
-elapsedMillis LED3millis;
-elapsedMillis LED4millis;
-elapsedSeconds LED5seconds;
-elapsedSeconds LED6seconds;
+// This example code is in the public domain.
+const int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor on the PCB
+const int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
+const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
 
-const int LED1 = 8;
-const int LED2 = 9;
-const int LED3 = 10;
-const int LED4 = 11;
-const int LED5 = 12;
-const int LED6 = 13;
-
-// delay between blinks of the LED
-unsigned long LED1_Interval = 62500;
-unsigned long LED2_Interval = 125000;
-unsigned int LED3_Interval = 250;
-unsigned int LED4_Interval = 500;
-unsigned int LED5_Interval = 1;
-unsigned int LED6_Interval = 2;
-
-void setup()
+#include <Wire.h>
+union BYTE16UNION
 {
-  // initialize the LED pins as outputs
-  pinMode(LED1, OUTPUT);
-  pinMode(LED2, OUTPUT);
-  pinMode(LED3, OUTPUT);
-  pinMode(LED4, OUTPUT);
-  pinMode(LED5, OUTPUT);
-  pinMode(LED6, OUTPUT);
+ uint16_t bytes_var;
+ uint8_t bytes[2];
+}uint16Union;
+
+void setup() {
+  Wire.begin(0x54);                // join I2C bus with address #8
+  Wire.onReceive(receiveEvent); // register event
+  Serial.begin(115200);           // start serial for output
 }
 
-void loop()
-{
-  if (LED1micro >= LED1_Interval)
-  {
-    digitalWrite(LED1, !(digitalRead(LED1))); // toggle the LED state
-    LED1micro = 0;                            // reset the counter to 0 so the counting starts over...
-  }
+void loop(){}
 
-  if (LED2micro >= LED2_Interval)
-  {
-    digitalWrite(LED2, !(digitalRead(LED2))); // toggle the LED state
-    LED2micro = 0;                            // reset the counter to 0 so the counting starts over...
+// function that executes whenever data is received from master
+// this function is registered as an event, see setup()
+void receiveEvent(int howMany) {
+  delay(10);
+  while (0 < Wire.available()) { // loop through all but the last
+    for(uint8_t a=0; a<3; a++){
+      uint16Union.bytes[0] = Wire.read();
+      uint16Union.bytes[1] = Wire.read();
+      float temp = adcToTemp(uint16Union.bytes_var);
+      Serial.print(temp);
+      Serial.print("°C, ");
+    }
+    for(uint8_t a=0; a<3; a++){
+      uint8_t power = Wire.read();
+      Serial.print(power);
+      Serial.print(", ");
+    }
+    Serial.println();
   }
+}
 
-  if (LED3millis >= LED3_Interval)
-  {
-    digitalWrite(LED3, !(digitalRead(LED3))); // toggle the LED state
-    LED3millis = 0;                           // reset the counter to 0 so the counting starts over...
-  }
-
-  if (LED4millis >= LED4_Interval)
-  {
-    digitalWrite(LED4, !(digitalRead(LED4))); // toggle the LED state
-    LED4millis = 0;                           // reset the counter to 0 so the counting starts over...
-  }
-
-  if (LED5seconds >= LED5_Interval)
-  {
-    digitalWrite(LED5, !(digitalRead(LED5))); // toggle the LED state
-    LED5seconds = 0;                          // reset the counter to 0 so the counting starts over...
-  }
-
-  if (LED6seconds >= LED6_Interval)
-  {
-    digitalWrite(LED6, !(digitalRead(LED6))); // toggle the LED state
-    LED6seconds = 0;                          // reset the counter to 0 so the counting starts over...
-  }
+float adcToTemp(uint16_t adc){
+  float steinhart;
+  float raw = (float) adc;
+  raw = 1024 / raw - 1;
+  raw = SERIES_RESISTOR / raw;
+  steinhart = raw / PCB_THERMISTOR_NOMINAL;     // (R/Ro)
+  steinhart = log(steinhart);                  // ln(R/Ro)
+  steinhart /= PCB_B_COEFFICIENT;                   // 1/B * ln(R/Ro)
+  steinhart += 1.0 / (25 + 273.15); // + (1/To)
+  steinhart = 1.0 / steinhart;                 // Invert
+  steinhart -= 273.15;   
+  return steinhart;
 }

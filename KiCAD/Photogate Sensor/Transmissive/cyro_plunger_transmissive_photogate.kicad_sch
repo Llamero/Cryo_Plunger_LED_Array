@@ -6033,6 +6033,12 @@
 		(uuid "8f57c5b6-0bc0-492a-ae33-5cf1f83bdaa3")
 	)
 	(junction
+		(at 109.22 132.08)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9016adb5-23ad-410f-aa4e-9cca53012ac3")
+	)
+	(junction
 		(at 66.04 147.32)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6976,6 +6982,16 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 132.08) (xy 110.49 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4e5781f-9b14-4d4b-bab2-89f44e2157f0")
+	)
+	(wire
+		(pts
 			(xy 55.88 129.54) (xy 73.66 129.54)
 		)
 		(stroke
@@ -7858,7 +7874,7 @@
 		(uuid "ba6382d2-e45a-4906-8690-18569951f863")
 	)
 	(label "UPDI"
-		(at 109.22 132.08 0)
+		(at 110.49 132.08 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11858,6 +11874,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 109.22 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "74fa582a-9330-4b8d-afc7-9bb8d54fe1df")
+		(property "Reference" "#PWR049"
+			(at 109.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 109.22 120.3269 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 109.22 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 109.22 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 109.22 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a8a0096a-6caa-4052-977e-79d6eed349c4")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "#PWR049")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Pack04")
 		(at 265.43 93.98 0)
 		(mirror x)
@@ -14055,6 +14137,91 @@
 			(project "cyro_plunger_transmissive_photogate"
 				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 109.22 128.27 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a740c7b3-941a-4ee9-a61d-c3a8d15ab043")
+		(property "Reference" "R9"
+			(at 112.014 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47k"
+			(at 109.22 128.27 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 110.998 128.27 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/app/datasheet/rchip/pyu-rp_51_rohs_l.pdf"
+			(at 109.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "470 Ohms ±1% 0.125W, 1/8W Chip Resistor 0805 (2012 Metric) Anti-Sulfur, Automotive AEC-Q200, Moisture Resistant Thin Film"
+			(at 109.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "YAGEO"
+			(at 109.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "RP0805FRE07470RL"
+			(at 109.22 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a732b928-a7da-43e3-a670-fe32e9b1fba0")
+		)
+		(pin "1"
+			(uuid "2c6befe9-68ff-4da2-a9f3-d8135858038f")
+		)
+		(instances
+			(project "cyro_plunger_transmissive_photogate"
+				(path "/99ca36d5-bbf3-497e-815f-42a5447a2ddc"
+					(reference "R9")
 					(unit 1)
 				)
 			)

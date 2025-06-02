@@ -18847,7 +18847,7 @@
 			)
 		)
 	)
-	(gr_text "6-12V DC"
+	(gr_text "6-18V DC"
 		(at 154.77 115.953951 180)
 		(layer "F.SilkS")
 		(uuid "bad24ee0-13f2-4ff3-9e90-048f416ab029")

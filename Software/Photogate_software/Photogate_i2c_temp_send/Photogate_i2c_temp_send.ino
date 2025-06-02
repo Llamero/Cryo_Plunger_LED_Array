@@ -4,13 +4,15 @@
 
 pinSetup pin;
 elapsedMillis timer;
+uint32_t elapsed_timer;
+uint8_t power[3];
 
 const int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor on the PCB
 const int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
 const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
-const float set_temp = 40;
+const float set_temp = 50;
 
-uint8_t i2c_buffer[10];
+uint8_t i2c_buffer[20];
 uint8_t buffer_len = 0;
 uint16_t adc_temp;
 
@@ -27,16 +29,38 @@ void setup() {
 }
 
 void loop() {
-  for(uint8_t a=0; a<3; a++){
-    uint16Union.bytes_var = analogRead(pin.temp[a]);
-    buffer_len = sizeof(uint16Union.bytes);
-    memcpy(i2c_buffer + sizeof(uint16Union.bytes)*a, uint16Union.bytes, buffer_len);
-    if(uint16Union.bytes_var < adc_temp) digitalWrite(pin.heater[a], LOW);
-    else if(uint16Union.bytes_var >= adc_temp) digitalWrite(pin.heater[a], HIGH);
+  timer = 0;
+  elapsed_timer = 0;
+  while(timer<30000){
+    for(uint8_t a=0; a<3; a++){
+      if(timer >= 2000 && timer <= 5000 && power[a] != 255){
+        power[a] = 255;
+        analogWrite(pin.heater[a], power[a]);
+      } 
+      else if((timer < 2000 || timer > 5000) && power[a] != 0){
+        power[a] = 0;
+        analogWrite(pin.heater[a], power[a]);  
+      }
+      uint16Union.bytes_var = analogRead(pin.temp[a]);
+      buffer_len = sizeof(uint16Union.bytes);
+      memcpy(i2c_buffer + sizeof(uint16Union.bytes)*a, uint16Union.bytes, buffer_len);
+      if(uint16Union.bytes_var < adc_temp && pin.heater_state[a]){ 
+        digitalWrite(pin.heater[a], LOW);
+        pin.heater_state[a] = false;
+        power[a] = 0;
+      }
+    }
+    i2c_buffer[8] = power[0];
+    buffer_len = 9;
+ 
+
+    if(timer-elapsed_timer >= 50){
+      uint16Union.bytes_var = (uint16_t) timer;
+      memcpy(i2c_buffer + 6, uint16Union.bytes, sizeof(uint16Union.bytes));
+      sendDataWire();
+      elapsed_timer += 50;
+    }
   }
-  buffer_len = 6;
-  sendDataWire();
-  delay(500);
 }
 
 void sendDataWire() {

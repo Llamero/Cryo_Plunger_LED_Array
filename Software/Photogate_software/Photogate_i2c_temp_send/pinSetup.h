@@ -11,6 +11,7 @@ class pinSetup
 
     const static uint8_t temp[];
     const static uint8_t heater[];
+    static bool heater_state[];
     const static uint8_t sensor = 3;
     const static uint8_t output = 4;
     const static uint8_t SDA = 6;
