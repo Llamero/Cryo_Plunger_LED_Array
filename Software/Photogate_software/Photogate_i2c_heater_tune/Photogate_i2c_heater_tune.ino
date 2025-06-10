@@ -137,7 +137,7 @@ void runCalibration(){
     setPhotodiodeGain(photodiode_gain);
     delay(10);
     photodiode_baseline = analogRead(pin.sensor);
-    if(photodiode_baseline > bias_voltage + 2) photodiode_gain -= bit_mask;
+    if(photodiode_baseline > bias_voltage + 1) photodiode_gain -= bit_mask;
   }
   delay(100);
   photodiode_baseline = analogRead(pin.sensor);
