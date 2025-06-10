@@ -11,6 +11,7 @@
 const int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor on the PCB
 const int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
 const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
+const uint16_t ADC_MAX = 1024;
 
 #include <Wire.h>
 union BYTE16UNION
@@ -30,6 +31,7 @@ void loop(){}
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
 void receiveEvent(int howMany) {
+  uint8_t value;
   delay(10);
   while (0 < Wire.available()) { // loop through all but the last
     for(uint8_t a=0; a<3; a++){
@@ -40,18 +42,42 @@ void receiveEvent(int howMany) {
       Serial.print("°C, ");
     }
     for(uint8_t a=0; a<3; a++){
-      uint8_t power = Wire.read();
-      Serial.print(power);
+      value = Wire.read();
+      Serial.print("Heater #");
+      Serial.print(a+1);
+      Serial.print(": ");
+      Serial.print(value);
       Serial.print(", ");
     }
+    for(uint8_t a=0; a<2; a++){
+      if(a) Serial.print("Max: ");
+      else Serial.print("Baseline: ");
+      uint16Union.bytes[0] = Wire.read();
+      uint16Union.bytes[1] = Wire.read();
+      Serial.print(uint16Union.bytes_var);
+      Serial.print(", ");
+    }
+    Serial.print("Gain: ");
+    value = Wire.read();
+    Serial.print(value);
+    Serial.print(", ");
+    Serial.print("Current: ");
+    value = Wire.read();
+    Serial.print(value);
+
+    Serial.print(", Sensor: ");
+    uint16Union.bytes[0] = Wire.read();
+    uint16Union.bytes[1] = Wire.read();
+    Serial.print(uint16Union.bytes_var);
     Serial.println();
+
   }
 }
 
 float adcToTemp(uint16_t adc){
   float steinhart;
   float raw = (float) adc;
-  raw = 1024 / raw - 1;
+  raw = ADC_MAX / raw - 1;
   raw = SERIES_RESISTOR / raw;
   steinhart = raw / PCB_THERMISTOR_NOMINAL;     // (R/Ro)
   steinhart = log(steinhart);                  // ln(R/Ro)
