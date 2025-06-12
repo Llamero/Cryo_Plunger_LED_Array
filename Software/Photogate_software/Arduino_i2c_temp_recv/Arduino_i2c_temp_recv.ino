@@ -24,6 +24,9 @@ uint8_t buffer_len = 0;
 volatile unsigned long start_time = 0;
 volatile unsigned long pulse_duration = 0;
 volatile byte pulse_state = 0; //State of interrupt pulse 0=wait for start (falling), 1=wait for end (rising), 2=pulse complete
+const uint16_t ACK_TIMEOUT[2] = {100, 5000};
+const uint16_t PHOTOGATE_TIMEOUT = 10000; 
+
 
 #include <Wire.h>
 union BYTE16UNION
@@ -44,8 +47,11 @@ void setup() {
 void loop(){
   if(timer > 500){
     timer = 0;
+    Serial.println("Send sync");
     sendSync();
-    waitForAck();
+    if(waitForAck()) waitForPhotogate();
+    else Serial.println("Ack FAILED!");
+    delay(2000);
   }
 }
 
@@ -67,21 +73,56 @@ void sendSync(){
   pinMode(output_pin, INPUT_PULLUP);
 }
 
-bool waitForAck(){
-  timer = 0;
-  pulse_state = 0; //Reset pulse state
-  attachInterrupt(digitalPinToInterrupt(output_pin), interruptTimer, CHANGE);
-  while(timer < 100){
-    if (pulse_state == 2) {
-      detachInterrupt(digitalPinToInterrupt(output_pin));
-      pulse_state = 0; //Reset pulse state
-      Serial.print("Pulse LOW Duration: ");
-      Serial.print(pulse_duration);
-      Serial.println(" us");
+bool waitForAck(){ //First short pulse = starting calibration, second long pulse = comparator ready
+  for(uint8_t a=0; a<2; a++){
+    timer = 0;
+    pulse_state = 0; //Reset pulse state
+    pinMode(output_pin, INPUT_PULLUP);
+    attachInterrupt(digitalPinToInterrupt(output_pin), interruptTimer, CHANGE);
+    while(timer < ACK_TIMEOUT[a]){
+      if (pulse_state == 2) {
+        detachInterrupt(digitalPinToInterrupt(output_pin));
+        pulse_state = 0; //Reset pulse state
+        Serial.print("Pulse LOW Duration: ");
+        Serial.print(pulse_duration);
+        Serial.println(" us");
+        break;
+      }
     }
+    if(timer > ACK_TIMEOUT[a]){ //If timed out, return false
+      Serial.print("Timeout waiting for ACK #"); 
+      Serial.println(a+1);
+      return false; 
+    } 
+    else if(!a && !(pulse_duration > 200 && pulse_duration < 500)){ //If first pulse isn't 300 µs return false
+      Serial.print("Invalid duration of ACK #1, expected 300 µs and received ");
+      Serial.print(pulse_duration);
+      return false; 
+    }
+    else if(a && !(pulse_duration > 700 && pulse_duration < 1000)){ //If second pulse isn't 800 µs return false  
+      Serial.print("Invalid duration of ACK #2, expected 800 µs and received ");
+      Serial.println(pulse_duration);
+      Serial.println("Check to ensure the beam path is not blocked.");
+      return false; 
+    }   
   }
-  if(pulse_duration > 500 && pulse_duration < 1100) return true;
-  else return false;
+  delay(100);
+  Serial.println("Sync SUCCESS!");
+  return true;
+}
+
+void waitForPhotogate(){
+  timer = 0;
+  pulse_state = 0;
+  pinMode(output_pin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(output_pin), interruptTimer, CHANGE);
+  while(timer < PHOTOGATE_TIMEOUT && (micros() - start_time > 1000 || pulse_state != 1)); //Wait for photogate
+  if(timer < PHOTOGATE_TIMEOUT){
+    detachInterrupt(digitalPinToInterrupt(output_pin));
+    Serial.println("PHOTOGATE!");
+    while(!digitalRead(output_pin));
+  } 
+  else Serial.println("Photogate timeout");
 }
 
 // function that executes whenever data is received from master

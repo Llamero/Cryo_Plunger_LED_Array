@@ -4,10 +4,12 @@
 #include <Comparator.h>
 
 pinSetup pin;
-elapsedMillis timer;
-elapsedMicros interrupt_timer;
+elapsedMillis timer;  //General ms timer for messages and timeouts
+elapsedMicros interrupt_timer; //Fast timer for timing interrupt durations
 
-uint32_t elapsed_message;
+
+const uint8_t LED_INTENSITY = 20; //IR LED intensity from 0-255
+uint32_t elapsed_message; //Timestamp when last status message was send
 uint8_t power[3] = {255, 255, 255};
 const uint8_t ARDUINO_ADDRESS = 0x54;
 const uint8_t DIGIPOT_ADDRESS = 0x2c;
@@ -19,12 +21,15 @@ const float HEATER_SET_TEMP = 40; //Temperature of the board heaters
 
 uint8_t serial_buffer[20];
 uint8_t buffer_len = 0;
+uint16_t STATUS_MESSAGE_INTERVAL = 500; //How often in ms to send status update.  0 = off
 
 uint16_t photodiode_baseline; //Adc value of reference voltage used to bias photodiode
 uint16_t photodiode_max; //Photodiode adc value with LED on 
 uint8_t photodiode_gain; //8-bit resitor value used to set photodiode gain
 uint8_t led_intensity; //8-bit resistor value used to set LED current
-bool photodiode_triggered = false; //Whether the photodiode beam has been broken
+uint8_t photodiode_state = 0; //0 = inactive; 1 = beam intact; 2 = beam broken
+uint32_t elapsed_photogate = 0; //Time in ms photodiode has been waiting for trigger
+const uint16_t PHOTOGATE_TIMEOUT = 9000; //Time in ms to wait for photogate to be tripped
 volatile uint32_t interrupt_duration; //Duration that output pin was pulled low
 
 union BYTE16UNION
@@ -33,9 +38,16 @@ union BYTE16UNION
  uint8_t bytes[2];
 }uint16Union;
 
-void ac_interrupt(void)
+void ac_interrupt()
 {
-  photodiode_triggered = true;
+  if (AC1.STATUS & AC_STATE_bm){
+    photodiode_state = 1;
+    interrupt_duration = interrupt_timer;
+  }
+  else{ 
+    photodiode_state = 2;
+    interrupt_timer = 0;
+  }
 }
 
 ISR(PORTB_PORT_vect) {
@@ -52,26 +64,27 @@ ISR(PORTB_PORT_vect) {
 void setup() {
   pin.configurePins();
   Wire.begin();
-  serial_buffer[0] = 0;
-  sendDataWire(DIGIPOT_ADDRESS);
-  serial_buffer[0] = 128;
-  sendDataWire(DIGIPOT_ADDRESS);
+  turnOffPhotogate();
   startInterrupt();
-
-  //runCalibration();
-  //startComparator();
-
 }
 
 void loop() {
   checkHeater();
   if(interrupt_duration) messageRouter();
-  if(timer-elapsed_message >= 200){
+  if(photodiode_state){
+    if(timer-elapsed_photogate > PHOTOGATE_TIMEOUT || (photodiode_state == 2 && interrupt_timer > 1000)){
+      stopComparator();
+      startInterrupt();
+      turnOffPhotogate();
+    }
+  }
+  if(timer-elapsed_message >= STATUS_MESSAGE_INTERVAL && STATUS_MESSAGE_INTERVAL){
     sendStatus();
   }
 }
 
 void startInterrupt() {
+  pinMode(pin.output, INPUT_PULLUP);
   PORTB.DIRCLR = PIN3_bm; // Set PB3 as input
   PORTB.PIN3CTRL = PORT_PULLUPEN_bm; // Optional: Enable pull-up resistor
   PORTB.PIN3CTRL |= PORT_ISC_BOTHEDGES_gc; // Enable interrupt on both edges
@@ -85,17 +98,24 @@ void stopInterrupt(){
 }
 
 void messageRouter(){
-  if(interrupt_duration > 100 && interrupt_duration < 1100){ //If a valid pulse was received, send an ACK
+  if(interrupt_duration > 100 && interrupt_duration < 500){ //If a valid 300 µs pulse was received, send an ACK
     stopInterrupt();
-    delay(10);
+    delay(1);
     pinMode(pin.output, OUTPUT);
     digitalWriteFast(pin.output, LOW);
-    delayMicroseconds(900);
+    delayMicroseconds(300);
     pinMode(pin.output, INPUT_PULLUP);
-    if(interrupt_duration < 500){ //if 300 µs pulse start comparator
-      photodiode_baseline = rand()*1000;
+    if(runCalibration()){ //If calibration successful, send ack
+      pinMode(pin.output, OUTPUT);
+      digitalWriteFast(pin.output, LOW);
+      delayMicroseconds(800);
+      pinMode(pin.output, INPUT_PULLUP);
       delay(10);
-      //startComparator();
+      startComparator();
+    }
+    else{ //If calibration failed turn off photogate and wait for next sync command
+      stopComparator();
+      turnOffPhotogate();
       startInterrupt();
     }
   }
@@ -106,8 +126,6 @@ void messageRouter(){
 //https://github.com/grughuhler/attiny/blob/main/attiny_ac/attiny_ac.ino
 void startComparator(){
   pinMode(pin.output, OUTPUT);
-  digitalWrite(pin.output, LOW);
-  delay(1000);
   Comparator1.input_p = comparator::in_p::in0;       // pos input PA7.  See datasheet
   Comparator1.input_n = comparator::in_n::dacref;    // neg pin to the DACREF voltage
   Comparator1.reference = comparator::ref::vref_4v3; // Set the DACREF voltage
@@ -115,16 +133,24 @@ void startComparator(){
 
   Comparator1.hysteresis = comparator::hyst::large;  // Use 50mV hysteresis
   Comparator1.output = comparator::out::enable;      // Enable output PB3
-  //Comparator1.output_initval = comparator::out::init_low; // Output pin high after initialization
+  Comparator1.output_initval = comparator::out::init_high; // Output pin high after initialization
 
   Comparator1.init();
-  Comparator1.attachInterrupt(ac_interrupt, FALLING);
+  Comparator1.attachInterrupt(ac_interrupt, CHANGE);
   Comparator1.start();
-  photodiode_triggered = false;
+  elapsed_photogate = timer; //Start photogate timer
+  photodiode_state = 1;  //Set state to active
 }
 
 void stopComparator(){
+  Comparator1.detachInterrupt();
   Comparator1.stop(true); // Stop comparator. Digital input on the pins that this comparator was using will be re-enabled.
+  photodiode_state = 0; //Set state to standby
+}
+
+void turnOffPhotogate(){
+  setLedIntensity(0);
+  setPhotodiodeGain(0);
 }
 
 void sendStatus(){
@@ -139,13 +165,13 @@ void sendStatus(){
     buffer_len += sizeof(uint16Union.bytes);
     serial_buffer[buffer_len] = photodiode_gain;
     buffer_len++;
-    serial_buffer[buffer_len] = led_intensity;
+    serial_buffer[buffer_len] = LED_INTENSITY;
     buffer_len++;
-    serial_buffer[buffer_len] = photodiode_triggered;
+    serial_buffer[buffer_len] = photodiode_state;
     buffer_len++;
     sendDataWire(ARDUINO_ADDRESS);
     serial_buffer[0] = B00000000;
-    elapsed_message += 200;
+    elapsed_message += STATUS_MESSAGE_INTERVAL;
 }
 
 void checkHeater(){
@@ -200,41 +226,40 @@ void checkHeater(){
   }
 }
 
-void runCalibration(){
+bool runCalibration(){
   uint8_t bit_mask;
   uint16_t bias_voltage;
   uint8_t index;
-  setLedIntensity(0); //Turn off IR LED
-  setPhotodiodeGain(0); //Turn down photodiode gain
-  delay(100);
-  bias_voltage = analogRead(pin.sensor); //Measure photodiode baseline voltage
+  stopInterrupt();
+  stopComparator();
+  turnOffPhotogate();
+  analogRead(pin.sensor);
+  bias_voltage = analogRead(pin.sensor);
+  photodiode_baseline = 0;
+  while(bias_voltage != photodiode_baseline){ //Wait for the bias voltage to stabilize
+    delay(200);
+    photodiode_baseline = bias_voltage;
+    bias_voltage = analogRead(pin.sensor); 
+  }
+  setLedIntensity(LED_INTENSITY); //Turn on LED and calibrate photodiode gain
   for(index = 0; index < 8; index++){ //Calibrate gain one bit at a time
     bit_mask = B10000000 >> index;
     photodiode_gain += bit_mask;
     setPhotodiodeGain(photodiode_gain);
-    delay(10);
-    photodiode_baseline = analogRead(pin.sensor);
-    if(photodiode_baseline > bias_voltage + 1) photodiode_gain -= bit_mask;
+    delay(100);
+    photodiode_max = analogRead(pin.sensor);
+    if(photodiode_max > 800) photodiode_gain -= bit_mask;
   }
+  delay(100);
+  photodiode_max = analogRead(pin.sensor);
+  setLedIntensity(0); //Turn off LED
   delay(100);
   photodiode_baseline = analogRead(pin.sensor);
-
-  for(index = 0; index < 8; index++){ //Calibrate gain one bit at a time
-    bit_mask = B10000000 >> index;
-    led_intensity += bit_mask;
-    setLedIntensity(led_intensity);
-    delay(10);
-    photodiode_max = analogRead(pin.sensor);
-    if(photodiode_max > 800) led_intensity -= bit_mask;
-  }
+  setLedIntensity(LED_INTENSITY);
   delay(100);
-  photodiode_max = 0;
-  index = 64;
-  while(index--){
-    photodiode_max += analogRead(pin.sensor);
-    delay(10);
-  }
-  photodiode_max >>= 6;
+  startInterrupt();
+  if(photodiode_gain < 200 && photodiode_max > 700 && photodiode_max < 900) return true;
+  else return false;
 }
 
 void setLedIntensity(uint8_t intensity){
