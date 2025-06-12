@@ -1,10 +1,11 @@
 #include <Wire.h>
 #include "pinSetup.h"
 #include <elapsedMillis.h>
-
+#include <Comparator.h>
 
 pinSetup pin;
 elapsedMillis timer;
+elapsedMicros interrupt_timer;
 
 uint32_t elapsed_message;
 uint8_t power[3] = {255, 255, 255};
@@ -16,15 +17,15 @@ const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
 const uint16_t ADC_MAX = 1024;
 const float HEATER_SET_TEMP = 40; //Temperature of the board heaters
 
-uint8_t i2c_buffer[20];
-
+uint8_t serial_buffer[20];
 uint8_t buffer_len = 0;
 
 uint16_t photodiode_baseline; //Adc value of reference voltage used to bias photodiode
 uint16_t photodiode_max; //Photodiode adc value with LED on 
 uint8_t photodiode_gain; //8-bit resitor value used to set photodiode gain
 uint8_t led_intensity; //8-bit resistor value used to set LED current
-
+bool photodiode_triggered = false; //Whether the photodiode beam has been broken
+volatile uint32_t interrupt_duration; //Duration that output pin was pulled low
 
 union BYTE16UNION
 {
@@ -32,42 +33,118 @@ union BYTE16UNION
  uint8_t bytes[2];
 }uint16Union;
 
+void ac_interrupt(void)
+{
+  photodiode_triggered = true;
+}
+
+ISR(PORTB_PORT_vect) {
+  if (PORTB.INTFLAGS & PIN3_bm) {
+    bool current_state = (PORTB.IN & PIN3_bm);
+
+    if (current_state) interrupt_duration = interrupt_timer;
+    else interrupt_timer = 0; //Reset interrupt timer
+    
+    PORTB.INTFLAGS = PIN3_bm; // Clear the interrupt flag for PB3
+  }
+}
+
 void setup() {
   pin.configurePins();
   Wire.begin();
-  i2c_buffer[0] = 0;
+  serial_buffer[0] = 0;
   sendDataWire(DIGIPOT_ADDRESS);
-  i2c_buffer[0] = 128;
+  serial_buffer[0] = 128;
   sendDataWire(DIGIPOT_ADDRESS);
-  runCalibration();
+  startInterrupt();
+
+  //runCalibration();
+  //startComparator();
+
 }
 
 void loop() {
   checkHeater();
+  if(interrupt_duration) messageRouter();
   if(timer-elapsed_message >= 200){
     sendStatus();
   }
 }
 
+void startInterrupt() {
+  PORTB.DIRCLR = PIN3_bm; // Set PB3 as input
+  PORTB.PIN3CTRL = PORT_PULLUPEN_bm; // Optional: Enable pull-up resistor
+  PORTB.PIN3CTRL |= PORT_ISC_BOTHEDGES_gc; // Enable interrupt on both edges
+  sei(); // Enable global interrupts
+}
+
+void stopInterrupt(){
+  PORTB.PIN3CTRL &= ~PORT_ISC_gm;           // Clear existing ISC bits
+  PORTB.PIN3CTRL |= PORT_ISC_INTDISABLE_gc; // Disable interrupt
+  PORTB.INTFLAGS = PIN3_bm; // Clear any pending interrupt flag for PB3
+}
+
+void messageRouter(){
+  if(interrupt_duration > 100 && interrupt_duration < 1100){ //If a valid pulse was received, send an ACK
+    stopInterrupt();
+    delay(10);
+    pinMode(pin.output, OUTPUT);
+    digitalWriteFast(pin.output, LOW);
+    delayMicroseconds(900);
+    pinMode(pin.output, INPUT_PULLUP);
+    if(interrupt_duration < 500){ //if 300 µs pulse start comparator
+      photodiode_baseline = rand()*1000;
+      delay(10);
+      //startComparator();
+      startInterrupt();
+    }
+  }
+  interrupt_duration = 0; //Reset interrupt
+}
+
+//https://github.com/SpenceKonde/megaTinyCore/tree/master/megaavr/libraries/Comparator
+//https://github.com/grughuhler/attiny/blob/main/attiny_ac/attiny_ac.ino
+void startComparator(){
+  pinMode(pin.output, OUTPUT);
+  digitalWrite(pin.output, LOW);
+  delay(1000);
+  Comparator1.input_p = comparator::in_p::in0;       // pos input PA7.  See datasheet
+  Comparator1.input_n = comparator::in_n::dacref;    // neg pin to the DACREF voltage
+  Comparator1.reference = comparator::ref::vref_4v3; // Set the DACREF voltage
+  Comparator1.dacref = 127;                          // (dacref/256)*VREF
+
+  Comparator1.hysteresis = comparator::hyst::large;  // Use 50mV hysteresis
+  Comparator1.output = comparator::out::enable;      // Enable output PB3
+  //Comparator1.output_initval = comparator::out::init_low; // Output pin high after initialization
+
+  Comparator1.init();
+  Comparator1.attachInterrupt(ac_interrupt, FALLING);
+  Comparator1.start();
+  photodiode_triggered = false;
+}
+
+void stopComparator(){
+  Comparator1.stop(true); // Stop comparator. Digital input on the pins that this comparator was using will be re-enabled.
+}
+
 void sendStatus(){
     buffer_len = sizeof(uint16Union.bytes)*3;
-    memcpy(i2c_buffer + buffer_len, power, sizeof(power));
+    memcpy(serial_buffer + buffer_len, power, sizeof(power));
     buffer_len += sizeof(power);
     uint16Union.bytes_var = photodiode_baseline;
-    memcpy(i2c_buffer + buffer_len, uint16Union.bytes, sizeof(uint16Union.bytes));
+    memcpy(serial_buffer + buffer_len, uint16Union.bytes, sizeof(uint16Union.bytes));
     buffer_len += sizeof(uint16Union.bytes);
     uint16Union.bytes_var = photodiode_max;
-    memcpy(i2c_buffer + buffer_len, uint16Union.bytes, sizeof(uint16Union.bytes));
+    memcpy(serial_buffer + buffer_len, uint16Union.bytes, sizeof(uint16Union.bytes));
     buffer_len += sizeof(uint16Union.bytes);
-    i2c_buffer[buffer_len] = photodiode_gain;
+    serial_buffer[buffer_len] = photodiode_gain;
     buffer_len++;
-    i2c_buffer[buffer_len] = led_intensity;
+    serial_buffer[buffer_len] = led_intensity;
     buffer_len++;
-    uint16Union.bytes_var = analogRead(pin.sensor);
-    memcpy(i2c_buffer + buffer_len, uint16Union.bytes, sizeof(uint16Union.bytes));
-    buffer_len += sizeof(uint16Union.bytes);
+    serial_buffer[buffer_len] = photodiode_triggered;
+    buffer_len++;
     sendDataWire(ARDUINO_ADDRESS);
-    i2c_buffer[0] = B00000000;
+    serial_buffer[0] = B00000000;
     elapsed_message += 200;
 }
 
@@ -92,7 +169,7 @@ void checkHeater(){
   uint16Union.bytes_var = 0;
   for(b=0; b<TEMP_ARRAY_SIZE; b++) uint16Union.bytes_var += temp_array[heater_index][b];
   uint16Union.bytes_var >>= 6;
-  memcpy(i2c_buffer + sizeof(uint16Union.bytes)*heater_index, uint16Union.bytes, sizeof(uint16Union.bytes));
+  memcpy(serial_buffer + sizeof(uint16Union.bytes)*heater_index, uint16Union.bytes, sizeof(uint16Union.bytes));
   if(uint16Union.bytes_var < ADC_TEMP){ //If heater is over set temperature
     if(pin.heater_state[heater_index]){ //Turn off heater if it is on
       analogWrite(pin.heater[heater_index], 0);
@@ -161,15 +238,15 @@ void runCalibration(){
 }
 
 void setLedIntensity(uint8_t intensity){
-    i2c_buffer[0] = B10000000;
-    i2c_buffer[1] = intensity;
+    serial_buffer[0] = B10000000;
+    serial_buffer[1] = intensity;
     buffer_len = 2;
     sendDataWire(DIGIPOT_ADDRESS);
 }
 
 void setPhotodiodeGain(uint8_t gain){
-    i2c_buffer[0] = B00000000;
-    i2c_buffer[1] = gain;
+    serial_buffer[0] = B00000000;
+    serial_buffer[1] = gain;
     buffer_len = 2;
     sendDataWire(DIGIPOT_ADDRESS);
 }
@@ -177,7 +254,7 @@ void setPhotodiodeGain(uint8_t gain){
 void sendDataWire(uint8_t address) {
   Wire.beginTransmission(address);     // prepare transmission to slave with address 0x54
   for (uint8_t i = 0; i < buffer_len; i++) {
-    Wire.write(i2c_buffer[i]);           // Write the received data to the bus buffer
+    Wire.write(serial_buffer[i]);           // Write the received data to the bus buffer
   }              // add new line and carriage return for the Serial monitor
   Wire.endTransmission();           // finish transmission
 }

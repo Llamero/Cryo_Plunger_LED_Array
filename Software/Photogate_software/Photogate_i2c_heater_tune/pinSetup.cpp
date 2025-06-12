@@ -19,6 +19,7 @@ void pinSetup::configurePins(){
     digitalWrite(heater[a], LOW);
   }
   pinMode(sensor, INPUT);
+  pinMode(output, INPUT_PULLUP);
 
   // ADC0.CTRLC = ADC_PRESC_DIV4_gc; // Set ADC clock prescaler (e.g., DIV4 for faster clock)
   // ADC1.CTRLC = ADC_PRESC_DIV4_gc; // Set ADC clock prescaler (e.g., DIV4 for faster clock)
