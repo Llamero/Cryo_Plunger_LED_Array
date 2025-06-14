@@ -29,7 +29,7 @@ uint8_t photodiode_gain; //8-bit resitor value used to set photodiode gain
 uint8_t led_intensity; //8-bit resistor value used to set LED current
 uint8_t photogate_state = 0; //0 = inactive; 1 = beam intact; 2 = beam broken
 uint32_t elapsed_photogate = 0; //Time in ms photodiode has been waiting for trigger
-const uint16_t PHOTOGATE_TIMEOUT = 8000; //Time in ms to wait for photogate to be tripped
+const uint16_t PHOTOGATE_TIMEOUT = 10000; //Time in ms to wait for photogate to be tripped
 volatile uint32_t interrupt_duration; //Duration that output pin was pulled low
 
 union BYTE16UNION
@@ -70,7 +70,7 @@ void loop() {
   checkHeater(); //Monitor heater temperatures
   if(interrupt_duration) messageRouter(); //If a sync was received, process the sync
   if(photogate_state){ //If the photogate is on
-    if(timer-elapsed_photogate > PHOTOGATE_TIMEOUT || (photogate_state == 2 && interrupt_timer > 1000)){ //If the photogate has either timed out or has been tripped for at least 1 ms
+    if(timer-elapsed_photogate > PHOTOGATE_TIMEOUT || (photogate_state == 2 && interrupt_timer > 1e6)){ //If the photogate has either timed out or has been tripped for at least 1 ms
       stopComparator();
       startInterrupt(); //Monitor for new syncs from driver
       turnOffPhotogate();
@@ -98,6 +98,7 @@ void stopInterrupt(){
 void messageRouter(){
   if(interrupt_duration > 100 && interrupt_duration < 500){ //If a valid 300 µs pulse was received, send an ACK
     stopInterrupt(); //Disable interrupt to block self triggering
+    photogate_state = 10;
     delay(1);
     pinMode(pin.output, OUTPUT); //Send 300 µs ACK pulse
     digitalWriteFast(pin.output, LOW);
