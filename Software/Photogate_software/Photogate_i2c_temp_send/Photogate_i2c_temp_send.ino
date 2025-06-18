@@ -10,7 +10,7 @@ uint8_t power[3];
 const int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor on the PCB
 const int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
 const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
-const float set_temp = 50;
+const float set_temp = 40;
 
 uint8_t i2c_buffer[20];
 uint8_t buffer_len = 0;

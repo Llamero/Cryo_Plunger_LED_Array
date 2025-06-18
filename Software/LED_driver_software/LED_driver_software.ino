@@ -1,17 +1,19 @@
 #include <digitalWriteFast.h>
 #include <elapsedMillis.h>
 #include "powerSupply.h"
+#include "photogate.h"
 //#define USE_TIMER_1     true
 //#define USE_TIMER_3     true
 //#warning Using Timer1, Timer3
 //#include "TimerInterrupt_Generic.h"
 
 constexpr struct pulseStruct{
-  uint16_t duration = 500; //Total duration of LED pulse: 0-255 ms
-  float current = 1; //Peak output current in amps
-  uint16_t  led_delay = 6300; //Delay from trigger event to LED on: 0-65535 ms  //6500 for initial setup
+  uint32_t duration = 1000; //Total duration of LED pulse in µs
+  float current = 0.1; //Peak output current in amps
+  uint16_t plunger_delay = 6000; //How long in ms before the plunger starts to fall
+  uint16_t  led_delay = 500; //Delay from trigger event to LED on: 0-65535 µs
   uint16_t cooldown_period = 5000; //Cooldown delay after LED turns off: 0-65535 ms
-  float voltage = -1; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage
+  float voltage = 41; //Power supply voltage for the pulse.  -1 = autocalibrate the voltage
   bool timing_test = false; //Whether to strobe the light in 1/10 second intervals for delay timing 
 } pulse;
 
@@ -39,11 +41,11 @@ constexpr struct pulseStruct{
 
 const struct inputPinsStruct{
   uint8_t rx = 4;
-  uint8_t door = 21;
+  uint8_t photogate = 22; //Pin 21 was damaged, so bypassed to pin 22
   uint8_t pushbutton = 12;
   uint8_t pedal = 20;
 } in;
-const uint8_t in_pins[sizeof(in)] = {in.rx, in.door, in.pushbutton, in.pedal};
+const uint8_t in_pins[sizeof(in)] = {in.rx, in.photogate, in.pushbutton, in.pedal};
 
 const struct outputPinsStruct{
   uint8_t led[2] = {10, 11};
@@ -108,17 +110,20 @@ struct statusStruct{
   uint8_t state = 0;
 } status;
 
-const uint8_t timing_pulse_interval = 100;
-const uint8_t timing_pulse_duration = 50;
-const uint16_t flash_interval = 500;
-const float vref = 4.2; //ADC Vref
-const float vfactor = 0.01960784313; //Voltage divider on Vsense
+const uint8_t TIMING_PULSE_INTERVAL = 100;
+const uint8_t TIMING_PULSE_DURATION = 50;
+const uint16_t FLASH_INTERVAL = 500;
+const float VREF = 4.2; //ADC Vref
+const float VFACTOR = 0.01960784313; //Voltage divider on Vsense
+const uint32_t MAX_DURATION = 200000; //Maximum duration of LED pulse- prevents LEDs from overheating
 uint8_t status_index;
 bool flash; //Tracks whether led is on or off when flashing
 float pulse_voltage;
 
 powerSupply ps;
+photogate pg(in.photogate);
 elapsedMillis driver_timer;
+elapsedMicros pulse_timer;
 
 void setColor(uint8_t led, bool flashing = false); //Declare prototype with default arguments
 void(* resetFunc) (void) = 0;//declare reset function at address 0
@@ -126,6 +131,16 @@ void(* resetFunc) (void) = 0;//declare reset function at address 0
 void setup() {
   //Sertup serial
   Serial.begin(250000);
+  //pinMode(in.photogate, OUTPUT);
+  //pinMode(in.photogate, INPUT);
+  // while(true){
+  //   pinMode(in.photogate, INPUT_PULLUP);
+  //   //digitalWriteFast(in.photogate, HIGH);
+  //   delay(10);
+  //   pinMode(in.photogate, OUTPUT);
+  //   digitalWriteFast(in.photogate, LOW);
+  //   delay(10);
+  // }
 }
 
 void loop() {
@@ -186,11 +201,14 @@ void ledPulse(){
   uint32_t pedal_time;
   uint32_t led_time;
   uint32_t timer[3];
+  uint32_t measured_plunger_delay;
   float start_current;
   float avg_current;
   uint32_t n_samples;
   bool ps_stable;
   float prev_voltage;
+  uint32_t capped_pulse_duration; //Duration of pulse, capped at MAX_DURATION for safety
+  uint32_t measured_pulse_delay; //Measured duration in delay between trigger and LED pulse
 
   auto checkDriver = [&] (){ //Wait for the trigger event to reset - used to initially sync the LED driver to the trigger input
     status.ps_voltage = ps.getVoltage();
@@ -220,7 +238,7 @@ void ledPulse(){
       if(!ps.setVoltage(pulse_voltage)) status.state = state.com_failure; //Set voltage to 1 before turning on output
       if(!ps.setCurrent(pulse.current)) status.state = state.com_failure;//Set driver current limit to pulse current
       ps.toggleOutput(true); //Turn on output
-      delay(100);
+      delay(500);
       timer[1] = driver_timer;
       while(driver_timer - timer[1] < 5000 && !ps_stable){
         checkDriver();
@@ -245,38 +263,68 @@ void ledPulse(){
       checkStatus();
     } 
   }
-  Serial.println("Power supply stable, sending trigger...");
-  timer[0] = driver_timer;
 
-  pedal_time = driver_timer;
+  //Turn on photogate
+  Serial.println("Power supply stable, Initializing photogate...");
+  if(pg.startPhotogate()) Serial.println("Photogate ready, sending trigger...");
+  else{
+    Serial.println("Photogate failed to initialize, resetting driver...");
+    failSafe();
+    return;
+  }
+
+  //Press pedal
+  timer[2] = driver_timer;
+  pedal_time = timer[2];
   pinMode(in.pedal, OUTPUT);
   digitalWrite(in.pedal, LOW);
   delay(50);
-  pinMode(in.pedal, INPUT_PULLUP);
+  pinMode(in.pedal, INPUT_PULLUP);  
 
+  //Trigger LED
   if(pulse.timing_test){
     timer[1] = driver_timer;
-    while(driver_timer - timer[0] < 10000){
-      if(driver_timer - timer[1] > timing_pulse_interval){
+    while(driver_timer - timer[2] < 10000){
+      if(driver_timer - timer[1] > TIMING_PULSE_INTERVAL){
         digitalWriteFast(out.led_trigger, HIGH);
         timer[1] += 100;
-        while(driver_timer - timer[1] > timing_pulse_duration);
+        while(driver_timer - timer[1] > TIMING_PULSE_DURATION);
         digitalWriteFast(out.led_trigger, LOW);
       }
     }
   }
   else{
-    while(driver_timer - timer[0] < pulse.led_delay - 500) checkStatus();
+    pinMode(in.photogate, INPUT_PULLUP);
+    while(driver_timer - timer[2] < pulse.plunger_delay){ //Wait for plunger to start falling
+      checkStatus();
+      if(!digitalReadFast(in.photogate)){
+        Serial.print("Error: photogate triggered early at: ");
+        Serial.print(driver_timer - timer[2]);
+        Serial.println("ms.");
+      }
+    }
+    timer[1] = pulse_timer;
+    while(digitalReadFast(in.photogate) && pulse_timer - timer[1] < 1000000); //Wait up to one second for the photogate to trip
+    timer[0] = pulse_timer;
     status.state = state.led_on;
-    while(driver_timer - timer[0] < pulse.led_delay); //Wait for pulse timer
-    led_time = driver_timer; 
+    measured_plunger_delay = driver_timer - timer[2];
+    if(pulse_timer - timer[1] > 1000000){
+      Serial.println("Error: Photogate failed to trigger.");
+      failSafe();
+      return;
+    }
+    while(pulse_timer - timer[0] < pulse.led_delay); //Wait for pulse timer
     digitalWriteFast(out.led_trigger, HIGH);
+    measured_pulse_delay = pulse_timer - timer[0];
+    timer[0] += pulse.led_delay; //Increment timer for pulse
+    capped_pulse_duration = pulse.duration;
+    if(pulse.duration > MAX_DURATION) capped_pulse_duration = MAX_DURATION;
     delayMicroseconds(10); //Wait for LED to get to full current
     checkCurrent();
     start_current = status.driver_current;
     avg_current += start_current;
     n_samples++;
-    while(driver_timer - timer[0] < pulse.led_delay + pulse.duration){
+    while(pulse_timer - timer[0] < capped_pulse_duration){
       checkCurrent();
       avg_current += status.driver_current;
       n_samples++;
@@ -287,7 +335,7 @@ void ledPulse(){
       }
     }
     digitalWriteFast(out.led_trigger, LOW);
-    timer[1] = driver_timer;
+    timer[1] = pulse_timer;
     ps.toggleOutput(false);
     Serial.print("Pulse complete! Start: ");
     Serial.print(start_current);
@@ -296,11 +344,14 @@ void ledPulse(){
     Serial.print(" amps, average: ");
     Serial.print(avg_current / n_samples);
     Serial.print(" amps, duration: ");
-    Serial.print(timer[1] - timer[0] - pulse.led_delay);
-    Serial.print(" ms, # of samples: ");
+    Serial.print(timer[1] - timer[0]);
+    Serial.print(" µs, # of samples: ");
     Serial.print(n_samples);
     Serial.print(", LED delay: ");
-    Serial.println(led_time - pedal_time);
+    Serial.print(measured_pulse_delay);
+    Serial.print(" µs, Plunger delay: ");
+    Serial.print(measured_plunger_delay);
+    Serial.println(" ms.");
     dischargeCapacitor();
     status.state = state.waiting_trapdoor;
   }
@@ -480,7 +531,7 @@ void checkStatus(){
   checkError(); //Always check error codes
   switch (status_index) {
   case 1: //Check door
-//    if(!digitalReadFast(in.door)){
+//    if(!digitalReadFast(in.photogate)){
 //      if(!(status.state == state.standby || status.state == state.waiting_trapdoor)) status.state = state.door_open;
 //    }
     break;
@@ -630,12 +681,12 @@ void checkPowerStatus(){
 
 void checkCurrent(){
   status.driver_current = analogRead(ana.isense);
-  status.driver_current *= vref / 1023.0;
+  status.driver_current *= VREF / 1023.0;
 }
 
 float checkVoltage(){
   status.driver_voltage = analogRead(ana.vsense);
-  status.driver_voltage *= vref / (1023.0 * vfactor);
+  status.driver_voltage *= VREF / (1023.0 * VFACTOR);
 }
 
 void playStatusTone(){
