@@ -17,6 +17,7 @@ const int SERIES_RESISTOR = 4700; //Value of series resistor to the thermistor o
 const int PCB_THERMISTOR_NOMINAL = 4700; //Value of thermistor resistor on PCB at nominal temp (25°C)
 const int PCB_B_COEFFICIENT = 3545; //Beta value for the PCB thermistor
 const uint16_t ADC_MAX = 1024; //Maximum value of the 10-bit ADC
+const uint8_t COMPARATOR_THRESHOLD = 231; //Set comparator triggering threshold - must be less than 235
 const float HEATER_SET_TEMP = 40; //Temperature of the board heaters
 
 uint8_t serial_buffer[20]; //Buffer for sending diagnostic information
@@ -64,6 +65,15 @@ void setup() {
   Wire.begin(); //Start I2C 
   turnOffPhotogate(); //Turn off LED and photodiode gain
   startInterrupt();  //Monitor output pin for sync commands from driver
+  // while(true){
+  //   runCalibration();
+  //   startComparator();
+  //   elapsed_photogate = timer;
+  //   while(timer-elapsed_photogate < PHOTOGATE_TIMEOUT){ checkHeater();}
+  //   stopComparator();
+  //   startInterrupt(); //Monitor for new syncs from driver
+  //   turnOffPhotogate();
+  // }
 }
 
 void loop() {
@@ -128,7 +138,7 @@ void startComparator(){
   Comparator1.input_p = comparator::in_p::in0;       // pos input PA7.  See datasheet
   Comparator1.input_n = comparator::in_n::dacref;    // neg pin to the DACREF voltage
   Comparator1.reference = comparator::ref::vref_4v3; // Set the DACREF voltage
-  Comparator1.dacref = 127;                          // (dacref/256)*VREF
+  Comparator1.dacref = COMPARATOR_THRESHOLD;                          // (dacref/256)*VREF
 
   Comparator1.hysteresis = comparator::hyst::large;  // Use 50mV hysteresis
   Comparator1.output = comparator::out::enable;      // Enable output PB3
